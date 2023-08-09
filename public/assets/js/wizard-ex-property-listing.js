@@ -1,5 +1,7 @@
 'use strict';
 !(function () {
+  console.log('category2' +category)
+
   window.Helpers.initCustomOptionCheck();
   var e = document.querySelector('.flatpickr'),
     t = document.querySelector('.contact-number-mask'),
@@ -9,23 +11,11 @@
       (t && new Cleave(t, {phone: !0, phoneRegionCode: 'US'}),
       o &&
         (o.wrap('<div class="position-relative"></div>'),
-        o.select2({placeholder: 'Select country', dropdownParent: o.parent()})),
+        o.select2({placeholder: 'Select Location', dropdownParent: o.parent()})),
       e && e.flatpickr(),
       i &&
         new Tagify(i, {
-          whitelist: [
-            'Fridge',
-            'TV',
-            'AC',
-            'WiFi',
-            'RO',
-            'Washing Machine',
-            'Sofa',
-            'Bed',
-            'Dining Table',
-            'Microwave',
-            'Cupboard',
-          ],
+          whitelist: category,
           maxTags: 10,
           dropdown: {
             maxItems: 20,
@@ -41,6 +31,7 @@
       i = o.querySelector('#property-details'),
       a = o.querySelector('#property-features'),
       n = o.querySelector('#property-area'),
+      h = o.querySelector('#property-view'),
       r = o.querySelector('#price-details'),
       l = [].slice.call(o.querySelectorAll('.btn-next')),
       o = [].slice.call(o.querySelectorAll('.btn-prev'));
@@ -48,10 +39,10 @@
       u = FormValidation.formValidation(e, {
         fields: {
           plFirstName: {
-            validators: {notEmpty: {message: 'Please enter your first name'}},
+            validators: {notEmpty: {message: 'Please enter property name'}},
           },
           plLastName: {
-            validators: {notEmpty: {message: 'Please enter your last name'}},
+            validators: {notEmpty: {message: 'Please enter property details'}},
           },
         },
         plugins: {
@@ -139,6 +130,20 @@
       }).on('core.form.valid', function () {
         s.next();
       }),
+      v = FormValidation.formValidation(h, {
+        fields: {},
+        plugins: {
+          trigger: new FormValidation.plugins.Trigger(),
+          bootstrap5: new FormValidation.plugins.Bootstrap5({
+            eleValidClass: '',
+            rowSelector: '.col-md-12',
+          }),
+          autoFocus: new FormValidation.plugins.AutoFocus(),
+          submitButton: new FormValidation.plugins.SubmitButton(),
+        },
+      }).on('core.form.valid', function () {
+        s.next();
+      }),
       m = FormValidation.formValidation(r, {
         fields: {},
         plugins: {
@@ -151,7 +156,6 @@
           submitButton: new FormValidation.plugins.SubmitButton(),
         },
       }).on('core.form.valid', function () {
-        alert('Submitted..!!');
       });
     l.forEach((e) => {
       e.addEventListener('click', (e) => {
@@ -169,6 +173,8 @@
             d.validate();
             break;
           case 4:
+            v.validate();
+          case 5:
             m.validate();
         }
       });
@@ -176,6 +182,7 @@
       o.forEach((e) => {
         e.addEventListener('click', (e) => {
           switch (s._currentIndex) {
+            case 5:
             case 4:
             case 3:
             case 2:

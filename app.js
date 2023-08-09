@@ -4,13 +4,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const multer = require('multer');
 const session = require('express-session');
-const store = require('./model/db')
 // view engine setu
+const MongoDBStore = require('connect-mongodb-session')(session);// Import connect-mongo to use it as a session store
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var postrequest = require('./routes/postrequest');
 var getrequest = require('./routes/getrequest');
+var frontendapi = require('./routes/frontend/frontendget');
+
 /////front end //
 var frontendrequest = require('./routes/frontend/index');
 
@@ -20,7 +24,17 @@ const corsOptions ={
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
+
 var app = express();
+const url = 'mongodb://127.0.0.1:27017'
+
+const store = new MongoDBStore({
+  uri: url,
+  collection: 'sessions',
+  
+
+});
+// Configure session and session store with connect-mongo
 app.use(
   session({
       secret: 'my secret',
@@ -40,6 +54,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/content', express.static(path.join(__dirname, 'content')));
+;
+const storage = multer.diskStorage({
+  destination:"content",
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+    cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+  },
+});
+app.use(multer({ storage: storage }).any());
 
 app.use('/backend/', indexRouter);
 app.use('/backend/', postrequest);
@@ -47,6 +71,7 @@ app.use('/backend/', getrequest);
 app.use('/users', usersRouter);
 /////Front end routes ///
 app.use('/', frontendrequest);
+app.use('/', frontendapi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

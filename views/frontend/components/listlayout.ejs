@@ -9,7 +9,7 @@
             <div
               class="post_thumbnail"
               style="
-                background: url('../../modern.b-cdn.net/wp-content/uploads/2017/06/exterior-05-488x326.jpg')
+                background: url('<%= image %>')
                   50% 50% no-repeat;
                 background-size: cover;
               "
@@ -17,7 +17,7 @@
           </a>
           <div class="rh_overlay"></div>
           <div class="rh_overlay__contents rh_overlay__fadeIn-bottom">
-            <a href="../property/home-in-merrick-way/index.html"
+            <a href="#"
               >View Property</a
             >
           </div>
@@ -25,100 +25,19 @@
             >Hot</span
           >
         </div>
-        <div class="rh_list_card__btns">
-          <span class="favorite-btn-wrap favorite-btn-45">
-            <span
-              class="favorite-placeholder highlight__red hide user_not_logged_in"
-              data-propertyid="45"
-              data-tooltip="Added to favorites"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 21"
-              >
-                <path
-                  class="rh_svg"
-                  d="M1089.48,1923.98a6.746,6.746,0,0,1,9.54,9.54L1089,1943l-10.02-9.48a6.746,6.746,0,0,1,9.54-9.54A0.641,0.641,0,0,0,1089.48,1923.98Z"
-                  transform="translate(-1077 -1922)"
-                />
-              </svg>
-            </span>
-            <a
-              href="#"
-              class="favorite add-to-favorite user_not_logged_in"
-              data-propertyid="45"
-              data-tooltip="Add to favorites"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 21"
-              >
-                <path
-                  class="rh_svg"
-                  d="M1089.48,1923.98a6.746,6.746,0,0,1,9.54,9.54L1089,1943l-10.02-9.48a6.746,6.746,0,0,1,9.54-9.54A0.641,0.641,0,0,0,1089.48,1923.98Z"
-                  transform="translate(-1077 -1922)"
-                />
-              </svg>
-            </a>
-          </span>
-          <span
-            class="add-to-compare-span compare-btn-45"
-            data-property-id="45"
-            data-property-title="Home in Merrick Way"
-            data-property-url="https://modern.realhomes.io/property/home-in-merrick-way/"
-            data-property-image="../../modern.b-cdn.net/wp-content/uploads/2017/06/exterior-05-488x326.jpg"
-          >
-            <span
-              class="compare-placeholder highlight hide"
-              data-tooltip="Added to compare"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M1144,1942l-8,1v3l-7-5,7-5v3l8,1A1,1,0,0,1,1144,1942Zm-22-14,8,1v3l7-5-7-5v3l-8,1A1,1,0,0,0,1122,1928Z"
-                  transform="translate(-1121 -1922)"
-                />
-              </svg>
-            </span>
-            <a
-              class="rh_trigger_compare add-to-compare"
-              href="../property/home-in-merrick-way/index.html"
-              data-tooltip="Add to compare"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M1144,1942l-8,1v3l-7-5,7-5v3l8,1A1,1,0,0,1,1144,1942Zm-22-14,8,1v3l7-5-7-5v3l-8,1A1,1,0,0,0,1122,1928Z"
-                  transform="translate(-1121 -1922)"
-                />
-              </svg>
-            </a>
-          </span>
-        </div>
+      
       </figure>
       <!-- /.rh_list_card__thumbnail -->
 
       <div class="rh_list_card__details_wrap">
         <div class="rh_list_card__details">
           <h3>
-            <a href="../property/home-in-merrick-way/index.html"
-              >Home in Merrick Way</a
+            <a href="/viewproperty/<%= propertyid %>"
+              ><%= propertyname %></a
             >
           </h3>
           <p class="rh_list_card__excerpt">
-            Enchanting three bedroom, three bath&hellip;
+            <%= propertydetails %>
           </p>
           <div class="rh_list_card__meta_wrap">
             <div class="rh_prop_card_meta_theme_stylish">
@@ -138,7 +57,7 @@
                       transform="translate(-1108 -593)"
                     />
                   </svg>
-                  <span class="figure">3</span>
+                  <span class="figure"><%=bedrooms%></span>
                 </div>
               </div>
               <div class="rh_prop_card__meta">
@@ -156,7 +75,7 @@
                       transform="translate(-1196.31 -593)"
                     />
                   </svg>
-                  <span class="figure">3</span>
+                  <span class="figure"><%=bathrooms%></span>
                 </div>
               </div>
               <div class="rh_prop_card__meta">
@@ -192,7 +111,7 @@
 c1.104,0,2-0.896,2-2C24,21.262,23.596,20.624,23,20.277z"
                     />
                   </svg>
-                  <span class="figure">4300</span>
+                  <span class="figure"><%=area%></span>
                   <span class="label">Sq Ft</span>
                 </div>
               </div>
@@ -204,7 +123,7 @@ c1.104,0,2-0.896,2-2C24,21.262,23.596,20.624,23,20.277z"
         <div class="rh_list_card__priceLabel">
           <div class="rh_list_card__price">
             <span class="status">For Sale</span>
-            <p class="price">$540,000</p>
+            <p class="price">$<%=price%></p>
           </div>
           <p class="rh_list_card__author">
             By <span class="author">Melissa William, John David</span>

@@ -1,169 +1,277 @@
-require('../model/datastructure')
+require('../model/datastructure');
 const mongoose = require('mongoose');
+const Category = mongoose.model('Categories');
+const Places = mongoose.model('Places');
+const Property = mongoose.model('Property');
+const FormData = mongoose.model('FormData');
 
-const schema2 = new mongoose.Schema({
-    name:String,
-    renewal:Number,
-    expense:Number,
-    charge:Number,
-    website:String,
-    description:String,
-    tutorial:String,
-  });
-const webs = new mongoose.Schema({
-    name:String,
-    link:String,
-    description:String,
-    username:String,
-    password:String
-  });
-  const serviceentry = new mongoose.Schema({
-    name:Date,
-    name:String,
-    identity:String,
-    mobile:String,
-    address:String,
-    description:String,
-    debit:Number,
-    credit:Number,
-    status:String,
-    referenceid:String,
-    completedecription:String
+const fs = require('fs');
+
+exports.addcategory = (req, res, next) => {
+  const {name} = req.body;
+
+  // Assuming 'Category' is the mongoose model for your 'categories' collection
+  const newCategory = new Category({
+    name,
+    features: [], // You can add features here if needed
   });
 
-  const reports = new mongoose.Schema({
-    date:Date,
-    reference:String,
-    credit:Number,
-    debit:Number,
-    mode:String,
-    referenceid:String,
-  });
-  const pendingservices = new mongoose.Schema({
-    servicename:String,
-    date:Date,
-    name:String,
-    identity:String,
-    mobile:String,
-    address:String,
-    description:String,
-    debit:Number,
-    credit:Number,
-    status:String,
-  });
-
-exports.addservice  = ((req, res, next)=> {
-    console.log(req.body,req.session.user)
-    const db2 = mongoose.createConnection(`mongodb://localhost:27017/${req.session.user._id}`, { useNewUrlParser: true, useUnifiedTopology: true })
-    const ModalService = db2.model('Services', schema2);
-    const service = new ModalService({
-        name:req.body.name,
-        renewal:req.body.renewal,
-        expense:req.body.expense,
-        charge:req.body.charge,
-        website:req.body.website,
-        description:req.body.description,
-        tutorial:req.body.tutorial,
-          });
-    service.save().then(docs=>{
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify({ docs: docs }));
-        })
-})
-  
-exports.services  = ((req, res, next)=> {
-    console.log('here')
-    
-    
-        
-})
-
-exports.addWebsites  = ((req, res, next)=> {
-    console.log('abcd')
-    const db2 = mongoose.createConnection(`mongodb://localhost:27017/${req.session.user._id}`, { useNewUrlParser: true, useUnifiedTopology: true })
-    const ModalWebsites = db2.model('Websites', webs);
-    const website = new ModalWebsites({
-        name:req.body.name,
-        link:req.body.link,
-        description:req.body.description,
-        username:req.body.username,
-        password:req.body.password,
-
-          });
-          website.save().then(docs=>{
-            console.log(docs)
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify({ docs: docs }));
-        })
-})
-  
-
-exports.enterservice  = ((req, res, next)=> {
-  console.log(req.body)
-  const db2 = mongoose.createConnection(`mongodb://localhost:27017/${req.session.user._id}`, { useNewUrlParser: true, useUnifiedTopology: true })
-  const Serviceentry = db2.model(req.body.servicename, serviceentry);
-  const serv = new Serviceentry({
-    name: req.body.name,
-    identity: req.body.registration,
-    credit: 90,
-    debit: 90,
-    mobile: req.body.mobile,
-    description: req.body.decription,
-    address: req.body.address,
-    paymentmode: req.body.paymentmode,
-    status: req.body.status,
-    referenceid:req.body.referenceid,
-    completedecription:req.body.completedecription
-
-        });
-       serv.save().then(docs=>{
-
-      res.setHeader('Content-Type', 'application/json');
-      res.end(JSON.stringify({ docs: docs }));
-       })
-})
-
-exports.savedservices  = ((req, res, next)=> {
-  console.log('saved')
-  const db2 = mongoose.createConnection(`mongodb://localhost:27017/${req.session.user._id}`, { useNewUrlParser: true, useUnifiedTopology: true })
-  const Serviceentry = db2.model('Pending', pendingservices);
-  const serv = new Serviceentry({
-    servicename:req.body.servicename,
-    name: req.body.name,
-    identity: req.body.registration,
-    credit: 90,
-    debit: 90,
-    mobile: req.body.mobile,
-    description: req.body.decription,
-    address: req.body.address,
-    paymentmode: req.body.paymentmode,
-    status: req.body.status,
-  
-
-        });
-       serv.save().then(docs=>{
-
-      res.setHeader('Content-Type', 'application/json');
-      res.end(JSON.stringify({ docs: docs }));
-       })
-})
-
-exports.getserviceentries  = ((req, res, next)=> {
-  const db2 = mongoose.createConnection(`mongodb://localhost:27017/${req.session.user._id}`, { useNewUrlParser: true, useUnifiedTopology: true })
-  const Serviceentry = db2.model(req.body.db, serviceentry);
-  const PendingService = db2.model(req.body.db, serviceentry);
-
-  Serviceentry.find().then(async docs => {
-    const pending = await PendingService.find();
-
-    const combinedArray = [...pending, ...docs]
-
-      res.setHeader('Content-Type', 'application/json'); // Set the Content-Type header to indicate JSON response
-      res.json({ docs: combinedArray }); // Send the JSON response
-    }).catch(err => {
-      // Handle any errors that occur during the database query
-      console.error(err);
-      res.status(500).json({ error: 'Internal Server Error' });
+  // Save the new category to the database
+  newCategory
+    .save()
+    .then((savedCategory) => {
+      // Respond with the saved category data
+      res.status(201).json(savedCategory);
+    })
+    .catch((err) => {
+      // Handle any errors that occurred during the save process
+      res
+        .status(500)
+        .json({error: 'Unable to save the category to the database'});
     });
-      
-})
+};
+
+exports.deletecategory = (req, res, next) => {
+  const categoryId = req.body.categoryId;
+
+  // Use Mongoose's findOneAndRemove method to find the category by ID and remove it
+  Category.findOneAndRemove({_id: categoryId})
+    .then((deletedCategory) => {
+      if (!deletedCategory) {
+        // Category with the given ID was not found
+        return res.status(404).json({error: 'Category not found'});
+      }
+      // Category successfully deleted
+      res.status(200).json({message: 'Category deleted successfully'});
+    })
+    .catch((err) => {
+      // Handle any errors that occurred during the delete process
+      res.status(500).json({error: 'Unable to delete the category'});
+    });
+};
+
+exports.addfeatures = (req, res, next) => {
+  const {name, category} = req.body;
+  var flag = 0;
+  Category.findById(category)
+    .then((foundCategory) => {
+      if (!foundCategory) {
+        flag = 1;
+        // Category with the given ID was not found
+        return res.status(404).json({error: 'Category not found'});
+      } else {
+        // Add the new feature to the category
+        foundCategory.features.push({name});
+        // Save the updated category to the database
+        return foundCategory.save();
+      }
+    })
+    .then((savedCategory) => {
+      if (flag == 0) {
+        res.status(201).json(savedCategory);
+      }
+
+      // Respond with the updated category data
+    })
+    .catch((err) => {
+      // Handle any errors that occurred during the process
+      res
+        .status(500)
+        .json({error: 'Unable to add the feature to the category'});
+    });
+};
+
+exports.deletefeature = async (req, res, next) => {
+  const {categoryId, featureId} = req.body;
+
+  try {
+    // Find the category by its ID
+    const category = await Category.findById(categoryId);
+
+    if (!category) {
+      return res.status(404).json({error: 'Category not found'});
+    }
+
+    // Find the feature by its ID in the specified category
+    const featureIndex = category.features.findIndex(
+      (feat) => feat._id.toString() === featureId,
+    );
+
+    if (featureIndex === -1) {
+      return res.status(404).json({error: 'Feature not found'});
+    }
+
+    // Remove the feature from the category's features array
+    category.features.splice(featureIndex, 1);
+
+    // Save the updated category in the database
+    await category.save();
+
+    return res.json({message: 'Feature deleted successfully'});
+  } catch (error) {
+    console.error('Error deleting feature:', error);
+    return res.status(500).json({error: 'Internal server error'});
+  }
+};
+
+exports.addplace = async (req, res, next) => {
+  try {
+    const {name, description, highlighted} = req.body;
+
+    // Get the file paths of the uploaded images
+    let imagePaths;
+
+    if (req.files[0]) {
+      imagePaths = req.files[0].path;
+    } else {
+      imagePaths = '';
+    }
+
+    // Create a new place object with the necessary data including the image paths
+    const newPlace = {
+      name,
+      description,
+      imagePaths,
+      highlighted,
+    };
+
+    // Save the new place to the database
+    const place = new Places(newPlace);
+    await place.save();
+    return res.json(place);
+  } catch (error) {
+    console.error('Error adding place:', error);
+    return res.status(500).json({error: 'Internal server error'});
+  }
+};
+
+exports.editPlace = async (req, res, next) => {
+  const placeId = req.body.placeId;
+  const {name, description, highlighted} = req.body;
+  let imagePath;
+
+  // Check if an image is provided
+  if (req.files[0]) {
+    imagePath = req.files[0].path;
+  }
+
+  try {
+    // Find the place by its ID in the database
+    const place = await Places.findById(placeId);
+
+    // Check if the place exists
+    if (!place) {
+      return res.status(404).json({error: 'Place not found'});
+    }
+
+    // Update the place data with the provided values
+    place.name = name;
+    place.description = description;
+    place.highlighted = highlighted;
+
+    // Update the image path if provided
+    if (imagePath) {
+      // Delete the previous image if it exists
+      if (place.imagePaths) {
+        fs.unlinkSync(place.imagePaths);
+      }
+
+      place.imagePaths = imagePath;
+    }
+
+    // Save the updated place to the database
+    const updatedPlace = await place.save();
+    updatedPlace._id = placeId;
+    // Send the updated place details as the response
+    return res.json(updatedPlace);
+  } catch (error) {
+    console.error('Error updating place:', error);
+    return res.status(500).json({error: 'Server error'});
+  }
+};
+
+exports.deleteplace = async (req, res, next) => {
+  const placeId = req.body.placeId;
+
+  // Use Mongoose's findOneAndRemove method to find the category by ID and remove it
+  Places.findOneAndRemove({_id: placeId})
+    .then((deletedCategory) => {
+      if (!deletedCategory) {
+        // Category with the given ID was not found
+        return res.status(404).json({error: 'Category not found'});
+      }
+      if (deletedCategory.imagePaths) {
+        // Delete the previous image if it exists
+        fs.unlinkSync(deletedCategory.imagePaths);
+      }
+      // Category successfully deleted
+      res.status(200).json({message: 'Category deleted successfully'});
+    })
+    .catch((err) => {
+      // Handle any errors that occurred during the delete process
+      res.status(500).json({error: 'Unable to delete the category'});
+    });
+};
+
+//////////
+
+exports.addProperty = async (req, res, next) => {
+  try {
+    const propertyData = req.body;
+    console.log(propertyData)
+  const property = new Property(propertyData);
+    await property.save();
+    return res.json(property);
+  // Category successfully deleted
+} catch (error) {
+  console.error('Error updating place:', error);
+  return res.status(500).json({error: 'Server error'});
+}
+};
+
+
+/////
+exports.uploadFiles = ((req, res) => {
+  
+  // Access the uploaded files using req.files array
+  console.log(req.files);
+  // const filePaths = req.files.map((file) => file.path);
+  const filePaths = req.files[0]
+  res.json({ filePaths });
+});
+
+exports.deleteFile = ((req, res) => {
+  try {
+    const { filePath } = req.query;
+    console.log(filePath)
+    if (!filePath) {
+      return res.status(400).json({ error: 'Missing filePath parameter' });
+    }
+    fs.unlinkSync(filePath);
+  
+    return res.status(500).json({ error: 'Failed to delete file' });
+    // Category successfully deleted
+} catch (error) {
+  console.error('Error deleting file:', err);
+  return res.status(500).json({ error: 'Failed to delete file' });
+}
+});
+
+
+/////
+exports.enquiries =  (async (req, res) => {
+  try {
+    console.log(req.body)
+    const { name, email, number, message } = req.body;
+    
+    // Save the form data to MongoDB
+    const formData = new FormData({ name, email, number, message });
+    await formData.save();
+
+    // Respond with a success status and message
+    return res.status(200).json({ message: 'Form submitted successfully!' });
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    return res.status(500).json({ error: 'Server error' });
+  }
+});

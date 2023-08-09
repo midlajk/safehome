@@ -12,39 +12,20 @@
                     <table class="table" id="example">
                         <thead>
                             <tr>
-                                <th>Mobile Number</th>
                                 <th>Name</th>
-                                <th>Joined Date</th>
-                                <th>Number Of Polls</th>
+                                <th>Mobile</th>
+                                <th>Email</th>
+                                <th>Message</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tbody class="table-border-bottom-0">
-                            <tr>
-                                <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
-                                <td>Albert Cook</td>
-                                <td>Albert Cook</td>
-                                <td>Albert Cook</td>
-
-
-                              <td>
-                                    <div class="dropdown">
-                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-              <i class="bx bx-dots-vertical-rounded"></i>
-            </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a
-              >
-              <a class="dropdown-item" href="javascript:void(0);"
-                ><i class="bx bx-trash me-1"></i> Delete</a
-              >
-            </div>
-          </div>
-        </td>
-      </tr>
-  
-    </tbody>
+                        <tbody class="table-border-bottom-0" id="table-body">
+                          <!-- Data will be populated here -->
+                      </tbody>
   </table>
+  <div id="pagination">
+    <!-- Pagination buttons will be added here -->
+</div>
 </div>
 </div>
 <!--/ Basic Bootstrap Table -->
@@ -76,11 +57,68 @@
 
                                         <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
 
-                                        <script>
-                                            $(function() {
-                                                'use strict';
+                    
+                             <script>
+                              $(document).ready(function () {
+                                var dataTable = $('#example').DataTable({
+                                  processing: true,
+                                  serverSide: true,
+                                  ajax: {
+                                    url: 'http://localhost:3000/backend/enquirieslist', // Replace with your API endpoint
+                                    dataSrc: 'data', // Key that holds the array of data in the API response
+                                    data: function (d) {
+          // Add any additional parameters you want to send to the server here
+        },
+        // You can also modify the response data here, if needed
+        // For example, if your server returns data in a different format than expected by DataTables
+        dataSrc: 'data',
+                                  },
+                                  columns: [
+                                    { data: 'name' },
+                                    { data: 'number' },
+                                    { data: 'email' },
+                                    { data: 'message' },
+                                    {
+                                      data: null,
+                                      render: function (data, type, row) {
+                                        return `
+                                          <div class="dropdown">
+                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                              <i class="bx bx-dots-vertical-rounded"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                             
+                                              <a class="dropdown-item delete-btn" data-id="${row.id}" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                            </div>
+                                          </div>
+                                        `;
+                                      },
+                                    },
+                                  ],
+                                });
+                             
+                               // Delete Button Click Event
+  $('#example').on('click', '.delete-btn', function () {
+    var data = dataTable.row($(this).closest('tr')).data();
 
-                                                $('#example').DataTable();
-                                            })
-                                        </script>
+    var id = data._id; // Assuming you have an "id" property in your data
+
+    // Make API request to delete data
+    $.ajax({
+      url: `http://localhost:3000/backend/deleteenquiries/${id}`, // Replace with your server endpoint for deleting data
+      type: 'DELETE',
+      success: function (response) {
+        // On successful deletion, update the DataTable
+        dataTable.ajax.reload();
+      },
+      error: function (error) {
+        console.error('Error deleting data:', error);
+        // Handle error, show error message, etc.
+      },
+    });
+
+}); 
+});
+                            </script>
+                            
                                         <%- include('./include/end.ejs') -%>

@@ -16,7 +16,7 @@
             
 
 <h4 class="py-3 mb-4">
-  <span class="text-muted fw-light">Wizard examples /</span> Property Listing
+  <span class="text-muted fw-light">Property Management /</span> Property Listing
 </h4>
 
 <!-- Property Listing Wizard -->
@@ -110,7 +110,7 @@
                       <span class="custom-option-title">Builder</span>
                       <small>List property of a Builder.</small>
                     </span>
-                    <input name="plUserType" class="form-check-input" type="radio" value="1" id="customRadioBuilder" checked />
+                    <input name="plUserType" class="form-check-input" type="radio" value="Bulder" id="customRadioBuilder" checked />
                   </label>
                 </div>
               </div>
@@ -122,7 +122,7 @@
                       <span class="custom-option-title"> Owner </span>
                       <small>Submit property of an Individual.</small>
                     </span>
-                    <input name="plUserType" class="form-check-input" type="radio" value="2" id="customRadioOwner" />
+                    <input name="plUserType" class="form-check-input" type="radio" value="Owner" id="customRadioOwner" />
                   </label>
                 </div>
               </div>
@@ -135,27 +135,27 @@
                       <small>List property under a Broker.</small>
 
                     </span>
-                    <input name="plUserType" class="form-check-input" type="radio" value="3" id="customRadioBroker" />
+                    <input name="plUserType" class="form-check-input" type="radio" value="Broker" id="customRadioBroker" />
                   </label>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-sm-6">
-            <label class="form-label" for="plFirstName">First Name</label>
-            <input type="text" id="plFirstName" name="plFirstName" class="form-control" placeholder="John" />
+            <label class="form-label" for="plFirstName">Propey tName</label>
+            <input type="text" placeholder="Hiya Tower"  id="plFirstName" name="plFirstName" class="form-control"  />
           </div>
           <div class="col-sm-6">
-            <label class="form-label" for="plLastName">Last Name</label>
-            <input type="text" id="plLastName" name="plLastName" class="form-control" placeholder="Doe" />
+            <label class="form-label" for="plLastName">Property Details</label>
+            <input type="text" id="plLastName" name="plLastName" class="form-control" placeholder="Best View Tower" />
           </div>
          
           <div class="col-sm-6">
-            <label class="form-label" for="plEmail">Email</label>
+            <label class="form-label" for="plEmail">Agent Email</label>
             <input type="text" id="plEmail" name="plEmail" class="form-control" placeholder="john.doe@example.com" />
           </div>
           <div class="col-sm-6">
-            <label class="form-label" for="plContact">Contact</label>
+            <label class="form-label" for="plContact">Agent Contact</label>
             <div class="input-group input-group-merge">
               <input type="text" id="plContact" name="plContact" class="form-control contact-number-mask" placeholder="202 555 0111" />
             </div>
@@ -182,7 +182,7 @@
                       <span class="custom-option-title">Sale the property</span>
                       <small>Post your property for sale.</small>
                     </span>
-                    <input name="plPropertySaleRent" class="form-check-input" type="radio" value="1" id="customRadioSell" checked />
+                    <input name="plPropertySaleRent" class="form-check-input" type="radio" value="Sale" id="customRadioSell" checked />
                   </label>
                 </div>
               </div>
@@ -194,7 +194,19 @@
                       <span class="custom-option-title">Rent the property</span>
                       <small>Post your property for rent.<br /></small>
                     </span>
-                    <input name="plPropertySaleRent" class="form-check-input" type="radio" value="2" id="customRadioRent" />
+                    <input name="plPropertySaleRent" class="form-check-input" type="radio" value="Rent" id="customRadioRent" />
+                  </label>
+                </div>
+              </div>
+              <div class="col-xl mb-xl-0 mb-2">
+                <div class="form-check custom-option custom-option-icon">
+                  <label class="form-check-label custom-option-content" for="customRadioOffplan">
+                    <span class="custom-option-body">
+                      <i class="bx bx-building"></i>
+                      <span class="custom-option-title">Off Plan Property</span>
+                      <small>Post off plan property.<br /></small>
+                    </span>
+                    <input name="plPropertySaleRent" class="form-check-input" type="radio" value="Offplan" id="customRadioOffplan" />
                   </label>
                 </div>
               </div>
@@ -203,14 +215,19 @@
           <div class="col-sm-6">
             <label class="form-label" for="plPropertyType">Property Type</label>
             <select id="plPropertyType" name="plPropertyType" class="select2 form-select" data-allow-clear="true">
-              <option value="">Select Property Type</option>
-              <option value="10002">Flat/ Apartment</option>
-              <option value="10001">Residential House</option>
-              <option value="10017">Villa</option>
-              <option value="10003">Builder Floor Apartment</option>
-              <option value="10000">Residential Land/ Plot</option>
-              <option value="10021">Penthouse</option>
-              <option value="10022">Studio Apartment</option>
+              <option value="">Select Property Type</option> 
+              <option value="Apartment">Apartment</option>
+              <option value="Flat">Flat</option>
+              <option value="Residential House">Residential House</option>
+              <option value="Villa">Villa</option>
+              <option value="Builder Floor Apartment">Builder Floor Apartment</option>
+              <option value="Residential Land/ Plot">Residential Land/ Plot</option>
+              <option value="Penthouse">Penthouse</option>
+              <option value="Studio Apartment">Studio Apartment</option>
+              <option value="Commercial">Commercial</option>
+              <option value="Office">Office</option>
+              <option value="Shop">Shop</option>
+
             </select>
           </div>
           <div class="col-sm-6">
@@ -221,35 +238,15 @@
             <label class="form-label" for="plCountry">Location</label>
             <select id="plCountry" name="plCountry" class="select2 form-select" data-allow-clear="true">
               <option value="">Select</option>
-              <option value="Australia">Australia</option>
-              <option value="Bangladesh">Bangladesh</option>
-              <option value="Belarus">Belarus</option>
-              <option value="Brazil">Brazil</option>
-              <option value="Canada">Canada</option>
-              <option value="China">China</option>
-              <option value="France">France</option>
-              <option value="Germany">Germany</option>
-              <option value="India">India</option>
-              <option value="Indonesia">Indonesia</option>
-              <option value="Israel">Israel</option>
-              <option value="Italy">Italy</option>
-              <option value="Japan">Japan</option>
-              <option value="Korea">Korea, Republic of</option>
-              <option value="Mexico">Mexico</option>
-              <option value="Philippines">Philippines</option>
-              <option value="Russia">Russian Federation</option>
-              <option value="South Africa">South Africa</option>
-              <option value="Thailand">Thailand</option>
-              <option value="Turkey">Turkey</option>
-              <option value="Ukraine">Ukraine</option>
-              <option value="United Arab Emirates">United Arab Emirates</option>
-              <option value="United Kingdom">United Kingdom</option>
-              <option value="United States">United States</option>
+              <% for (let i = 0; i < places.length; i++) { %>
+                <option value="<%= places[i].name %>"><%= places[i].name %></option>
+              <% } %>
+
             </select>
           </div>
           <div class="col-sm-6">
-            <label class="form-label" for="plState">State</label>
-            <input type="text" id="plState" name="plState" class="form-control" placeholder="California" />
+            <label class="form-label" for="plState">Area</label>
+            <input type="text" id="plState" name="plState" class="form-control" placeholder="Dubai Center" />
           </div>
           <div class="col-sm-6">
             <label class="form-label" for="plCity">City</label>
@@ -289,15 +286,15 @@
             <label class="form-label" for="plFurnishedStatus">Furnished Status</label>
             <select id="plFurnishedStatus" name="plFurnishedStatus" class="form-select">
               <option selected disabled value="">Select furnished status </option>
-              <option value="1">Fully furnished</option>
-              <option value="2">Furnished</option>
-              <option value="3">Semi furnished</option>
-              <option value="4">Unfurnished</option>
+              <option value="Fully furnished">Fully furnished</option>
+              <option value="Furnished">Furnished</option>
+              <option value="Semi furnished">Semi furnished</option>
+              <option value="Unfurnished">Unfurnished</option>
             </select>
           </div>
           <div class="col-lg-12">
-            <label class="form-label" for="plFurnishingDetails">Furnishing Details</label>
-            <input id="plFurnishingDetails" name="plFurnishingDetails" class="form-control" placeholder="select options" value="Fridge, AC, TV, WiFi">
+            <label class="form-label" for="plFurnishingDetails">Features</label>
+            <input id="plFurnishingDetails" name="plFurnishingDetails" class="form-control" placeholder="select options">
           </div>
           <div class="col-sm-6">
             <label class="form-label">Is there any common area?</label>
@@ -411,44 +408,28 @@
           <div class="card mb-4">
             <div class="card-header d-flex justify-content-between align-items-center">
               <h5 class="mb-0 card-title">Media</h5>
-              <a href="javascript:void(0);" class="fw-medium">Add media from URL</a>
             </div>
             <div class="card-body">
-              <div class="dropzone needsclick" id="dropzone-basic">
-                <div class="dz-message needsclick my-5">
+              <div class="dropzone needsclick">
+                <div class="dz-message needsclick my-5" id="dropzone-basic">
                   <p class="fs-4 note needsclick my-2">Drag and drop your image or video here</p>
                   <small class="text-muted d-block fs-6 my-2">or</small>
                   <span class="note needsclick btn bg-label-primary d-inline" id="btnBrowse">Browse image or video</span>
                 </div>
-                <input name="file" multiple type="file" id="fileInput" accept="image/*, video/*" />
+                <input name="file" hidden multiple type="file" id="fileInput" accept="image/*, video/*" />
                 <div class="preview-container" id="previewContainer"></div>
+                <div id="uploadProgress" class="upload-progress"></div>
+
               </div>
             </div>
           </div>
+          <div class="col-12 d-flex justify-content-between">
+            <button class="btn btn-primary btn-prev"> <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i> <span class="align-middle d-sm-inline-block d-none">Previous</span> </button>
+            <button class="btn btn-primary btn-next"> <span class="align-middle d-sm-inline-block d-none me-sm-1">Next</span> <i class="bx bx-chevron-right bx-sm me-sm-n2"></i></button>
+          </div>
         </div>
       </div>
-      <!-- <div id="property-view" class="content">
-        <div class="row g-3"> 
-           <div class="card mb-4">
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0 card-title">Media</h5>
-            <a href="javascript:void(0);" class="fw-medium">Add media from URL</a>
-          </div>
-          <div class="card-body">
-            <form action="https://demos.themeselection.com/upload" class="dropzone needsclick" id="dropzone-basic">
-              <div class="dz-message needsclick my-5">
-                <p class="fs-4 note needsclick my-2">Drag and drop your image here</p>
-                <small class="text-muted d-block fs-6 my-2">or</small>
-                <span class="note needsclick btn bg-label-primary d-inline" id="btnBrowse">Browse image</span>
-              </div>
-              <div class="fallback">
-                <input name="file" type="file" />
-              </div>
-            </form>
-          </div>
-        </div> 
-      </div>
-      </div> -->
+
       <!-- Price Details -->
       <div id="price-details" class="content">
         <div class="row g-3">
@@ -508,23 +489,8 @@
               <label class="form-check-label" for="plCallForPrice">Call for Price</label>
             </div>
           </div>
-          <div class="col-sm-6">
-            <label class="form-label">Price includes</label>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="plCarParking" id="plCarParking">
-              <label class="form-check-label" for="plCarParking">Car Parking</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="plClubMembership" id="plClubMembership">
-              <label class="form-check-label" for="plClubMembership">Club Membership</label>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="plOtherCharges" id="plOtherCharges">
-              <label class="form-check-label" for="plOtherCharges">Stamp Duty & Registration charges excluded.</label>
-            </div>
-          </div>
+          
+         
           <div class="col-12 d-flex justify-content-between">
             <button class="btn btn-primary btn-prev"> <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i> <span class="align-middle d-sm-inline-block d-none">Previous</span> </button>
             <button class="btn btn-success btn-submit btn-next">Submit</button>
@@ -537,6 +503,49 @@
 <!--/ Property Listing Wizard -->
 
 
+<script>
+  let fileurl = []
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("wizard-property-listing-form");
+    const submitButton = form.querySelector(".btn-submit");
+
+    submitButton.addEventListener("click", function () {
+      // Collect form data
+      const formData = new FormData(form);
+      const formDataObj = {};
+      formData.forEach((value, key) => {
+        if (key !== "file") {
+          formDataObj[key] = value;
+        }else{
+          formDataObj[key] = fileurl;
+
+        }
+      });
+
+      // Make the API call
+      const apiEndpoint = "http://localhost:3000/backend/addproperty"; // Replace with your API endpoint
+      fetch(apiEndpoint, {
+        method: "POST", // Replace with the appropriate HTTP method (e.g., POST, PUT, etc.)
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formDataObj),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Handle the API response if needed
+          console.log(data);
+          // Show a success message, redirect, or perform other actions here
+        })
+        .catch((error) => {
+          // Handle errors here
+          console.error("Error:", error);
+          // Show an error message or take appropriate action
+        });
+    });
+  });
+</script>
+
 
             
           </div>
@@ -546,28 +555,7 @@
           
 
 <!-- Footer -->
-<footer class="content-footer footer bg-footer-theme">
-  <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-    <div class="mb-2 mb-md-0">
-      © <script>
-      document.write(new Date().getFullYear())
 
-      </script>
-      , made with ❤️ by <a href="https://themeselection.com/" target="_blank" class="footer-link fw-medium">ThemeSelection</a>
-    </div>
-    <div class="d-none d-lg-inline-block">
-      
-      <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-      <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
-      
-      <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/documentation/" target="_blank" class="footer-link me-4">Documentation</a>
-      
-      
-      <a href="https://themeselection.com/support/" target="_blank" class="footer-link d-none d-sm-inline-block">Support</a>
-      
-    </div>
-  </div>
-</footer>
 <!-- / Footer -->
 
           
@@ -623,73 +611,6 @@
 <script src="../assets/vendor/libs/%40form-validation/umd/bundle/popular.min.js"></script>
 <script src="../assets/vendor/libs/%40form-validation/umd/plugin-bootstrap5/index.min.js"></script>
 <script src="../assets/vendor/libs/%40form-validation/umd/plugin-auto-focus/index.min.js"></script>
-<!-- <script>const dropzone = document.getElementById('dropzone-basic');
-const fileInput = document.getElementById('fileInput');
-const previewContainer = document.getElementById('previewContainer');
-
-dropzone.addEventListener('click', () => {
-  fileInput.click();
-});
-
-dropzone.addEventListener('dragover', (e) => {
-  e.preventDefault();
-  dropzone.classList.add('dragover');
-});
-
-dropzone.addEventListener('dragleave', () => {
-  dropzone.classList.remove('dragover');
-});
-
-dropzone.addEventListener('drop', (e) => {
-  e.preventDefault();
-  dropzone.classList.remove('dragover');
-  const files = e.dataTransfer.files;
-  handleFiles(files);
-});
-
-fileInput.addEventListener('change', (e) => {
-  const files = e.target.files;
-  handleFiles(files);
-});
-
-function handleFiles(files) {
-  previewContainer.innerHTML = '';
-  for (const file of files) {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
-    fileReader.onload = function () {
-      const previewItem = createPreviewItem(file, fileReader.result);
-      previewContainer.appendChild(previewItem);
-    };
-  }
-}
-
-function createPreviewItem(file, fileURL) {
-  const previewItem = document.createElement('div');
-  previewItem.classList.add('preview-item');
-
-  const fileType = file.type.split('/')[0];
-  if (fileType === 'image') {
-    const imagePreview = document.createElement('img');
-    imagePreview.src = fileURL;
-    previewItem.appendChild(imagePreview);
-  } else if (fileType === 'video') {
-    const videoPreview = document.createElement('video');
-    videoPreview.src = fileURL;
-    videoPreview.controls = true;
-    previewItem.appendChild(videoPreview);
-  }
-
-  const deleteButton = document.createElement('button');
-  deleteButton.textContent = 'Delete';
-  deleteButton.addEventListener('click', () => {
-    previewItem.remove();
-  });
-  previewItem.appendChild(deleteButton);
-
-  return previewItem;
-}
-</script> -->
 <script>
   const dropzone = document.getElementById('dropzone-basic');
 const fileInput = document.getElementById('fileInput');
@@ -722,9 +643,39 @@ fileInput.addEventListener('change', (e) => {
 
 function handleFiles(files) {
   for (const file of files) {
+    const formData = new FormData();
+    formData.append('files', file);
+
     const fileType = file.type.split('/')[0];
     if (fileType === 'image' || fileType === 'video') {
-      createPreviewItem(file);
+      const apiEndpoint = 'http://localhost:3000/backend/uploadFiles'; // Replace with your backend API endpoint
+    const xhr = new XMLHttpRequest();
+
+    // Event listener to track upload progress
+    xhr.upload.addEventListener('progress', (event) => {
+      if (event.lengthComputable) {
+        const percent = Math.round((event.loaded / event.total) * 100);
+        document.getElementById('uploadProgress').innerText = `Uploading: ${percent}%`;
+      }
+    });
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          const response = JSON.parse(xhr.responseText);
+          console.log(response.filePaths)
+          fileurl.push('http://localhost:3000/'+response.filePaths.path)
+          console.log(fileurl)
+          createPreviewItem(response.filePaths);
+
+          console.log('Files uploaded successfully!', response.filePaths);
+        } else {
+          console.error('Error uploading files:', xhr.statusText);
+        }
+      }
+    };
+
+    xhr.open('POST', apiEndpoint);
+    xhr.send(formData);
     }
   }
 }
@@ -732,47 +683,55 @@ function handleFiles(files) {
 function createPreviewItem(file) {
   const previewItem = document.createElement('div');
   previewItem.classList.add('preview-item');
-
-  const fileType = file.type.split('/')[0];
-  if (fileType === 'image') {
-    const imagePreview = document.createElement('img');
-    imagePreview.src = URL.createObjectURL(file);
-    previewItem.appendChild(imagePreview);
-  } else if (fileType === 'video') {
-    const videoPreview = document.createElement('video');
-    videoPreview.src = URL.createObjectURL(file);
-    videoPreview.controls = true;
-    previewItem.appendChild(videoPreview);
-  }
-
+  
+  const fileType = file.mimetype.split('/')[0];
+  if (fileType === 'image') 
+   {
+        const imagePreview = document.createElement('img');
+        imagePreview.src = 'http://localhost:3000/'+file.path;
+        previewItem.appendChild(imagePreview);
+      } else if (fileType === 'video') {
+        const videoPreview = document.createElement('video');
+        videoPreview.src = 'http://localhost:3000/'+file.path;
+        videoPreview.controls = true;
+        previewItem.appendChild(videoPreview);
+      }
+  
   const closeButton = document.createElement('button');
   closeButton.innerHTML = '&times;';
   closeButton.type = 'button';
   closeButton.classList.add('btn-close');
-  closeButton.addEventListener('click', () => {
+  closeButton.addEventListener('click', async () => {
+    await deleteFile(file.path);
     previewItem.remove();
+    fileurl = fileurl.filter((fileUrl) => {
+  const fileurl = fileUrl.split('http://localhost:3000/')[1];
+  return fileurl !== file.path;
+});
+    console.log(fileurl)
+
   });
   previewItem.appendChild(closeButton);
 
   previewContainer.appendChild(previewItem);
 }
+async function deleteFile(filePath) {
+    const apiEndpoint = 'http://localhost:3000/backend/deleteFile'; // Replace with your backend API endpoint
+    const xhr = new XMLHttpRequest();
+    xhr.open('DELETE', `${apiEndpoint}?filePath=${encodeURIComponent(filePath)}`);
+    xhr.send();
+  }
 
-// Function to adjust preview container size on window resize
-function updatePreviewContainerSize() {
-  const cardBodyWidth = document.querySelector('.card-body').offsetWidth;
-  const previewItems = document.querySelectorAll('.preview-item');
-  const totalWidth = previewItems.length * (previewItems[0].offsetWidth + 10);
-  previewContainer.style.width = `${Math.min(cardBodyWidth, totalWidth)}px`;
-}
-
-// Call the function on initial load and window resize
-window.addEventListener('load', updatePreviewContainerSize);
-window.addEventListener('resize', updatePreviewContainerSize);
 
 </script>
   <!-- Main JS -->
   <script src="../assets/js/main.js"></script>
+<script>  
+  var category = <%- JSON.stringify(category) %>;
 
+  // Access the first element in the array
+
+</script>
 <script src="../assets/js/wizard-ex-property-listing.js"></script>
 
 </body>

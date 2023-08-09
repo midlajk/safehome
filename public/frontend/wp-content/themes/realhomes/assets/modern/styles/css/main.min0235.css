@@ -1756,6 +1756,7 @@ body .fancybox-close-small:hover {
 @media (max-width: 767px) {
   .rh_header .rh_header__wrap .rh_logo .rh_logo_inner {
     order: initial;
+    flex: auto;
     text-align: center;
   }
 }
@@ -1883,6 +1884,7 @@ body .fancybox-close-small:hover {
     display: block;
     text-align: center;
     margin-left: 40px;
+    margin-bottom: 20px;
   }
 }
 .rh_menu {
@@ -1976,10 +1978,6 @@ body .fancybox-close-small:hover {
   background: var(--rh-global-color-secondary);
   transition: 0.2s all linear;
 }
-.rh_header_var_1 ul.rh_menu__main li a.active {
-    background: var(--rh-global-color-secondary);
-    transition: 0.2s all linear;
-  }
 .rh_header_var_1 ul.rh_menu__main li a span {
   margin-left: 1rem;
   background: #fff;
@@ -3108,13 +3106,7 @@ ul.rh_menu__main > li > .sub-menu > li > .sub-menu > li .sub-menu {
 }
 .rh_menu__responsive li a:hover {
   transition: 0.2s all linear;
-  color: var(--rh-global-color-secondary);
 }
-.rh_menu__responsive li a.active {
-    transition: 0.2s all linear;
-    color: var(--rh-global-color-secondary);
-
-  }
 .rh_menu__responsive .rh_menu__indicator {
   display: flex;
   align-items: center;

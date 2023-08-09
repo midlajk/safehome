@@ -5,7 +5,8 @@
       <%- include('./components/banner.ejs',{screenname:'For Sale Properties'}) -%>
 
       <!-- End Slider -->
-      <%- include('./components/searcher.ejs') -%>
+
+      <!-- End Slider -->
 
       <!-- /.rh_prop_search -->
       <div class="wrapper-home-sections" style="margin-top: 30px;">
@@ -17,18 +18,8 @@
         <div class="rh_page rh_page__listing_page rh_page__main">
           <div class="rh_page__head">
             <p
-              class="rh_pagination__stats"
-              data-page="1"
-              data-max="3"
-              data-total-properties="13"
-              data-page-id="69"
-            >
-              <span class="highlight_stats">1</span>
-              <span> to </span>
-              <span class="highlight_stats">6</span>
-              <span> out of </span>
-              <span class="highlight_stats">13</span>
-              <span> properties</span>
+              class="rh_pagination__stats">
+            
             </p>
             <!-- /.rh_pagination__stats -->
 
@@ -40,8 +31,7 @@
                   class="inspiry_select_picker_trigger inspiry_bs_default_mod inspiry_bs_listing inspiry_bs_green"
                 >
                   <option value="default">Default Order</option>
-                  <option value="title-asc">Property Title A to Z</option>
-                  <option value="title-desc">Property Title Z to A</option>
+                  
                   <option value="price-asc">Price Low to High</option>
                   <option value="price-desc">Price High to Low</option>
                   <option value="date-asc">Date Old to New</option>
@@ -57,20 +47,16 @@
           <!-- /.rh_content -->
 
           <div class="rh_page__listing">
-            <%- include('./components/listlayout.ejs') -%>
-            <%- include('./components/listlayout.ejs') -%>
-            <%- include('./components/listlayout.ejs') -%>
-            <%- include('./components/listlayout.ejs') -%>
-            <%- include('./components/listlayout.ejs') -%>
-            <%- include('./components/listlayout.ejs') -%>
-
+            <div class="activity-indicator">
+              Loading....
+              <!-- Add your activity indicator HTML here -->
+          </div>
+      
             <!-- /.rh_list_card -->
           </div>
           <!-- /.rh_page__listing -->
-          <div class="rh_pagination">
-            <a href="index.html" class="rh_pagination__btn current">1</a>
-            <a href="page/2/index.html" class="rh_pagination__btn">2</a>
-            <a href="page/3/index.html" class="rh_pagination__btn">3</a>
+          <div class="rh_pagination" id="pagination" >
+            
           </div>
         </div>
         <!-- /.rh_page rh_page__main -->
@@ -83,270 +69,44 @@
               class="widget clearfix Property_Types_Widget"
             >
               <h3 class="title">Property Types</h3>
-              <ul>
+              <ul id="property-types-list">
+                <li><a class="active" href="#" data-property-type="all">All</a></li>
                 <li>
-                  <a href="../property-type/commercial/index.html"
-                    >Commercial</a
-                  >
-                  <ul class="children">
-                    <li>
-                      <a href="../property-type/office/index.html">Office</a>
-                    </li>
-                    <li><a href="../property-type/shop/index.html">Shop</a></li>
-                  </ul>
+                    <a href="#" data-property-type="Commercial">Commercial</a>
+                    <ul class="children">
+                        <li><a href="#" data-property-type="Office">Office</a></li>
+                        <li><a href="#" data-property-type="Shop">Shop</a></li>
+                    </ul>
                 </li>
                 <li>
-                  <a href="../property-type/residential/index.html"
-                    >Residential</a
-                  >
-                  <ul class="children">
-                    <li>
-                      <a href="../property-type/apartment/index.html"
-                        >Apartment</a
-                      >
-                    </li>
-                    <li>
-                      <a href="../property-type/apartment-building/index.html"
-                        >Apartment Building</a
-                      >
-                    </li>
-                    <li>
-                      <a href="../property-type/condominium/index.html"
-                        >Condominium</a
-                      >
-                    </li>
-                    <li>
-                      <a href="../property-type/single-family/index.html"
-                        >Single Family</a
-                      >
-                    </li>
-                    <li>
-                      <a href="../property-type/villa/index.html">Villa</a>
-                    </li>
-                  </ul>
+                    <a href="#" data-property-type="Residential">Residential</a>
+                    <ul class="children">
+                        <li><a href="#" data-property-type="Apartment">Apartment</a></li>
+                        <li><a href="#" data-property-type="Apartment Building">Apartment Building</a></li>
+                        <li><a href="#" data-property-type="Condominium">Condominium</a></li>
+                        <li><a href="#" data-property-type="Single Family">Single Family</a></li>
+                        <li><a href="#" data-property-type="Villa">Villa</a></li>
+                    </ul>
                 </li>
-              </ul>
+            </ul>
+            
+            
             </section>
-            <section
-              id="featured_properties_widget-2"
-              class="widget clearfix Featured_Properties_Widget"
-            >
-              <h3 class="title">Featured Properties</h3>
-              <article class="rh_prop_card rh_prop_card--block">
-                <div class="rh_prop_card__wrap">
-                  <div class="rh_label rh_label__featured_widget">
-                    <div class="rh_label__wrap">Featured <span></span></div>
-                  </div>
-                  <figure class="rh_prop_card__thumbnail">
-                    <div class="rh_figure_property_one">
-                      <a href="../property/villa-on-grand-avenue/index.html">
-                        <img
-                          width="680"
-                          height="510"
-                          src="../../modern.b-cdn.net/wp-content/uploads/2020/06/bunglow-01-680x510.jpg"
-                          class="attachment-modern-property-child-slider size-modern-property-child-slider wp-post-image"
-                          alt=""
-                          decoding="async"
-                          loading="lazy"
-                        />
-                      </a>
-                      <div class="rh_overlay"></div>
-                      <div
-                        class="rh_overlay__contents rh_overlay__fadeIn-bottom"
-                      >
-                        <a href="../property/villa-on-grand-avenue/index.html"
-                          >View Property</a
-                        >
-                      </div>
-                      <span style="background: #1fb859" class="property-label"
-                        >Trendy</span
-                      >
-                    </div>
-                    <div class="rh_prop_card__btns">
-                      <span class="favorite-btn-wrap favorite-btn-91">
-                        <span
-                          class="favorite-placeholder highlight__red hide user_not_logged_in"
-                          data-propertyid="91"
-                          data-tooltip="Added to favorites"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 21"
-                          >
-                            <path
-                              class="rh_svg"
-                              d="M1089.48,1923.98a6.746,6.746,0,0,1,9.54,9.54L1089,1943l-10.02-9.48a6.746,6.746,0,0,1,9.54-9.54A0.641,0.641,0,0,0,1089.48,1923.98Z"
-                              transform="translate(-1077 -1922)"
-                            />
-                          </svg>
-                        </span>
-                        <a
-                          href="#"
-                          class="favorite add-to-favorite user_not_logged_in"
-                          data-propertyid="91"
-                          data-tooltip="Add to favorites"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 21"
-                          >
-                            <path
-                              class="rh_svg"
-                              d="M1089.48,1923.98a6.746,6.746,0,0,1,9.54,9.54L1089,1943l-10.02-9.48a6.746,6.746,0,0,1,9.54-9.54A0.641,0.641,0,0,0,1089.48,1923.98Z"
-                              transform="translate(-1077 -1922)"
-                            />
-                          </svg>
-                        </a>
-                      </span>
-                      <span
-                        class="add-to-compare-span compare-btn-91"
-                        data-property-id="91"
-                        data-property-title="Villa on Grand Avenue"
-                        data-property-url="https://modern.realhomes.io/property/villa-on-grand-avenue/"
-                        data-property-image="../../modern.b-cdn.net/wp-content/uploads/2020/06/bunglow-01-488x326.jpg"
-                      >
-                        <span
-                          class="compare-placeholder highlight hide"
-                          data-tooltip="Added to compare"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M1144,1942l-8,1v3l-7-5,7-5v3l8,1A1,1,0,0,1,1144,1942Zm-22-14,8,1v3l7-5-7-5v3l-8,1A1,1,0,0,0,1122,1928Z"
-                              transform="translate(-1121 -1922)"
-                            />
-                          </svg>
-                        </span>
-                        <a
-                          class="rh_trigger_compare add-to-compare"
-                          href="../property/villa-on-grand-avenue/index.html"
-                          data-tooltip="Add to compare"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M1144,1942l-8,1v3l-7-5,7-5v3l8,1A1,1,0,0,1,1144,1942Zm-22-14,8,1v3l7-5-7-5v3l-8,1A1,1,0,0,0,1122,1928Z"
-                              transform="translate(-1121 -1922)"
-                            />
-                          </svg>
-                        </a>
-                      </span>
-                    </div>
-                  </figure>
-                  <!-- /.rh_prop_card__thumbnail -->
-
-                  <div class="rh_prop_card__details">
-                    <h3>
-                      <a href="../property/villa-on-grand-avenue/index.html"
-                        >Villa on Grand Avenue</a
-                      >
-                    </h3>
-                    <p class="rh_prop_card__excerpt">
-                      Spacious and fabulous home in a prime location. This
-                      executive&hellip;
-                    </p>
-                    <div class="rh_prop_card_meta_theme_stylish">
-                      <div class="rh_prop_card__meta">
-                        <span class="rh_meta_titles">Bedrooms</span>
-                        <div class="rh_meta_icon_wrapper">
-                          <svg
-                            class="rh_svg"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                          >
-                            <defs></defs>
-                            <path
-                              d="M1111.91,600.993h16.17a2.635,2.635,0,0,1,2.68,1.773l1.21,11.358a2.456,2.456,0,0,1-2.61,2.875h-18.73a2.46,2.46,0,0,1-2.61-2.875l1.21-11.358A2.635,2.635,0,0,1,1111.91,600.993Zm0.66-7.994h3.86c1.09,0,2.57.135,2.57,1l0.01,3.463c0.14,0.838-1.72,1.539-2.93,1.539h-4.17c-1.21,0-2.07-.7-1.92-1.539l0.37-3.139A2.146,2.146,0,0,1,1112.57,593Zm11,0h3.86a2.123,2.123,0,0,1,2.2,1.325l0.38,3.139c0.14,0.838-.72,1.539-1.93,1.539h-5.17c-1.21,0-2.07-.7-1.92-1.539L1121,594C1121,593.1,1122.48,593,1123.57,593Z"
-                              transform="translate(-1108 -593)"
-                            />
-                          </svg>
-                          <span class="figure">4</span>
-                        </div>
-                      </div>
-                      <div class="rh_prop_card__meta">
-                        <span class="rh_meta_titles">Bathrooms</span>
-                        <div class="rh_meta_icon_wrapper">
-                          <svg
-                            class="rh_svg"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="23.69"
-                            height="24"
-                            viewBox="0 0 23.69 24"
-                          >
-                            <path
-                              d="M1204,601a8,8,0,0,1,16,0v16h-2V601a6,6,0,0,0-12,0v1h-2v-1Zm7,6a6,6,0,0,0-12,0h12Zm-6,2a1,1,0,0,1,1,1v1a1,1,0,0,1-2,0v-1A1,1,0,0,1,1205,609Zm0,5a1,1,0,0,1,1,1v1a1,1,0,0,1-2,0v-1A1,1,0,0,1,1205,614Zm4.94-5.343a1,1,0,0,1,1.28.6l0.69,0.878a1,1,0,0,1-1.88.685l-0.69-.879A1,1,0,0,1,1209.94,608.657Zm2.05,4.638a1,1,0,0,1,1.28.6l0.35,0.94a1.008,1.008,0,0,1-.6,1.282,1,1,0,0,1-1.28-.6l-0.35-.939A1.008,1.008,0,0,1,1211.99,613.295Zm-11.93-4.638a1,1,0,0,1,.6,1.282l-0.69.879a1,1,0,1,1-1.87-.682l0.68-.88A1,1,0,0,1,1200.06,608.657Zm-2.05,4.639a1,1,0,0,1,.6,1.281l-0.34.941a1,1,0,0,1-1.88-.683l0.34-.94A1,1,0,0,1,1198.01,613.3Z"
-                              transform="translate(-1196.31 -593)"
-                            />
-                          </svg>
-                          <span class="figure">4</span>
-                        </div>
-                      </div>
-                      <div class="rh_prop_card__meta">
-                        <span class="rh_meta_titles">Area</span>
-                        <div class="rh_meta_icon_wrapper">
-                          <svg
-                            class="rh_svg"
-                            version="1.1"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                            x="0px"
-                            y="0px"
-                            width="24px"
-                            height="24px"
-                            viewBox="0 0 24 24"
-                            enable-background="new 0 0 24 24"
-                            xml:space="preserve"
-                          >
-                            <g>
-                              <circle cx="2" cy="2" r="2" />
-                            </g>
-                            <g>
-                              <circle cx="2" cy="22" r="2" />
-                            </g>
-                            <g>
-                              <circle cx="22" cy="2" r="2" />
-                            </g>
-                            <rect x="1" y="1" width="2" height="22" />
-                            <rect x="1" y="1" width="22" height="2" />
-                            <path
-                              opacity="0.5"
-                              d="M23,20.277V1h-2v19.277C20.7,20.452,20.452,20.7,20.277,21H1v2h19.277c0.347,0.596,0.984,1,1.723,1
-	c1.104,0,2-0.896,2-2C24,21.262,23.596,20.624,23,20.277z"
-                            />
-                          </svg>
-                          <span class="figure">9350</span>
-                          <span class="label">Sq Ft</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div
-                      class="rh_prop_card__priceLabel rh_prop_card__priceLabel_box"
-                    >
-                      <div class="rh_rvr_price_status_box">
-                        <span class="rh_prop_card__status"> For Rent </span>
-                        <p class="rh_prop_card__price">$4,750 Monthly</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.rh_prop_card__wrap -->
-              </article>
-            </section>
+            <section id="ere_widget_contact_form-4" class="widget clearfix ere_widget_contact_form" style="background-color: #ffffff;padding: 20px;border-radius: 10px;"><h3 class="title">Contact Us</h3>            <div class="ere-contact-form-container rh-ultra-form">
+              <form class="ere-contact-form"  id="contactform">
+        <p><label for="name_ere_widget_contact_form-4">Name</label><input type="text" name="name" id="name_ere_widget_contact_form-4" class="required" title="* Please provide your name"></p><p><label for="email_ere_widget_contact_form-4">Email</label><input type="text" name="email" id="email_ere_widget_contact_form-4" class="email required" title="* Please provide a valid email address"></p><p><label for="number_ere_widget_contact_form-4">Phone Number</label><input type="text" name="number" id="number_ere_widget_contact_form-4"  ></p><p><label for="message_ere_widget_contact_form-4">Message</label><textarea name="message" id="message_ere_widget_contact_form-4" class="required" title="* Please provide your message" cols="40" rows="5"></textarea></p><p class="rh_inspiry_gdpr clearfix"><span class="gdpr-checkbox-label">GDPR Agreement <span class="required-label">*</span></span><input type="checkbox" name="gdpr" id="inspiry-gdpr" class="required" value="I consent to having this website store my submitted information so they can respond to my inquiry." title="* Please accept GDPR agreement"><label for="inspiry-gdpr">I consent to having this website store my submitted information so they can respond to my inquiry.</label></p>                                    <div class="inspiry-recaptcha-wrapper clearfix g-recaptcha-type-v3">
+                                      <div class="inspiry-google-recaptcha"></div>
+                                  </div>
+                                    <div class="ere-submit-button-container">
+                                      <button type="submit" form="contactform" class="rh_btn rh_btn--primary" id="submitform">Submit </button>
+                                          
+                                          </div>
+                  <div class="error-container" id="error-container"></div>
+                  <div class="message-container" id="message-container"></div>
+              </form>
+          </div>
+    </section>  
+          
           </aside>
         </div>
         <!-- /.rh_page rh_page__sidebar -->
@@ -359,46 +119,28 @@
     <a href="#top" id="scroll-top" class="stp_right"
       ><i class="fas fa-chevron-up"></i
     ></a>
-    <div class="rh_wrapper_floating_features">
-       
-        <div class="rh_wrapper_properties_compare">
-          <div class="rh_floating_compare_button">
-            <span class="rh_compare_icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M1144,1942l-8,1v3l-7-5,7-5v3l8,1A1,1,0,0,1,1144,1942Zm-22-14,8,1v3l7-5-7-5v3l-8,1A1,1,0,0,0,1122,1928Z"
-                  transform="translate(-1121 -1922)"
-                />
-              </svg>
-            </span>
-            <span class="rh_compare_count"></span>
-          </div>
-          <div class="rh_fixed_side_bar_compare">
-            <section class="rh_compare rh_compare__section">
-              <h4 class="title">Compare Properties</h4>
-              <div class="rh_compare__carousel"></div>
-              <a
-                href="../compare-properties/index.html"
-                class="rh_compare__submit rh_btn rh_btn--primary"
-                >Compare</a
-              >
-            </section>
-          </div>
-        </div>
-      </div>
-    <div
-      id="rh_compare_action_notification"
-      class="rh_compare_action_notification"
-    >
-      <span
-        >You can only compare 4 properties, any new property added will replace
-        the first one from the comparison.</span
-      >
-    </div>
-   
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+
+ <script>
+    var pagename = '<%= route %>';
+    function layout(property){
+      return ` <%- include('./components/listlayout.ejs', {
+                                image: '${property.file[2]}',
+                                propertyname: '${property.plFirstName}',
+                                propertydetails: '${property.plLastName}',
+                                bedrooms: '${property.plBedrooms}',
+                                bathrooms: '${property.plBathrooms}',
+                                area: '${property.plTotalArea}',
+                                price: '${property.plExpeactedPrice}',
+                                propertyid:'${property._id}'
+                            }) -%>`
+    }
+  </script>
+   <script
+   type="text/javascript"
+   src="../frontendscripts/getproperties.js"></script>
+   <script
+   type="text/javascript"
+   src="../frontendscripts/contactform.js"></script>
+ 
     <%- include('./includes/end.ejs') -%>

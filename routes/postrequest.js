@@ -3,21 +3,33 @@ var router = express.Router();
 const controller = require('../controller/postrequest');
 const AuthController = require('../controller/authcontroller');
 const Posts = require('../controller/postrequest');
+const isadmin = require('../middleware/isadmin');
+const isadminapi = require('../middleware/isadminapi');
 
 /* GET home page. */
 
 router.post('/login', AuthController.postlogin);
-router.get('/logout', AuthController.logout);
+router.get('/logout',isadmin, AuthController.logout);
+router.post('/adminmanagement', AuthController.adminmanagement);
 
 
-router.post('/addservice', Posts.addservice);
-router.post('/addwebsites', Posts.addWebsites);
-router.post('/addwebsites', Posts.addWebsites);
-router.post('/enterservice', Posts.enterservice);
-router.post('/savedservice', Posts.savedservices);
+router.post('/addcategory',isadminapi, Posts.addcategory);
+router.post('/deletecategory',isadminapi, Posts.deletecategory);
 
-router.post('/getserviceentries', Posts.getserviceentries);
+router.post('/addfeatures',isadminapi, Posts.addfeatures);
+router.post('/deletefeature',isadminapi, Posts.deletefeature);
+
+
+router.post('/addplace',isadminapi, Posts.addplace);
+router.post('/editplace',isadminapi, Posts.editPlace);
+router.post('/deleteplace',isadminapi, Posts.deleteplace);
 
 // router.get('/service', Posts.services);
+router.post('/addproperty',isadminapi, Posts.addProperty);
+///
+router.delete('/deleteFile',isadminapi, Posts.deleteFile);
+router.post('/uploadFiles',isadminapi, Posts.uploadFiles);
+////
+router.post('/enquiries', Posts.enquiries);
 
 module.exports = router;

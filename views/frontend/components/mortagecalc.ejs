@@ -1,0 +1,73 @@
+<div class="rh_property__mc_wrap">
+    <h4 class="rh_property__heading">Mortgage Calculator</h4>
+    <div class="rh_property__mc clearfix">
+        <!-- Calculator left side -->
+    <div class="mc_left_side">
+    
+    <!-- Term -->
+    <div class="rh_mc_field">
+    <label for="mc_term">Term</label>
+    <div class="rh_form__item">
+        <select name="mc_term" class="mc_term inspiry_select_picker_trigger inspiry_bs_default_mod inspiry_bs_green show-tick">
+            <option value="30"  selected='selected'>30 Years Fixed</option><option value="20" >20 Years Fixed</option><option value="15" >15 Years Fixed</option><option value="10" >10 Years Fixed</option><option value="5" >5 Years Fixed</option>						</select>
+    </div>
+    </div>
+    
+    <!-- Interest Rate -->
+    <div class="rh_mc_field">
+    <label for="mc_interest">Interest</label>
+    <div class="rh_form__item">
+        <input class="mc_interset" type="text" value="3.5%">
+        <input class="mc_interset_slider" type="range" min="0" max="10" step="0.1" value="3.5">
+    </div>
+    </div>
+    
+    <!-- Home Price -->
+    <div class="rh_mc_field">
+    <label for="mc_home_price">Home Price</label>
+    <div class="rh_form__item">
+        <input class="mc_home_price" type="text" value="540000">
+                                <input class="mc_home_price_slider" type="range" min="100000" max="1620000" step="1" value="540000">
+        <input class="mc_currency_sign" type="hidden" value="&#036;">
+        <input class="mc_sign_position" type="hidden" value="before">
+    </div>
+    </div>
+    
+    <!-- Down Payment -->
+    <div class="rh_mc_field">
+    <label for="mc_downpayment">Down Payment</label>
+    <div class="rh_form__item">
+        <input class="mc_downpayment" type="text" value="54000">
+        <input class="mc_downpayment_percent" type="text" value="10%">
+        <input class="mc_downpayment_slider" type="range" min="0" max="100" step="1" value="10">
+    </div>
+    </div>
+    
+    </div><!-- End of the left side -->
+    
+        <div class="mc_right_side graph_circle">
+                    <div class="mc_cost_graph_circle">
+        <svg class="mc_graph_svg" width="200" height="200" viewPort="0 0 100 100">
+            <circle r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
+            <circle class="mc_graph_hoa" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
+            <circle class="mc_graph_tax" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
+            <circle class="mc_graph_interest" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
+        </svg>
+        <div class="mc_cost_over_graph" data-cost-prefix=" per month"></div>
+    </div>
+    <div class="mc_term_interest"><span class="mc_term_value">30</span> Years Fixed, <span class="mc_interest_value">3.5</span><span>%</span> Interest</div>
+    
+    <div class="mc_cost">
+    <ul>
+        <li class="mc_cost_interest">Principle and Interest <span></span></li>
+                                    <li class="mc_cost_tax">Property Taxes <span>$650</span></li>
+                                        <li class="mc_cost_hoa">Other Dues <span>$350</span></li>
+                                </ul>
+    <input class="mc_cost_tax_value" type="hidden" value="650">
+    <input class="mc_cost_hoa_value" type="hidden" value="350">
+    </div>
+    
+    </div><!-- End of the right side -->
+    
+    </div>
+    </div>

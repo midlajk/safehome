@@ -6,7 +6,7 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 
 // Connect to the db
 
-const url = 'mongodb://127.0.0.1:27017/servicesdb'
+const url = 'mongodb://127.0.0.1:27017/safehome'
 // const url = "mongodb+srv://admin:admin123@cluster0.iqrdbul.mongodb.net/?retryWrites=true&w=majority";
 
 //Connect methode of mongoose

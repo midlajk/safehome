@@ -77,7 +77,7 @@ function addPlaceToTable(place) {
           place.imagePaths
         }" target="_blank">View Image</a></td>
         <td>${place.highlighted}</td>
-        <td>0</td>
+        <td>${place.noOfProperties}</td>
         <td>
                                         
                                               <a onclick="openEditModal(event)" data-poll='${JSON.stringify(
@@ -125,7 +125,7 @@ function updatePlaceInTable(place) {
           place.imagePaths
         }" target="_blank">View Image</a></td>
         <td>${place.highlighted}</td>
-        <td>0</td>
+        <td>${place.noOfProperties}</td>
         <td>
           <a onclick="openEditModal(event)" data-poll='${JSON.stringify(
             place,

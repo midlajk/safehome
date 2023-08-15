@@ -5,6 +5,7 @@ const isadmin = require('../middleware/isadmin');
 const isadminapi = require('../middleware/isadminapi');
 
 /* GET home page. */
+router.get('/editproperties', Getrequest.editproperty);
 
 router.get('/enquiries',isadmin, Getrequest.getenquiries);
 router.get('/adminmanagement',Getrequest.adminmanagement);
@@ -31,5 +32,7 @@ router.delete('/deleteenquiries/:id',isadminapi, Getrequest.deleteenquiries);
 //////////////
 router.get('/propertieslist',isadminapi, Getrequest.propertieslist);
 router.delete('/deleteproperty/:id',isadminapi, Getrequest.deleteproperty);
+
+router.get('/featuredpropertieslist',isadminapi, Getrequest.Featuredpropertieslist);
 
 module.exports = router;

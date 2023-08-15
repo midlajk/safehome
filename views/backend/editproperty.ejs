@@ -16,7 +16,7 @@
             
 
 <h4 class="py-3 mb-4">
-  <span class="text-muted fw-light">Wizard examples /</span> Property Listing
+  <span class="text-muted fw-light">Property Management /</span> Property Listing
 </h4>
 
 <!-- Property Listing Wizard -->
@@ -53,7 +53,7 @@
         </span>
         <span class="bs-stepper-label">
           <span class="bs-stepper-title">Property Features</span>
-          <span class="bs-stepper-subtitle">Bedrooms/Floor No</span>
+          <span class="bs-stepper-subtitle">Bedrooms/Floors</span>
         </span>
       </button>
     </div>
@@ -100,64 +100,24 @@
       <!-- Personal Details -->
       <div id="personal-details" class="content">
         <div class="row g-3">
-          <div class="col-12">
-            <div class="row">
-              <div class="col-md mb-md-0 mb-2">
-                <div class="form-check custom-option custom-option-icon">
-                  <label class="form-check-label custom-option-content" for="customRadioBuilder">
-                    <span class="custom-option-body">
-                      <i class="bx bx-building-house"></i>
-                      <span class="custom-option-title">Builder</span>
-                      <small>List property of a Builder.</small>
-                    </span>
-                    <input name="plUserType" class="form-check-input" type="radio" value="Bulder" id="customRadioBuilder" checked />
-                  </label>
-                </div>
-              </div>
-              <div class="col-md mb-md-0 mb-2">
-                <div class="form-check custom-option custom-option-icon">
-                  <label class="form-check-label custom-option-content" for="customRadioOwner">
-                    <span class="custom-option-body">
-                      <i class="bx bx-crown"></i>
-                      <span class="custom-option-title"> Owner </span>
-                      <small>Submit property of an Individual.</small>
-                    </span>
-                    <input name="plUserType" class="form-check-input" type="radio" value="Owner" id="customRadioOwner" />
-                  </label>
-                </div>
-              </div>
-              <div class="col-md mb-md-0 mb-2">
-                <div class="form-check custom-option custom-option-icon">
-                  <label class="form-check-label custom-option-content" for="customRadioBroker">
-                    <span class="custom-option-body">
-                      <i class="bx bx-briefcase-alt"></i>
-                      <span class="custom-option-title">Broker </span>
-                      <small>List property under a Broker.</small>
-
-                    </span>
-                    <input name="plUserType" class="form-check-input" type="radio" value="Broker" id="customRadioBroker" />
-                  </label>
-                </div>
-              </div>
-            </div>
+         
+          <div class="col-sm-6">
+            <label class="form-label" for="plName">Property Name</label>
+            <input type="text" id="plName" name="plName" class="form-control" value="<%= property.plName %>" />
           </div>
           <div class="col-sm-6">
-            <label class="form-label" for="plFirstName">Propey tName</label>
-            <input type="text" placeholder="Hiya Tower"  id="plFirstName" name="plFirstName" class="form-control"  />
-          </div>
-          <div class="col-sm-6">
-            <label class="form-label" for="plLastName">Property Details</label>
-            <input type="text" id="plLastName" name="plLastName" class="form-control" placeholder="Best View Tower" />
+            <label class="form-label" for="plShort">Short Description</label>
+            <input type="text" id="plShort" name="plShort" class="form-control" value="<%= property.plShort %>" />
           </div>
          
           <div class="col-sm-6">
             <label class="form-label" for="plEmail">Agent Email</label>
-            <input type="text" id="plEmail" name="plEmail" class="form-control" placeholder="john.doe@example.com" />
+            <input type="text" id="plEmail" name="plEmail" class="form-control" value="<%= property.plEmail %>"  />
           </div>
           <div class="col-sm-6">
             <label class="form-label" for="plContact">Agent Contact</label>
             <div class="input-group input-group-merge">
-              <input type="text" id="plContact" name="plContact" class="form-control contact-number-mask" placeholder="202 555 0111" />
+              <input type="text" id="plContact" name="plContact" class="form-control contact-number-mask" value="<%= property.plContact %>"  />
             </div>
           </div>
           <div class="col-12 d-flex justify-content-between">
@@ -172,91 +132,28 @@
       <!-- Property Details -->
       <div id="property-details" class="content">
         <div class="row g-3">
-          <div class="col-12">
-            <div class="row">
-              <div class="col-xl mb-xl-0 mb-2">
-                <div class="form-check custom-option custom-option-icon">
-                  <label class="form-check-label custom-option-content" for="customRadioSell">
-                    <span class="custom-option-body">
-                      <i class="bx bx-home"></i>
-                      <span class="custom-option-title">Sale the property</span>
-                      <small>Post your property for sale.</small>
-                    </span>
-                    <input name="plPropertySaleRent" class="form-check-input" type="radio" value="Sale" id="customRadioSell" checked />
-                  </label>
-                </div>
-              </div>
-              <div class="col-xl mb-xl-0 mb-2">
-                <div class="form-check custom-option custom-option-icon">
-                  <label class="form-check-label custom-option-content" for="customRadioRent">
-                    <span class="custom-option-body">
-                      <i class="bx bx-wallet"></i>
-                      <span class="custom-option-title">Rent the property</span>
-                      <small>Post your property for rent.<br /></small>
-                    </span>
-                    <input name="plPropertySaleRent" class="form-check-input" type="radio" value="Rent" id="customRadioRent" />
-                  </label>
-                </div>
-              </div>
-              <div class="col-xl mb-xl-0 mb-2">
-                <div class="form-check custom-option custom-option-icon">
-                  <label class="form-check-label custom-option-content" for="customRadioOffplan">
-                    <span class="custom-option-body">
-                      <i class="bx bx-building"></i>
-                      <span class="custom-option-title">Off Plan Property</span>
-                      <small>Post off plan property.<br /></small>
-                    </span>
-                    <input name="plPropertySaleRent" class="form-check-input" type="radio" value="Offplan" id="customRadioOffplan" />
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <label class="form-label" for="plPropertyType">Property Type</label>
-            <select id="plPropertyType" name="plPropertyType" class="select2 form-select" data-allow-clear="true">
-              <option value="">Select Property Type</option>
-              <option value="Flat/ Apartment">Flat/ Apartment</option>
-              <option value="Residential House">Residential House</option>
-              <option value="Villa">Villa</option>
-              <option value="Builder Floor Apartment">Builder Floor Apartment</option>
-              <option value="Residential Land/ Plot">Residential Land/ Plot</option>
-              <option value="Penthouse">Penthouse</option>
-              <option value="Studio Apartment">Studio Apartment</option>
-              <option value="Shop">Shop</option>
-              <option value="Office">Office</option>
-
-            </select>
-          </div>
-          <div class="col-sm-6">
-            <label class="form-label" for="plZipCode">Zip Code</label>
-            <input type="number" id="plZipCode" name="plZipCode" class="form-control" placeholder="99950" />
-          </div>
-          <div class="col-sm-6">
-            <label class="form-label" for="plCountry">Location</label>
-            <select id="plCountry" name="plCountry" class="select2 form-select" data-allow-clear="true">
-              <option value="">Select</option>
-              <% for (let i = 0; i < places.length; i++) { %>
-                <option value="<%= places[i].name %>"><%= places[i].name %></option>
-              <% } %>
-
-            </select>
-          </div>
+         
+        
+      
+         
           <div class="col-sm-6">
             <label class="form-label" for="plState">Area</label>
-            <input type="text" id="plState" name="plState" class="form-control" placeholder="Dubai Center" />
+            <input type="text" id="plState" name="plState" class="form-control" value="<%= property.plState %>" />
           </div>
-          <div class="col-sm-6">
-            <label class="form-label" for="plCity">City</label>
-            <input type="text" id="plCity" name="plCity" class="form-control" placeholder="Los Angeles" />
-          </div>
+        
           <div class="col-sm-6">
             <label class="form-label" for="plLandmark">Landmark</label>
-            <input type="text" id="plLandmark" name="plLandmark" class="form-control" placeholder="Nr. Hard Rock Cafe" />
+            <input type="text" id="plLandmark" name="plLandmark" class="form-control" value="<%= property.plLandmark %>" />
           </div>
           <div class="col-lg-12">
             <label class="form-label" for="plAddress">Address</label>
-            <textarea id="plAddress" name="plAddress" class="form-control" rows="2" placeholder="12, Business Park"></textarea>
+            <textarea id="plAddress" name="plAddress" class="form-control" rows="2" ><%= property.plAddress %></textarea>
+          </div>
+          <div class="col-lg-12">
+            <label class="form-label" for="Description">Description</label>
+            <textarea id="plDescription" name="plDescription" class="form-control" rows="2" placeholder="Anything about the proerty">
+              <%= property.plDescription %>
+            </textarea>
           </div>
           <div class="col-12 d-flex justify-content-between">
             <button class="btn btn-primary btn-prev"> <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i> <span class="align-middle d-sm-inline-block d-none">Previous</span> </button>
@@ -270,52 +167,55 @@
         <div class="row g-3">
           <div class="col-sm-6">
             <label class="form-label d-block" for="plBedrooms">Bedrooms</label>
-            <input type="number" id="plBedrooms" name="plBedrooms" class="form-control" placeholder="3" />
+            <input type="number" id="plBedrooms" name="plBedrooms" class="form-control" value="<%= property.plBedrooms %>" />
           </div>
           <div class="col-sm-6">
-            <label class="form-label" for="plFloorNo">Floor No</label>
-            <input type="number" id="plFloorNo" name="plFloorNo" class="form-control" placeholder="12" />
+            <label class="form-label" for="plFloorNo">Floors</label>
+            <input type="number" id="plFloorNo" name="plFloorNo" class="form-control" value="<%= property.plFloorNo %>" />
           </div>
           <div class="col-sm-6">
             <label class="form-label d-block" for="plBathrooms">Bathrooms</label>
-            <input type="number" id="plBathrooms" name="plBathrooms" class="form-control" placeholder="4" />
+            <input type="number" id="plBathrooms" name="plBathrooms" class="form-control" value="<%= property.plBathrooms %>" />
           </div>
           <div class="col-sm-6">
             <label class="form-label" for="plFurnishedStatus">Furnished Status</label>
             <select id="plFurnishedStatus" name="plFurnishedStatus" class="form-select">
-              <option selected disabled value="">Select furnished status </option>
-              <option value="Fully furnished">Fully furnished</option>
-              <option value="Furnished">Furnished</option>
-              <option value="Semi furnished">Semi furnished</option>
-              <option value="Unfurnished">Unfurnished</option>
+              <option disabled value="">Select furnished status</option>
+              <option value="Fully furnished" <%= property.plFurnishedStatus === 'Fully furnished' ? 'selected' : '' %> >Fully furnished</option>
+              <option value="Furnished" <%= property.plFurnishedStatus === 'Furnished' ? 'selected' : '' %>>Furnished</option>
+              <option value="Semi furnished" <%= property.plFurnishedStatus === 'Semi furnished' ? 'selected' : '' %>>Semi furnished</option>
+              <option value="Unfurnished" <%= property.plFurnishedStatus === 'Unfurnished' ? 'selected' : '' %>>Unfurnished</option>
             </select>
           </div>
+          
           <div class="col-lg-12">
             <label class="form-label" for="plFurnishingDetails">Features</label>
-            <input id="plFurnishingDetails" name="plFurnishingDetails" class="form-control" placeholder="select options">
+            <input id="plFurnishingDetails" name="plFurnishingDetails" class="form-control" placeholder="select options" value="<%= property.plFurnishingDetails %>">
           </div>
           <div class="col-sm-6">
             <label class="form-label">Is there any common area?</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plCommonAreaRadio" id="plCommonAreaRadioYes" checked>
+              <input class="form-check-input" type="radio" name="plCommonAreaRadio" id="plCommonAreaRadioYes" value="Yes" <%= property.plCommonAreaRadio === 'Yes' ? 'checked' : '' %>>
               <label class="form-check-label" for="plCommonAreaRadioYes">Yes</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plCommonAreaRadio" id="plCommonAreaRadioNo">
+              <input class="form-check-input" type="radio" name="plCommonAreaRadio" id="plCommonAreaRadioNo" value="No" <%= property.plCommonAreaRadio === 'No' ? 'checked' : '' %>>
               <label class="form-check-label" for="plCommonAreaRadioNo">No</label>
             </div>
           </div>
+          
           <div class="col-sm-6">
             <label class="form-label">Is there any attached balcony?</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plAttachedBalconyRadio" id="plAttachedBalconyRadioYes" checked>
+              <input class="form-check-input" type="radio" name="plAttachedBalconyRadio" id="plAttachedBalconyRadioYes" value="Yes" <%= property.plAttachedBalconyRadio === 'Yes' ? 'checked' : '' %>>
               <label class="form-check-label" for="plAttachedBalconyRadioYes">Yes</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plAttachedBalconyRadio" id="plAttachedBalconyRadioNo">
+              <input class="form-check-input" type="radio" name="plAttachedBalconyRadio" id="plAttachedBalconyRadioNo" value="No" <%= property.plAttachedBalconyRadio === 'No' ? 'checked' : '' %>>
               <label class="form-check-label" for="plAttachedBalconyRadioNo">No</label>
             </div>
           </div>
+          
           <div class="col-12 d-flex justify-content-between">
             <button class="btn btn-primary btn-prev"> <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i> <span class="align-middle d-sm-inline-block d-none">Previous</span> </button>
             <button class="btn btn-primary btn-next"> <span class="align-middle d-sm-inline-block d-none me-sm-1">Next</span> <i class="bx bx-chevron-right bx-sm me-sm-n2"></i></button>
@@ -329,72 +229,76 @@
           <div class="col-sm-6">
             <label class="form-label d-block" for="plTotalArea">Total Area</label>
             <div class="input-group input-group-merge">
-              <input type="number" class="form-control" id="plTotalArea" name="plTotalArea" placeholder="1000" aria-describedby="pl-total-area">
+              <input type="number" class="form-control" id="plTotalArea" name="plTotalArea" value="<%= property.plTotalArea %>"  aria-describedby="pl-total-area">
               <span class="input-group-text" id="pl-total-area">sq-ft</span>
             </div>
           </div>
           <div class="col-sm-6">
             <label class="form-label d-block" for="plCarpetArea">Carpet Area</label>
             <div class="input-group input-group-merge">
-              <input type="number" class="form-control" id="plCarpetArea" name="plCarpetArea" placeholder="800" aria-describedby="pl-carpet-area">
+              <input type="number" class="form-control" id="plCarpetArea" name="plCarpetArea" value="<%= property.plCarpetArea %>" aria-describedby="pl-carpet-area">
               <span class="input-group-text" id="pl-carpet-area">sq-ft</span>
             </div>
           </div>
           <div class="col-sm-6">
             <label class="form-label d-block" for="plPlotArea">Plot Area</label>
             <div class="input-group input-group-merge">
-              <input type="number" class="form-control" id="plPlotArea" name="plPlotArea" placeholder="800" aria-describedby="pl-plot-area">
+              <input type="number" class="form-control" id="plPlotArea" name="plPlotArea" value="<%= property.plPlotArea %>" aria-describedby="pl-plot-area">
               <span class="input-group-text" id="pl-plot-area">sq-yd</span>
             </div>
           </div>
           <div class="col-sm-6">
             <label class="form-label d-block" for="plAvailableFrom">Available From</label>
-            <input type="text" id="plAvailableFrom" name="plAvailableFrom" class="form-control flatpickr" placeholder="YYYY-MM-DD" />
-          </div>
+            <input type="text" id="plAvailableFrom" name="plAvailableFrom" class="form-control flatpickr" placeholder="YYYY-MM-DD" value="<%= property.plAvailableFrom %>" />
+          </div>          
           <div class="col-sm-6">
-            <label class="form-label">Possession Status</label>
+            <label class="form-label">Central Cooling</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plPossessionStatus" id="plUnderConstruction" checked>
-              <label class="form-check-label" for="plUnderConstruction">Under Construction</label>
+              <input class="form-check-input" value="Available" type="radio" name="plCentralcooling" id="plCoolingAvailable" <% if (property.plCentralcooling === 'Available') { %> checked <% } %>>
+              <label class="form-check-label" for="plCoolingAvailable">Available</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plPossessionStatus" id="plReadyToMoveRadio">
-              <label class="form-check-label" for="plReadyToMoveRadio">Ready to Move</label>
+              <input class="form-check-input" value="Not Available" type="radio" name="plCentralcooling" id="plCoolingNOt" <% if (property.plCentralcooling === 'Not Available') { %> checked <% } %>>
+              <label class="form-check-label" for="plCoolingNOt">Not Available</label>
             </div>
           </div>
+          
           <div class="col-sm-6">
-            <label class="form-label">Transaction Type</label>
+            <label class="form-label">Swimming Pool</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plTransectionType" id="plNewProperty" checked>
-              <label class="form-check-label" for="plNewProperty">New Property</label>
+              <input class="form-check-input" value="Available" type="radio" name="plSwimmingPool" id="plSwimmingpoolavailable" <% if (property.plSwimmingPool === 'Available') { %> checked <% } %>>
+              <label class="form-check-label" for="plSwimmingpoolavailable">Available</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plTransectionType" id="plResaleProperty">
-              <label class="form-check-label" for="plResaleProperty">Resale</label>
+              <input class="form-check-input" value="Not Available" type="radio" name="plSwimmingPool" id="plSwimmingpoolnot" <% if (property.plSwimmingPool === 'Not Available') { %> checked <% } %>>
+              <label class="form-check-label" for="plSwimmingpoolnot">Not Available</label>
             </div>
           </div>
+          
           <div class="col-sm-6">
             <label class="form-label">Is Property Facing Main Road?</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plRoadFacingRadio" id="plRoadFacingRadioYes" checked>
+              <input class="form-check-input" value="Yes" type="radio" name="plRoadFacingRadio" id="plRoadFacingRadioYes" <% if (property.plRoadFacingRadio === 'Yes') { %> checked <% } %>>
               <label class="form-check-label" for="plRoadFacingRadioYes">Yes</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plRoadFacingRadio" id="plRoadFacingRadioNo">
+              <input class="form-check-input" value="No" type="radio" name="plRoadFacingRadio" id="plRoadFacingRadioNo" <% if (property.plRoadFacingRadio === 'No') { %> checked <% } %>>
               <label class="form-check-label" for="plRoadFacingRadioNo">No</label>
             </div>
           </div>
+          
           <div class="col-sm-6">
             <label class="form-label">Gated Colony?</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plGatedColonyRadio" id="plGatedColonyRadioYes" checked>
+              <input class="form-check-input" value="Yes" type="radio" name="plGatedColonyRadio" id="plGatedColonyRadioYes" <% if (property.plGatedColonyRadio === 'Yes') { %> checked <% } %>>
               <label class="form-check-label" for="plGatedColonyRadioYes">Yes</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plGatedColonyRadio" id="plGatedColonyRadioNo">
+              <input class="form-check-input" value="No" type="radio" name="plGatedColonyRadio" id="plGatedColonyRadioNo" <% if (property.plGatedColonyRadio === 'No') { %> checked <% } %>>
               <label class="form-check-label" for="plGatedColonyRadioNo">No</label>
             </div>
           </div>
+          
           <div class="col-12 d-flex justify-content-between">
             <button class="btn btn-primary btn-prev"> <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i> <span class="align-middle d-sm-inline-block d-none">Previous</span> </button>
             <button class="btn btn-primary btn-next"> <span class="align-middle d-sm-inline-block d-none me-sm-1">Next</span> <i class="bx bx-chevron-right bx-sm me-sm-n2"></i></button>
@@ -427,87 +331,88 @@
           </div>
         </div>
       </div>
-      <!-- <div id="property-view" class="content">
-        <div class="row g-3"> 
-           <div class="card mb-4">
-          <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0 card-title">Media</h5>
-            <a href="javascript:void(0);" class="fw-medium">Add media from URL</a>
-          </div>
-          <div class="card-body">
-            <form action="https://demos.themeselection.com/upload" class="dropzone needsclick" id="dropzone-basic">
-              <div class="dz-message needsclick my-5">
-                <p class="fs-4 note needsclick my-2">Drag and drop your image here</p>
-                <small class="text-muted d-block fs-6 my-2">or</small>
-                <span class="note needsclick btn bg-label-primary d-inline" id="btnBrowse">Browse image</span>
-              </div>
-              <div class="fallback">
-                <input name="file" type="file" />
-              </div>
-            </form>
-          </div>
-        </div> 
-      </div>
-      </div> -->
+
       <!-- Price Details -->
       <div id="price-details" class="content">
         <div class="row g-3">
           <div class="col-sm-6">
             <label class="form-label d-block" for="plExpeactedPrice">Expected Price</label>
             <div class="input-group input-group-merge">
-              <input type="number" class="form-control" id="plExpeactedPrice" name="plExpeactedPrice" placeholder="25,000" aria-describedby="pl-expeacted-price">
+              <input type="number" class="form-control" id="plExpeactedPrice" name="plExpeactedPrice" placeholder="25,000" aria-describedby="pl-expeacted-price" value="<%= property.plExpeactedPrice %>">
               <span class="input-group-text" id="pl-expeacted-price">$</span>
             </div>
           </div>
           <div class="col-sm-6">
             <label class="form-label d-block" for="plPriceSqft">Price per Sqft</label>
             <div class="input-group input-group-merge">
-              <input type="number" class="form-control" id="plPriceSqft" name="plPriceSqft" placeholder="500" aria-describedby="pl-price-sqft">
+              <input type="number" class="form-control" id="plPriceSqft" name="plPriceSqft" placeholder="500" aria-describedby="pl-price-sqft" value="<%= property.plPriceSqft %>">
               <span class="input-group-text" id="pl-price-sqft">$</span>
             </div>
           </div>
           <div class="col-sm-6">
             <label class="form-label d-block" for="plMaintenenceCharge">Maintenance Charge</label>
             <div class="input-group input-group-merge">
-              <input type="number" class="form-control" id="plMaintenenceCharge" name="plMaintenenceCharge" placeholder="50" aria-describedby="pl-mentenence-charge">
+              <input type="number" class="form-control" id="plMaintenenceCharge" name="plMaintenenceCharge" placeholder="50" aria-describedby="pl-mentenence-charge" value="<%= property.plMaintenenceCharge %>">
               <span class="input-group-text" id="pl-mentenence-charge">$</span>
             </div>
           </div>
           <div class="col-sm-6">
             <label class="form-label" for="plMaintenencePer">Maintenance</label>
             <select id="plMaintenencePer" name="plMaintenencePer" class="form-select">
-              <option value="1" selected>Monthly</option>
-              <option value="2">Quarterly</option>
-              <option value="3">Yearly</option>
-              <option value="3">One-time</option>
-              <option value="3">Per sqft. Monthly</option>
+              <option value="Monthly" <%= property.plMaintenencePer === 'Monthly' ? 'selected' : '' %>>Monthly</option>
+              <option value="Quarterly" <%= property.plMaintenencePer === 'Quarterly' ? 'selected' : '' %>>Quarterly</option>
+              <option value="Yearly" <%= property.plMaintenencePer === 'Yearly' ? 'selected' : '' %>>Yearly</option>
+              <option value="One-time" <%= property.plMaintenencePer === 'One-time' ? 'selected' : '' %>>One-time</option>
+            
             </select>
           </div>
           <div class="col-sm-6">
             <label class="form-label d-block" for="plBookingAmount">Booking/Token Amount</label>
             <div class="input-group input-group-merge">
-              <input type="number" class="form-control" id="plBookingAmount" name="plBookingAmount" placeholder="250" aria-describedby="pl-booking-amount">
+              <input type="number" class="form-control" id="plBookingAmount" name="plBookingAmount" placeholder="250" aria-describedby="pl-booking-amount" value="<%= property.plBookingAmount %>">
               <span class="input-group-text" id="pl-booking-amount">$</span>
             </div>
           </div>
+          
+          
           <div class="col-sm-6">
-            <label class="form-label d-block" for="plOtherAmount">Other Amount</label>
-            <div class="input-group input-group-merge">
-              <input type="number" class="form-control" id="plOtherAmount" name="plOtherAmount" placeholder="500" aria-describedby="pl-other-amount">
-              <span class="input-group-text" id="pl-other-amount">$</span>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <label class="form-label">Show Price as</label>
+            <label class="form-label">Laundry Room</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plShowPriceRadio" id="plNagotiablePrice" checked>
-              <label class="form-check-label" for="plNagotiablePrice">Negotiable</label>
+              <input class="form-check-input" value="Available" type="radio" name="plLaundryRoomRadio" id="plLaundryRoomAvailable" <% if (property.plLaundryRoomRadio === 'Available') { %>checked<% } %>>
+              <label class="form-check-label" for="plLaundryRoomAvailable">Laundry Available</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plShowPriceRadio" id="plCallForPrice">
-              <label class="form-check-label" for="plCallForPrice">Call for Price</label>
+              <input class="form-check-input" value="Not Available" type="radio" name="plLaundryRoomRadio" id="plLaundryRoomNotAvailable" <% if (property.plLaundryRoomRadio === 'Not Available') { %>checked<% } %>>
+              <label class="form-check-label" for="plLaundryRoomNotAvailable">Laundry Not Available</label>
             </div>
           </div>
+          
+          <div class="col-sm-6">
+            <label class="form-label">Fire Place / Central Heating</label>
+            <div class="form-check">
+              <input class="form-check-input" value="Available" type="radio" name="plFireplaceCentralHeatingRadio" id="plFireplaceCentralHeatingAvailable" <% if (property.plFireplaceCentralHeatingRadio === 'Available') { %>checked<% } %>>
+              <label class="form-check-label" for="plFireplaceCentralHeatingAvailable">Available</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" value="Not Available" name="plFireplaceCentralHeatingRadio" id="plFireplaceCentralHeatingNotAvailable" <% if (property.plFireplaceCentralHeatingRadio === 'Not Available') { %>checked<% } %>>
+              <label class="form-check-label" for="plFireplaceCentralHeatingNotAvailable">Not Available</label>
+            </div>
+          </div>
+          
+          <div class="col-sm-6">
+            <label class="form-label">Lawn</label>
+            <div class="form-check">
+              <input class="form-check-input" value="Available" type="radio" name="plLawnRadio" id="plLawnAvailable" <% if (property.plLawnRadio === 'Available') { %>checked<% } %>>
+              <label class="form-check-label" for="plLawnAvailable">Available</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" value="Not Available" type="radio" name="plLawnRadio" id="plLawnNotAvailable" <% if (property.plLawnRadio === 'Not Available') { %>checked<% } %>>
+              <label class="form-check-label" for="plLawnNotAvailable">Not Available</label>
+            </div>
+          </div>
+          
+      
+          
           
          
           <div class="col-12 d-flex justify-content-between">
@@ -527,7 +432,13 @@
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("wizard-property-listing-form");
     const submitButton = form.querySelector(".btn-submit");
+    fileurl = <%- JSON.stringify(property.file) %>;
 
+    fileurl.forEach((file) => {
+      createPreviewItem(file)
+    })
+
+  
     submitButton.addEventListener("click", function () {
       // Collect form data
       const formData = new FormData(form);
@@ -540,9 +451,11 @@
 
         }
       });
+      formDataObj.id = "<%= property._id %>";
+
 
       // Make the API call
-      const apiEndpoint = "http://localhost:3000/backend/addproperty"; // Replace with your API endpoint
+      const apiEndpoint = "http://localhost:3000/backend/posteditproperty"; // Replace with your API endpoint
       fetch(apiEndpoint, {
         method: "POST", // Replace with the appropriate HTTP method (e.g., POST, PUT, etc.)
         headers: {
@@ -553,7 +466,7 @@
         .then((response) => response.json())
         .then((data) => {
           // Handle the API response if needed
-          console.log(data);
+          location.reload();
           // Show a success message, redirect, or perform other actions here
         })
         .catch((error) => {
@@ -630,6 +543,7 @@
 <script src="../assets/vendor/libs/%40form-validation/umd/bundle/popular.min.js"></script>
 <script src="../assets/vendor/libs/%40form-validation/umd/plugin-bootstrap5/index.min.js"></script>
 <script src="../assets/vendor/libs/%40form-validation/umd/plugin-auto-focus/index.min.js"></script>
+
 <script>
   const dropzone = document.getElementById('dropzone-basic');
 const fileInput = document.getElementById('fileInput');
@@ -667,7 +581,7 @@ function handleFiles(files) {
 
     const fileType = file.type.split('/')[0];
     if (fileType === 'image' || fileType === 'video') {
-      const apiEndpoint = 'http://localhost:3000/backend/uploadFiles'; // Replace with your backend API endpoint
+      const apiEndpoint = 'http://localhost:3000/backend/uploadeditFiles'; // Replace with your backend API endpoint
     const xhr = new XMLHttpRequest();
 
     // Event listener to track upload progress
@@ -681,10 +595,8 @@ function handleFiles(files) {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
           const response = JSON.parse(xhr.responseText);
-          console.log(response.filePaths)
-          fileurl.push('http://localhost:3000/'+response.filePaths.path)
-          console.log(fileurl)
-          createPreviewItem(response.filePaths);
+          fileurl.push('http://localhost:3000/'+response.filePaths)
+          createPreviewItem('http://localhost:3000/'+response.filePaths);
 
           console.log('Files uploaded successfully!', response.filePaths);
         } else {
@@ -703,46 +615,60 @@ function createPreviewItem(file) {
   const previewItem = document.createElement('div');
   previewItem.classList.add('preview-item');
   
-  const fileType = file.mimetype.split('/')[0];
-  if (fileType === 'image') 
-   {
-        const imagePreview = document.createElement('img');
-        imagePreview.src = 'http://localhost:3000/'+file.path;
-        previewItem.appendChild(imagePreview);
-      } else if (fileType === 'video') {
-        const videoPreview = document.createElement('video');
-        videoPreview.src = 'http://localhost:3000/'+file.path;
-        videoPreview.controls = true;
-        previewItem.appendChild(videoPreview);
-      }
+  const fileType = getFileTypeFromPath(file);
+  if (fileType === 'image') {
+    const imagePreview = document.createElement('img');
+    imagePreview.src = file;
+    previewItem.appendChild(imagePreview);
+  } else if (fileType === 'video') {
+    const videoPreview = document.createElement('video');
+    videoPreview.src = file;
+    videoPreview.controls = true;
+    previewItem.appendChild(videoPreview);
+  }
+  
+  
   
   const closeButton = document.createElement('button');
   closeButton.innerHTML = '&times;';
   closeButton.type = 'button';
   closeButton.classList.add('btn-close');
   closeButton.addEventListener('click', async () => {
-    await deleteFile(file.path);
+  const confirmMessage = "If you delete the image, it will be removed from the server even without submitting your changes. Are you sure you want to proceed?";
+  
+  if (window.confirm(confirmMessage)) {
+    await deleteFile(file);
     previewItem.remove();
     fileurl = fileurl.filter((fileUrl) => {
-  const fileurl = fileUrl.split('http://localhost:3000/')[1];
-  return fileurl !== file.path;
+      return fileUrl !== file;
+    });
+  }
 });
-    console.log(fileurl)
-
-  });
   previewItem.appendChild(closeButton);
 
   previewContainer.appendChild(previewItem);
 }
+function getFileTypeFromPath(filePath) {
+  const extension = filePath.split('.').pop().toLowerCase();
+  if (['jpg', 'jpeg', 'png', 'gif'].includes(extension)) {
+    return 'image';
+  } else if (['mp4', 'webm', 'ogg'].includes(extension)) {
+    return 'video';
+  }
+  return '';
+}
 async function deleteFile(filePath) {
+  const fileurl = filePath.split('http://localhost:3000/')[1];
+
     const apiEndpoint = 'http://localhost:3000/backend/deleteFile'; // Replace with your backend API endpoint
     const xhr = new XMLHttpRequest();
-    xhr.open('DELETE', `${apiEndpoint}?filePath=${encodeURIComponent(filePath)}`);
+    xhr.open('DELETE', `${apiEndpoint}?filePath=${encodeURIComponent(fileurl)}`);
     xhr.send();
   }
 
 
 </script>
+
   <!-- Main JS -->
   <script src="../assets/js/main.js"></script>
 <script>  

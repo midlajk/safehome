@@ -38,10 +38,10 @@
     const s = new Stepper(t, {linear: !0}),
       u = FormValidation.formValidation(e, {
         fields: {
-          plFirstName: {
+          plName: {
             validators: {notEmpty: {message: 'Please enter property name'}},
           },
-          plLastName: {
+          plShort: {
             validators: {notEmpty: {message: 'Please enter property details'}},
           },
         },

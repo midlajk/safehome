@@ -38,9 +38,10 @@ var User =
 module.exports = User;
 
 var property = new Schema({
+    uniqueId:String,
     plUserType: String,
-    plFirstName: String,
-    plLastName: String,
+    plName: String,
+    plShort: String,
     plEmail: String,
     plContact: String,
     plPropertySaleRent: String,
@@ -61,8 +62,8 @@ var property = new Schema({
     plCarpetArea: Number,
     plPlotArea: Number,
     plAvailableFrom: Date,
-    plPossessionStatus: String,
-    plTransectionType: String,
+    plCentralcooling: String,
+    plSwimmingPool: String,
     plRoadFacingRadio: String,
     plGatedColonyRadio: String,
     file: [],
@@ -72,7 +73,12 @@ var property = new Schema({
     plMaintenencePer: String,
     plBookingAmount: Number,
     plOtherAmount: Number,
-    plShowPriceRadio: String
+    plLaundryRoomRadio: String,
+    status:String,
+    plDescription:String,
+    plFurnishedStatus:String,
+    plLawnRadio:String,
+    plFireplaceCentralHeatingRadio:String
 });
 
 var Property =

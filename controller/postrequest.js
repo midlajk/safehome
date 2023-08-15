@@ -4,6 +4,7 @@ const Category = mongoose.model('Categories');
 const Places = mongoose.model('Places');
 const Property = mongoose.model('Property');
 const FormData = mongoose.model('FormData');
+const crypto = require('crypto');
 
 const fs = require('fs');
 
@@ -218,7 +219,10 @@ exports.deleteplace = async (req, res, next) => {
 exports.addProperty = async (req, res, next) => {
   try {
     const propertyData = req.body;
-    console.log(propertyData)
+    const uniqueId = crypto.randomBytes(3).toString('hex').toUpperCase();
+
+    // Append the unique ID to propertyData
+    propertyData.uniqueId = uniqueId;
   const property = new Property(propertyData);
     await property.save();
     return res.json(property);
@@ -228,19 +232,45 @@ exports.addProperty = async (req, res, next) => {
   return res.status(500).json({error: 'Server error'});
 }
 };
+exports.posteditproperty = async  (req, res) => {
+  try {
+    const id = req.body.id;
+    delete req.body.id; // Remove the ID from the request body
+    const updatedFields = req.body;
+    // Assuming you're sending the ID in the request body
+   
 
+    // Update the document in the database
+    const updatedProperty = await Property.findByIdAndUpdate(id, updatedFields, { new: true });
+
+    if (!updatedProperty) {
+      return res.status(404).json({ message: 'Property not found' });
+    }
+
+    return res.status(200).json({ message: 'Property updated successfully', property: updatedProperty });
+  } catch (error) {
+    console.error('Error updating property:', error);
+    return res.status(500).json({ message: 'An error occurred' });
+  }
+};
 
 /////
 exports.uploadFiles = ((req, res) => {
   
   // Access the uploaded files using req.files array
-  console.log(req.files);
   // const filePaths = req.files.map((file) => file.path);
   const filePaths = req.files[0]
   res.json({ filePaths });
 });
+exports.uploadeditFiles = ((req, res) => {
+  // Access the uploaded files using req.files array
+  // const filePaths = req.files.map((file) => file.path);
+  const filePaths = req.files[0].path
+  res.json({ filePaths });
+});
 
 exports.deleteFile = ((req, res) => {
+
   try {
     const { filePath } = req.query;
     console.log(filePath)
@@ -252,12 +282,27 @@ exports.deleteFile = ((req, res) => {
     return res.status(500).json({ error: 'Failed to delete file' });
     // Category successfully deleted
 } catch (error) {
-  console.error('Error deleting file:', err);
+  console.error('Error deleting file:', error);
   return res.status(500).json({ error: 'Failed to delete file' });
 }
 });
 
+exports.addfeatured =  (async (req, res) => {
+  const { id,status } = req.body;
+  try {
+      const updatedUser = await Property.findByIdAndUpdate(id, { status }, { new: true });
 
+      if (!updatedUser) {
+          return res.status(404).json({ message: 'User not found' });
+      }
+
+      return res.json({ message: 'User status updated successfully', user: updatedUser });
+  } catch (error) {
+    console.log(error)
+      console.error('Error updating user status:', error);
+      return res.status(500).json({ message: 'An error occurred' });
+  }
+});
 /////
 exports.enquiries =  (async (req, res) => {
   try {

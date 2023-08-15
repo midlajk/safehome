@@ -166,8 +166,8 @@
     function layout(property){
       return ` <%- include('./components/listlayout.ejs', {
                                 image: '${property.file[2]}',
-                                propertyname: '${property.plFirstName}',
-                                propertydetails: '${property.plLastName}',
+                                propertyname: '${property.plName}',
+                                propertydetails: '${property.plShort}',
                                 bedrooms: '${property.plBedrooms}',
                                 bathrooms: '${property.plBathrooms}',
                                 area: '${property.plTotalArea}',

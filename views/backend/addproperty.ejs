@@ -53,7 +53,7 @@
         </span>
         <span class="bs-stepper-label">
           <span class="bs-stepper-title">Property Features</span>
-          <span class="bs-stepper-subtitle">Bedrooms/Floor No</span>
+          <span class="bs-stepper-subtitle">Bedrooms/Floors</span>
         </span>
       </button>
     </div>
@@ -110,7 +110,7 @@
                       <span class="custom-option-title">Builder</span>
                       <small>List property of a Builder.</small>
                     </span>
-                    <input name="plUserType" class="form-check-input" type="radio" value="Bulder" id="customRadioBuilder" checked />
+                    <input name="plUserType" class="form-check-input" type="radio" value="Builder" id="customRadioBuilder" checked />
                   </label>
                 </div>
               </div>
@@ -142,12 +142,12 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <label class="form-label" for="plFirstName">Propey tName</label>
-            <input type="text" placeholder="Hiya Tower"  id="plFirstName" name="plFirstName" class="form-control"  />
+            <label class="form-label" for="plName">Propey tName</label>
+            <input type="text" placeholder="Hiya Tower"  id="plName" name="plName" class="form-control"  />
           </div>
           <div class="col-sm-6">
-            <label class="form-label" for="plLastName">Property Details</label>
-            <input type="text" id="plLastName" name="plLastName" class="form-control" placeholder="Best View Tower" />
+            <label class="form-label" for="plShort">Short Description</label>
+            <input type="text" id="plShort" name="plShort" class="form-control" placeholder="Best View Tower" />
           </div>
          
           <div class="col-sm-6">
@@ -230,10 +230,7 @@
 
             </select>
           </div>
-          <div class="col-sm-6">
-            <label class="form-label" for="plZipCode">Zip Code</label>
-            <input type="number" id="plZipCode" name="plZipCode" class="form-control" placeholder="99950" />
-          </div>
+     
           <div class="col-sm-6">
             <label class="form-label" for="plCountry">Location</label>
             <select id="plCountry" name="plCountry" class="select2 form-select" data-allow-clear="true">
@@ -248,10 +245,7 @@
             <label class="form-label" for="plState">Area</label>
             <input type="text" id="plState" name="plState" class="form-control" placeholder="Dubai Center" />
           </div>
-          <div class="col-sm-6">
-            <label class="form-label" for="plCity">City</label>
-            <input type="text" id="plCity" name="plCity" class="form-control" placeholder="Los Angeles" />
-          </div>
+    
           <div class="col-sm-6">
             <label class="form-label" for="plLandmark">Landmark</label>
             <input type="text" id="plLandmark" name="plLandmark" class="form-control" placeholder="Nr. Hard Rock Cafe" />
@@ -259,6 +253,10 @@
           <div class="col-lg-12">
             <label class="form-label" for="plAddress">Address</label>
             <textarea id="plAddress" name="plAddress" class="form-control" rows="2" placeholder="12, Business Park"></textarea>
+          </div>
+          <div class="col-lg-12">
+            <label class="form-label" for="plDescription">Description</label>
+            <textarea id="plDescription" name="plDescription" class="form-control" rows="2" placeholder="Anything about the property"></textarea>
           </div>
           <div class="col-12 d-flex justify-content-between">
             <button class="btn btn-primary btn-prev"> <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i> <span class="align-middle d-sm-inline-block d-none">Previous</span> </button>
@@ -275,7 +273,7 @@
             <input type="number" id="plBedrooms" name="plBedrooms" class="form-control" placeholder="3" />
           </div>
           <div class="col-sm-6">
-            <label class="form-label" for="plFloorNo">Floor No</label>
+            <label class="form-label" for="plFloorNo">Floors</label>
             <input type="number" id="plFloorNo" name="plFloorNo" class="form-control" placeholder="12" />
           </div>
           <div class="col-sm-6">
@@ -299,22 +297,22 @@
           <div class="col-sm-6">
             <label class="form-label">Is there any common area?</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plCommonAreaRadio" id="plCommonAreaRadioYes" checked>
+              <input class="form-check-input" value="Yes" type="radio" name="plCommonAreaRadio" id="plCommonAreaRadioYes" checked>
               <label class="form-check-label" for="plCommonAreaRadioYes">Yes</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plCommonAreaRadio" id="plCommonAreaRadioNo">
+              <input class="form-check-input" value="No" type="radio" name="plCommonAreaRadio" id="plCommonAreaRadioNo">
               <label class="form-check-label" for="plCommonAreaRadioNo">No</label>
             </div>
           </div>
           <div class="col-sm-6">
             <label class="form-label">Is there any attached balcony?</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plAttachedBalconyRadio" id="plAttachedBalconyRadioYes" checked>
+              <input class="form-check-input" value="Yes" type="radio" name="plAttachedBalconyRadio" id="plAttachedBalconyRadioYes" checked>
               <label class="form-check-label" for="plAttachedBalconyRadioYes">Yes</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plAttachedBalconyRadio" id="plAttachedBalconyRadioNo">
+              <input class="form-check-input" value="No" type="radio" name="plAttachedBalconyRadio" id="plAttachedBalconyRadioNo">
               <label class="form-check-label" for="plAttachedBalconyRadioNo">No</label>
             </div>
           </div>
@@ -354,46 +352,46 @@
             <input type="text" id="plAvailableFrom" name="plAvailableFrom" class="form-control flatpickr" placeholder="YYYY-MM-DD" />
           </div>
           <div class="col-sm-6">
-            <label class="form-label">Possession Status</label>
+            <label class="form-label">Central Cooling</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plPossessionStatus" id="plUnderConstruction" checked>
-              <label class="form-check-label" for="plUnderConstruction">Under Construction</label>
+              <input class="form-check-input" value="Available" type="radio" name="plCentralcooling" id="plCoolingAvailable" checked>
+              <label class="form-check-label" for="plCoolingAvailable">Available</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plPossessionStatus" id="plReadyToMoveRadio">
-              <label class="form-check-label" for="plReadyToMoveRadio">Ready to Move</label>
+              <input class="form-check-input" value="Not Available" type="radio" name="plCentralcooling" id="plCoolingNOt">
+              <label class="form-check-label" for="plCoolingNOt">Not Available</label>
             </div>
           </div>
           <div class="col-sm-6">
-            <label class="form-label">Transaction Type</label>
+            <label class="form-label">Swimming Pool</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plTransectionType" id="plNewProperty" checked>
-              <label class="form-check-label" for="plNewProperty">New Property</label>
+              <input class="form-check-input" value="Available" type="radio" name="plSwimmingPool" id="plSwimmingpoolavailable" checked>
+              <label class="form-check-label" for="plSwimmingpoolavailable">Available</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plTransectionType" id="plResaleProperty">
-              <label class="form-check-label" for="plResaleProperty">Resale</label>
+              <input class="form-check-input" value="Not Available" type="radio" name="plSwimmingPool" id="plSwimmingpoolnot">
+              <label class="form-check-label" for="plSwimmingpoolnot">Not Available</label>
             </div>
           </div>
           <div class="col-sm-6">
             <label class="form-label">Is Property Facing Main Road?</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plRoadFacingRadio" id="plRoadFacingRadioYes" checked>
+              <input class="form-check-input" value="Yes" type="radio" name="plRoadFacingRadio" id="plRoadFacingRadioYes" checked>
               <label class="form-check-label" for="plRoadFacingRadioYes">Yes</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plRoadFacingRadio" id="plRoadFacingRadioNo">
+              <input class="form-check-input" value="No" type="radio" name="plRoadFacingRadio" id="plRoadFacingRadioNo">
               <label class="form-check-label" for="plRoadFacingRadioNo">No</label>
             </div>
           </div>
           <div class="col-sm-6">
             <label class="form-label">Gated Colony?</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plGatedColonyRadio" id="plGatedColonyRadioYes" checked>
+              <input class="form-check-input" value="Yes" type="radio" name="plGatedColonyRadio" id="plGatedColonyRadioYes" checked>
               <label class="form-check-label" for="plGatedColonyRadioYes">Yes</label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="plGatedColonyRadio" id="plGatedColonyRadioNo">
+              <input class="form-check-input" value="No" type="radio" name="plGatedColonyRadio" id="plGatedColonyRadioNo">
               <label class="form-check-label" for="plGatedColonyRadioNo">No</label>
             </div>
           </div>
@@ -457,11 +455,10 @@
           <div class="col-sm-6">
             <label class="form-label" for="plMaintenencePer">Maintenance</label>
             <select id="plMaintenencePer" name="plMaintenencePer" class="form-select">
-              <option value="1" selected>Monthly</option>
-              <option value="2">Quarterly</option>
-              <option value="3">Yearly</option>
-              <option value="3">One-time</option>
-              <option value="3">Per sqft. Monthly</option>
+              <option value="Monthly" selected>Monthly</option>
+              <option value="Quarterly">Quarterly</option>
+              <option value="Yearly">Yearly</option>
+              <option value="One-time">One-time</option>
             </select>
           </div>
           <div class="col-sm-6">
@@ -471,25 +468,42 @@
               <span class="input-group-text" id="pl-booking-amount">$</span>
             </div>
           </div>
-          <div class="col-sm-6">
-            <label class="form-label d-block" for="plOtherAmount">Other Amount</label>
-            <div class="input-group input-group-merge">
-              <input type="number" class="form-control" id="plOtherAmount" name="plOtherAmount" placeholder="500" aria-describedby="pl-other-amount">
-              <span class="input-group-text" id="pl-other-amount">$</span>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <label class="form-label">Show Price as</label>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="plShowPriceRadio" id="plNagotiablePrice" checked>
-              <label class="form-check-label" for="plNagotiablePrice">Negotiable</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="plShowPriceRadio" id="plCallForPrice">
-              <label class="form-check-label" for="plCallForPrice">Call for Price</label>
-            </div>
-          </div>
           
+          <div class="col-sm-6">
+  <label class="form-label">Laundry Room</label>
+  <div class="form-check">
+    <input class="form-check-input" value="Available" type="radio" name="plLaundryRoomRadio" id="plLaundryRoomAvailable" checked>
+    <label class="form-check-label" for="plLaundryRoomAvailable">Laundry Available</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" value="Not Available" type="radio" name="plLaundryRoomRadio" id="plLaundryRoomNotAvailable">
+    <label class="form-check-label" for="plLaundryRoomNotAvailable">Laundry Not Available</label>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <label class="form-label">Fire Place / Central Heating</label>
+  <div class="form-check">
+    <input class="form-check-input" value="Available" type="radio" name="plFireplaceCentralHeatingRadio" id="plFireplaceCentralHeatingAvailable" checked>
+    <label class="form-check-label" for="plFireplaceCentralHeatingAvailable">Available</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" value="Not Available" type="radio" name="plFireplaceCentralHeatingRadio" id="plFireplaceCentralHeatingNotAvailable">
+    <label class="form-check-label" for="plFireplaceCentralHeatingNotAvailable">Not Available</label>
+  </div>
+</div>
+<div class="col-sm-6">
+  <label class="form-label">Lawn</label>
+  <div class="form-check">
+    <input class="form-check-input" value="Available" type="radio" name="plLawnRadio" id="plLawnAvailable" checked>
+    <label class="form-check-label" for="plLawnAvailable">Available</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" value="Not Available" type="radio" name="plLawnRadio" id="plLawnNotAvailable">
+    <label class="form-check-label" for="plLawnNotAvailable">Not Available</label>
+  </div>
+</div>
+    
          
           <div class="col-12 d-flex justify-content-between">
             <button class="btn btn-primary btn-prev"> <i class="bx bx-chevron-left bx-sm ms-sm-n2"></i> <span class="align-middle d-sm-inline-block d-none">Previous</span> </button>
@@ -534,7 +548,7 @@
         .then((response) => response.json())
         .then((data) => {
           // Handle the API response if needed
-          console.log(data);
+          location.reload();
           // Show a success message, redirect, or perform other actions here
         })
         .catch((error) => {

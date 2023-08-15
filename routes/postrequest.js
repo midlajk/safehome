@@ -26,9 +26,15 @@ router.post('/deleteplace',isadminapi, Posts.deleteplace);
 
 // router.get('/service', Posts.services);
 router.post('/addproperty',isadminapi, Posts.addProperty);
+router.post('/posteditproperty',isadminapi, Posts.posteditproperty);
+
 ///
 router.delete('/deleteFile',isadminapi, Posts.deleteFile);
 router.post('/uploadFiles',isadminapi, Posts.uploadFiles);
+router.post('/uploadeditFiles',isadminapi, Posts.uploadeditFiles);
+
+router.post('/addfeatured',isadminapi, Posts.addfeatured);
+
 ////
 router.post('/enquiries', Posts.enquiries);
 

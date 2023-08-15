@@ -14,6 +14,7 @@
                     <table class="table" id="example">
                         <thead>
                             <tr>
+                              <th>Property Id</th>
                                 <th>Property Name</th>
                                 <th>Property</th>
                                 <th>Listed for</th>
@@ -52,82 +53,103 @@
 <!-- / Layout wrapper -->
 
 
- <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
-    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="../assets/vendor/libs/jquery/jquery.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
-    <script src="../assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
 
-    <!-- Vendors JS -->
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
-    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
-    <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
+<script>
+  $(document).ready(function () {
+    var routeName = '<%= route %>';
+    var geturl =  routeName=='featured' ?'featuredpropertieslist':'propertieslist'  // Assuming you're passing this variable from EJS
+    var buttonname =  routeName=='featured' ?'Remove From Featured':'Add To Featured'  // Assuming you're passing this variable from EJS
 
-    <!-- Page JS -->
-    <script src="../assets/js/ui-modals.js"></script>
-    <script>
-      $(document).ready(function () {
-        var dataTable = $('#example').DataTable({
-          processing: true,
-          serverSide: true,
-          ajax: {
-            url: 'http://localhost:3000/backend/propertieslist', // Replace with your API endpoint
-            dataSrc: 'data', // Key that holds the array of data in the API response
-            data: function (d) {
-// Add any additional parameters you want to send to the server here
-},
-// You can also modify the response data here, if needed
-// For example, if your server returns data in a different format than expected by DataTables
-dataSrc: 'data',
+    var dataTable = $('#example').DataTable({
+      processing: true,
+      serverSide: true,
+      ajax: {
+        url: 'http://localhost:3000/backend/'+geturl, // Replace with your API endpoint
+        dataSrc: 'data', // Key that holds the array of data in the API response
+        data: function (d) {
+          // Add any additional parameters you want to send to the server here
+        },
+      },
+      columns: [
+        {data: 'uniqueId'},
+        { data: 'plName' },
+        { data: 'plPropertyType' },
+        { data: 'plPropertySaleRent' },
+        { data: 'plCountry' },
+        { data: 'plExpeactedPrice' },
+        {
+          data: null,
+          render: function (data, type, row) {
+            return `<div class="dropdown">
+              <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                <i class="bx bx-dots-vertical-rounded"></i>
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item featured-button" href="javascript:void(0);"><i class="bx bx-star me-1"></i>${buttonname} </a>
+                <a class="dropdown-item" href="/backend/editproperties?id=${row._id}"><i class="bx bx-edit me-1"></i> Edit /View </a>
+                <a class="dropdown-item delete-btn" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+              </div>
+            </div>`;
           },
-          columns: [
-            { data: 'plFirstName' },
-            { data: 'plPropertyType' },
-            { data: 'plPropertySaleRent' },
-            { data: 'plCountry' },
-            { data: 'plExpeactedPrice' },
-            {
-              data: null,
-              render: function (data, type, row) {
-                return `
-                  <div class="dropdown">
-                   
-                      <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit me-1"></i> Edit /View </a>
-                      <a class="dropdown-item delete-btn" data-id="${row.id}" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
-                  </div>
-                `;
-              },
-            },
-          ],
-        });
-     
-       // Delete Button Click Event
-$('#example').on('click', '.delete-btn', function () {
-var data = dataTable.row($(this).closest('tr')).data();
+        },
+      ],
+    });
 
-var id = data._id; // Assuming you have an "id" property in your data
+    // Delete Button Click Event
+    function deleteData(id) {
+    $.ajax({
+      url: `http://localhost:3000/backend/deleteproperty/${id}`,
+      type: 'DELETE',
+      success: function (response) {
+        dataTable.ajax.reload();
+      },
+      error: function (error) {
+        console.error('Error deleting data:', error);
+      },
+    });
+  }
 
-// Make API request to delete data
-$.ajax({
-url: `http://localhost:3000/backend/deleteproperty/${id}`, // Replace with your server endpoint for deleting data
-type: 'DELETE',
-success: function (response) {
-// On successful deletion, update the DataTable
-dataTable.ajax.reload();
-},
-error: function (error) {
-console.error('Error deleting data:', error);
-// Handle error, show error message, etc.
-},
-});
+  function toggleFeatured(id, isFeatured) {
+    var formDataObj = { id: id, status: isFeatured ? 'notfeatured' : 'featured' };
 
-}); 
-});
-    </script>
+    $.ajax({
+      url: `http://localhost:3000/backend/addfeatured`,
+      type: 'POST',
+      data: JSON.stringify(formDataObj),
+      contentType: 'application/json',
+      success: function (response) {
+        dataTable.ajax.reload();
+      },
+      error: function (error) {
+        console.error('Error updating data:', error);
+      },
+    });
+  }
+
+  $('#example').on('click', '.delete-btn', function () {
+    var data = dataTable.row($(this).closest('tr')).data();
+    var id = data._id;
+    deleteData(id);
+  });
+
+  $('#example').on('click', '.featured-button', function () {
+    var data = dataTable.row($(this).closest('tr')).data();
+    var id = data._id;
+    
+    if (routeName === 'featured') {
+      toggleFeatured(id, true); // Remove from Featured
+    } else if (routeName === 'properties') {
+      toggleFeatured(id, false); // Add to Featured
+    }
+  });
+ });
+</script>
+
 
                                     
                                         <%- include('./include/end.ejs') -%>

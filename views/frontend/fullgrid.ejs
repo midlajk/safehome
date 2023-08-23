@@ -1,0 +1,98 @@
+<%- include('./includes/head.ejs') -%>
+<%- include('./includes/menu.ejs') -%>
+
+      <!-- Slider -->
+      <%- include('./components/banner.ejs',{screenname:'Search Results'}) -%>
+      <%- include('./components/searcher.ejs') -%>
+
+      <!-- End Slider -->
+
+      <!-- End Slider -->
+
+      <!-- /.rh_prop_search -->
+      <div class="wrapper-home-sections" style="margin-top: 30px;">
+        <section id="properties-listing" class="rh_section rh_section--flex rh_wrap--padding rh_wrap--topPadding ">
+          <div class="rh_page rh_page__listing_page listing__list_fullwidth rh_page__main">
+    
+        
+    <div class="rh_page__head">
+    
+     
+          <p
+            class="rh_pagination__stats">
+          
+          </p><!-- /.rh_pagination__stats -->
+    
+        <div class="rh_page__controls">
+        <div class="rh_sort_controls">
+        <select name="sort-properties" id="sort-properties" class="inspiry_select_picker_trigger inspiry_bs_default_mod inspiry_bs_listing inspiry_bs_green">
+          <option value="default">Default Order</option>
+                  
+          <option value="price-asc">Price Low to High</option>
+          <option value="price-desc">Price High to Low</option>
+          <option value="date-asc">Date Old to New</option>
+          <option value="date-desc" selected>Date New to Old</option>
+      </select>
+    </div><!-- /.rh_sort_controls -->    </div>
+        <!-- /.rh_page__controls -->
+    
+    </div><!-- /.rh_page__head -->
+    
+                  <div class="rh_content rh_content_above_footer  ">
+                  </div>
+            <!-- /.rh_content -->
+        
+    
+    
+    
+            <div class="rh_page__listing">
+              <div class="activity-indicator">
+                Loading....
+                <!-- Add your activity indicator HTML here -->
+            </div>
+        
+              <!-- /.rh_list_card -->
+            </div>
+    
+        <div class='rh_pagination'>
+           </div>
+        </div>
+        <!-- /.rh_page rh_page__main -->
+    
+    </section>
+      </div>
+      
+      <%- include('./components/footer.ejs') -%>
+
+    </div>
+    <a href="#top" id="scroll-top" class="stp_right"
+      ><i class="fas fa-chevron-up"></i
+    ></a>
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+
+ <script>
+  $(document).ready(function() {
+    $('.inspiry_show_on_doc_ready').show();
+
+  })
+  var pagename = '<%= route %>';
+  var propertytype = '<%= propertytype %>';
+
+    function layout(property){
+      return ` <%- include('./components/listlayout.ejs', {
+                                image: '${property.file[0]}',
+                                propertyname: '${property.plName}',
+                                propertydetails: '${property.plShort}',
+                                bedrooms: '${property.plBedrooms}',
+                                bathrooms: '${property.plBathrooms}',
+                                area: '${property.plTotalArea}',
+                                price: '${property.plExpeactedPrice}',
+                                propertyid:'${property._id}'
+                            }) -%>`
+    }
+  </script>
+   <script
+   type="text/javascript"
+   src="../frontendscripts/getfullgrid.js"></script>
+ 
+    <%- include('./includes/end.ejs') -%>

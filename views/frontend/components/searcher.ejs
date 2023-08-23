@@ -1,8 +1,8 @@
 <div class="inspiry_show_on_doc_ready rh_prop_search rh_prop_search_init">
     <form
       class="rh_prop_search__form rh_prop_search_form_header advance-search-form"
-      action="https://modern.realhomes.io/properties-search/"
-      method="get"
+      action="/search"
+      method="post"
     >
       <div class="rh_prop_search__fields">
         <div
@@ -47,8 +47,10 @@
                   data-size="5"
                 >
                   <option value="any" selected="selected">Any</option>
-                  <option value="for-rent">For Rent</option>
-                  <option value="for-sale">For Sale</option>
+                  <option value="Sale">For Rent</option>
+                  <option value="Rent">For Sale</option>
+                  <option value="Offplan">Off Plan</option>
+
                 </select>
               </span>
             </div>
@@ -70,17 +72,18 @@
                   title="All Types"
                   data-count-selected-text="{0}  Types Selected "
                 >
-                  <option value="commercial">Commercial</option>
-                  <option value="office">- Office</option>
-                  <option value="shop">- Shop</option>
-                  <option value="residential">Residential</option>
-                  <option value="apartment">- Apartment</option>
-                  <option value="apartment-building">
-                    - Apartment Building
-                  </option>
-                  <option value="condominium">- Condominium</option>
-                  <option value="single-family">- Single Family</option>
-                  <option value="villa">- Villa</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Flat">Flat</option>
+                <option value="Residential House">Residential House</option>
+                <option value="Villa">Villa</option>
+                <option value="Builder Floor Apartment">Builder Floor Apartment</option>
+                <option value="Residential Land/ Plot">Residential Land/ Plot</option>
+                <option value="Penthouse">Penthouse</option>
+                <option value="Studio Apartment">Studio Apartment</option>
+                <option value="Commercial">Commercial</option>
+                <option value="Office">Office</option>
+                <option value="Shop">Shop</option>
+  
                 </select>
               </span>
             </div>
@@ -148,24 +151,24 @@
                   data-size="5"
                 >
                   <option value="any" selected="selected">Any</option>
-                  <option value="1000">$1,000</option>
-                  <option value="5000">$5,000</option>
-                  <option value="10000">$10,000</option>
-                  <option value="50000">$50,000</option>
-                  <option value="100000">$100,000</option>
-                  <option value="200000">$200,000</option>
-                  <option value="300000">$300,000</option>
-                  <option value="400000">$400,000</option>
-                  <option value="500000">$500,000</option>
-                  <option value="600000">$600,000</option>
-                  <option value="700000">$700,000</option>
-                  <option value="800000">$800,000</option>
-                  <option value="900000">$900,000</option>
-                  <option value="1000000">$1,000,000</option>
-                  <option value="1500000">$1,500,000</option>
-                  <option value="2000000">$2,000,000</option>
-                  <option value="2500000">$2,500,000</option>
-                  <option value="5000000">$5,000,000</option>
+                  <option value="1000">1,000</option>
+                  <option value="5000">5,000</option>
+                  <option value="10000">10,000</option>
+                  <option value="50000">50,000</option>
+                  <option value="100000">100,000</option>
+                  <option value="200000">200,000</option>
+                  <option value="300000">300,000</option>
+                  <option value="400000">400,000</option>
+                  <option value="500000">500,000</option>
+                  <option value="600000">600,000</option>
+                  <option value="700000">700,000</option>
+                  <option value="800000">800,000</option>
+                  <option value="900000">900,000</option>
+                  <option value="1000000">1,000,000</option>
+                  <option value="1500000">1,500,000</option>
+                  <option value="2000000">2,000,000</option>
+                  <option value="2500000">2,500,000</option>
+                  <option value="5000000">5,000,000</option>
                 </select>
               </span>
             </div>
@@ -182,24 +185,24 @@
                   data-size="5"
                 >
                   <option value="any" selected="selected">Any</option>
-                  <option value="5000">$5,000</option>
-                  <option value="10000">$10,000</option>
-                  <option value="50000">$50,000</option>
-                  <option value="100000">$100,000</option>
-                  <option value="200000">$200,000</option>
-                  <option value="300000">$300,000</option>
-                  <option value="400000">$400,000</option>
-                  <option value="500000">$500,000</option>
-                  <option value="600000">$600,000</option>
-                  <option value="700000">$700,000</option>
-                  <option value="800000">$800,000</option>
-                  <option value="900000">$900,000</option>
-                  <option value="1000000">$1,000,000</option>
-                  <option value="1500000">$1,500,000</option>
-                  <option value="2000000">$2,000,000</option>
-                  <option value="2500000">$2,500,000</option>
-                  <option value="5000000">$5,000,000</option>
-                  <option value="10000000">$10,000,000</option>
+                  <option value="5000">5,000</option>
+                  <option value="10000">10,000</option>
+                  <option value="50000">50,000</option>
+                  <option value="100000">100,000</option>
+                  <option value="200000">200,000</option>
+                  <option value="300000">300,000</option>
+                  <option value="400000">400,000</option>
+                  <option value="500000">500,000</option>
+                  <option value="600000">600,000</option>
+                  <option value="700000">700,000</option>
+                  <option value="800000">800,000</option>
+                  <option value="900000">900,000</option>
+                  <option value="1000000">1,000,000</option>
+                  <option value="1500000">1,500,000</option>
+                  <option value="2000000">2,000,000</option>
+                  <option value="2500000">2,500,000</option>
+                  <option value="5000000">5,000,000</option>
+                  <option value="10000000">10,000,000</option>
                 </select>
               </span>
             </div>
@@ -217,22 +220,22 @@
                   disabled="disabled"
                 >
                   <option value="any" selected="selected">Any</option>
-                  <option value="500">$500</option>
-                  <option value="1000">$1,000</option>
-                  <option value="2000">$2,000</option>
-                  <option value="3000">$3,000</option>
-                  <option value="4000">$4,000</option>
-                  <option value="5000">$5,000</option>
-                  <option value="7500">$7,500</option>
-                  <option value="10000">$10,000</option>
-                  <option value="15000">$15,000</option>
-                  <option value="20000">$20,000</option>
-                  <option value="25000">$25,000</option>
-                  <option value="30000">$30,000</option>
-                  <option value="40000">$40,000</option>
-                  <option value="50000">$50,000</option>
-                  <option value="75000">$75,000</option>
-                  <option value="100000">$100,000</option>
+                  <option value="500">500</option>
+                  <option value="1000">1,000</option>
+                  <option value="2000">2,000</option>
+                  <option value="3000">3,000</option>
+                  <option value="4000">4,000</option>
+                  <option value="5000">5,000</option>
+                  <option value="7500">7,500</option>
+                  <option value="10000">10,000</option>
+                  <option value="15000">15,000</option>
+                  <option value="20000">20,000</option>
+                  <option value="25000">25,000</option>
+                  <option value="30000">30,000</option>
+                  <option value="40000">40,000</option>
+                  <option value="50000">50,000</option>
+                  <option value="75000">75,000</option>
+                  <option value="100000">100,000</option>
                 </select>
               </span>
             </div>
@@ -250,22 +253,22 @@
                   disabled="disabled"
                 >
                   <option value="any" selected="selected">Any</option>
-                  <option value="1000">$1,000</option>
-                  <option value="2000">$2,000</option>
-                  <option value="3000">$3,000</option>
-                  <option value="4000">$4,000</option>
-                  <option value="5000">$5,000</option>
-                  <option value="7500">$7,500</option>
-                  <option value="10000">$10,000</option>
-                  <option value="15000">$15,000</option>
-                  <option value="20000">$20,000</option>
-                  <option value="25000">$25,000</option>
-                  <option value="30000">$30,000</option>
-                  <option value="40000">$40,000</option>
-                  <option value="50000">$50,000</option>
-                  <option value="75000">$75,000</option>
-                  <option value="100000">$100,000</option>
-                  <option value="150000">$150,000</option>
+                  <option value="1000">1,000</option>
+                  <option value="2000">2,000</option>
+                  <option value="3000">3,000</option>
+                  <option value="4000">4,000</option>
+                  <option value="5000">5,000</option>
+                  <option value="7500">7,500</option>
+                  <option value="10000">10,000</option>
+                  <option value="15000">15,000</option>
+                  <option value="20000">20,000</option>
+                  <option value="25000">25,000</option>
+                  <option value="30000">30,000</option>
+                  <option value="40000">40,000</option>
+                  <option value="50000">50,000</option>
+                  <option value="75000">75,000</option>
+                  <option value="100000">100,000</option>
+                  <option value="150000">150,000</option>
                 </select>
               </span>
             </div>
@@ -273,7 +276,7 @@
             <div
               class="rh_prop_search__option rh_prop_search__select rh_garages_field_wrapper inspiry_select_picker_field"
             >
-              <label for="select-garages"> Min Garages </label>
+              <label for="select-garages"> Furnished Status</label>
               <span class="rh_prop_search__selectwrap">
                 <select
                   name="garages"
@@ -282,43 +285,14 @@
                   data-size="5"
                 >
                   <option value="any" selected="selected">Any</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
+                  <option value="Fully furnished">Fully furnished</option>
+              <option value="Furnished">Furnished</option>
+              <option value="Semi furnished">Semi furnished</option>
+              <option value="Unfurnished">Unfurnished</option>
                 </select>
               </span>
             </div>
-            <div
-              class="rh_prop_search__option rh_prop_search__select rh_agent_field_wrapper inspiry_select_picker_field"
-            >
-              <label for="select-agent"> Agent </label>
-              <span class="rh_prop_search__selectwrap">
-                <select
-                  name="agents[]"
-                  id="select-agent"
-                  class="inspiry_select_picker_trigger show-tick"
-                  data-selected-text-format="count > 2"
-                  data-size="5"
-                  data-actions-box="true"
-                  data-live-search="true"
-                  title="All Agents"
-                  data-count-selected-text="{0} Agents Selected"
-                  multiple
-                >
-                  <option value="57">Nathan James</option>
-                  <option value="54">Melissa William</option>
-                  <option value="51">Alice Brian</option>
-                  <option value="48">John David</option>
-                </select>
-              </span>
-            </div>
+            
             <div
               class="rh_prop_search__option rh_mod_text_field rh_min_area_field_wrapper"
             >
@@ -392,6 +366,7 @@
               <div
                 class="more-options-wrapper more-options-wrapper-mode clearfix checkbox"
               >
+             
                 <div class="option-bar">
                   <input
                     type="checkbox"
@@ -400,18 +375,19 @@
                     value="2-stories"
                   />
                   <label for="feature-2-stories"
-                    >2 Stories <small>(6)</small></label
+                    >2 Stories </label
                   >
                 </div>
+               
                 <div class="option-bar">
                   <input
                     type="checkbox"
                     id="feature-26-ceilings"
                     name="features[]"
-                    value="26-ceilings"
+                    value="nearcommonarea"
                   />
                   <label for="feature-26-ceilings"
-                    >26&#039; Ceilings <small>(1)</small></label
+                    >Near Common Area</label
                   >
                 </div>
                 <div class="option-bar">
@@ -419,10 +395,10 @@
                     type="checkbox"
                     id="feature-bike-path"
                     name="features[]"
-                    value="bike-path"
+                    value="attahed-balcony"
                   />
                   <label for="feature-bike-path"
-                    >Bike Path <small>(2)</small></label
+                    >Attached Balcony</label
                   >
                 </div>
                 <div class="option-bar">
@@ -433,7 +409,7 @@
                     value="central-cooling"
                   />
                   <label for="feature-central-cooling"
-                    >Central Cooling <small>(5)</small></label
+                    >Central Cooling</label
                   >
                 </div>
                 <div class="option-bar">
@@ -444,7 +420,7 @@
                     value="central-heating"
                   />
                   <label for="feature-central-heating"
-                    >Central Heating <small>(5)</small></label
+                    >Central Heating</label
                   >
                 </div>
                 <div class="option-bar">
@@ -452,10 +428,10 @@
                     type="checkbox"
                     id="feature-dual-sinks"
                     name="features[]"
-                    value="dual-sinks"
+                    value="facing-main-road"
                   />
                   <label for="feature-dual-sinks"
-                    >Dual Sinks <small>(7)</small></label
+                    >Facing Main Road</label
                   >
                 </div>
                 <div class="option-bar">
@@ -463,34 +439,13 @@
                     type="checkbox"
                     id="feature-electric-range"
                     name="features[]"
-                    value="electric-range"
+                    value="gated-colony"
                   />
                   <label for="feature-electric-range"
-                    >Electric Range <small>(7)</small></label
+                    >Gated Colony</label
                   >
                 </div>
-                <div class="option-bar">
-                  <input
-                    type="checkbox"
-                    id="feature-emergency-exit"
-                    name="features[]"
-                    value="emergency-exit"
-                  />
-                  <label for="feature-emergency-exit"
-                    >Emergency Exit <small>(3)</small></label
-                  >
-                </div>
-                <div class="option-bar">
-                  <input
-                    type="checkbox"
-                    id="feature-fire-alarm"
-                    name="features[]"
-                    value="fire-alarm"
-                  />
-                  <label for="feature-fire-alarm"
-                    >Fire Alarm <small>(4)</small></label
-                  >
-                </div>
+              
                 <div class="option-bar">
                   <input
                     type="checkbox"
@@ -499,42 +454,11 @@
                     value="fire-place"
                   />
                   <label for="feature-fire-place"
-                    >Fire Place <small>(5)</small></label
+                    >Fire Place</label
                   >
                 </div>
-                <div class="option-bar">
-                  <input
-                    type="checkbox"
-                    id="feature-home-theater"
-                    name="features[]"
-                    value="home-theater"
-                  />
-                  <label for="feature-home-theater"
-                    >Home Theater <small>(3)</small></label
-                  >
-                </div>
-                <div class="option-bar">
-                  <input
-                    type="checkbox"
-                    id="feature-hurricane-shutters"
-                    name="features[]"
-                    value="hurricane-shutters"
-                  />
-                  <label for="feature-hurricane-shutters"
-                    >Hurricane Shutters <small>(1)</small></label
-                  >
-                </div>
-                <div class="option-bar">
-                  <input
-                    type="checkbox"
-                    id="feature-jog-path"
-                    name="features[]"
-                    value="jog-path"
-                  />
-                  <label for="feature-jog-path"
-                    >Jog Path <small>(1)</small></label
-                  >
-                </div>
+            
+               
                 <div class="option-bar">
                   <input
                     type="checkbox"
@@ -543,7 +467,7 @@
                     value="laundry-room"
                   />
                   <label for="feature-laundry-room"
-                    >Laundry Room <small>(4)</small></label
+                    >Laundry Room</label
                   >
                 </div>
                 <div class="option-bar">
@@ -553,30 +477,10 @@
                     name="features[]"
                     value="lawn"
                   />
-                  <label for="feature-lawn">Lawn <small>(5)</small></label>
+                  <label for="feature-lawn">Lawn </label>
                 </div>
-                <div class="option-bar">
-                  <input
-                    type="checkbox"
-                    id="feature-marble-floors"
-                    name="features[]"
-                    value="marble-floors"
-                  />
-                  <label for="feature-marble-floors"
-                    >Marble Floors <small>(6)</small></label
-                  >
-                </div>
-                <div class="option-bar">
-                  <input
-                    type="checkbox"
-                    id="feature-next-to-busy-way"
-                    name="features[]"
-                    value="next-to-busy-way"
-                  />
-                  <label for="feature-next-to-busy-way"
-                    >Next To Busy Way <small>(1)</small></label
-                  >
-                </div>
+             
+             
                 <div class="option-bar">
                   <input
                     type="checkbox"
@@ -585,7 +489,7 @@
                     value="swimming-pool"
                   />
                   <label for="feature-swimming-pool"
-                    >Swimming Pool <small>(5)</small></label
+                    >Swimming Pool</label
                   >
                 </div>
               </div>

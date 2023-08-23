@@ -246,9 +246,7 @@ a {
 a:hover {
   color: var(--bs-link-hover-color);
 }
-a.active {
-  color: var(--bs-link-hover-color);
-}
+
 a:not([href]):not([class]),
 a:not([href]):not([class]):hover {
   color: inherit;

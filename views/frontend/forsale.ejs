@@ -125,14 +125,15 @@
     var pagename = '<%= route %>';
     function layout(property){
       return ` <%- include('./components/listlayout.ejs', {
-                                image: '${property.file[2]}',
+                               image: '${property.file[0]}',
                                 propertyname: '${property.plName}',
                                 propertydetails: '${property.plShort}',
                                 bedrooms: '${property.plBedrooms}',
                                 bathrooms: '${property.plBathrooms}',
                                 area: '${property.plTotalArea}',
                                 price: '${property.plExpeactedPrice}',
-                                propertyid:'${property._id}'
+                                propertyid:'${property._id}',
+                                saletype:'${property.plPropertySaleRent}'
                             }) -%>`
     }
   </script>

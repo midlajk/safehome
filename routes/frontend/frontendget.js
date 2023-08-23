@@ -169,7 +169,6 @@ router.get('/miniforsale', async (req, res) => {
       { $match: { plPropertySaleRent: 'Sale' } }, // Match the desired condition
       { $sample: { size: 3 } } // Retrieve 3 random documents
     ]).exec()
-    console.log(propertiesForPage )
 
       res.json({
           properties: propertiesForPage,

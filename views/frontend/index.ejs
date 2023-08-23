@@ -287,7 +287,7 @@ data-settings='{"stretch_section":"section-stretched","background_background":"c
                 >
 
                 <h2 class="rh_section__title">
-                  Featured Properties
+                  For Sale Properties
                 </h2>
 
                 <p class="rh_section__desc">
@@ -371,9 +371,9 @@ data-settings='{"stretch_section":"section-stretched","background_background":"c
                   <!--  Section  Name -->
     
                   <%- include('./components/sectionnames.ejs', { 
-                    sectionName: "For Sale", 
-                    title: "Properties", 
-                    description: "Checkout our properties for sale" 
+                    sectionName: "Random Properties", 
+                    title: "Other Properties", 
+                    description: "Checkout out other properties" 
                   }) -%>
     <!--  Properties  For sale -->
     
@@ -880,27 +880,30 @@ $(document).ready(function() {
 });
 function layout(property){
       return ` <%- include('./components/cardsection.ejs', {
-                                image: '${property.file[2]}',
+                               image: '${property.file[0]}',
                                 propertyname: '${property.plName}',
                                 propertydetails: '${property.plShort}',
                                 bedrooms: '${property.plBedrooms}',
                                 bathrooms: '${property.plBathrooms}',
                                 area: '${property.plTotalArea}',
                                 price: '${property.plExpeactedPrice}',
-                                propertyid:'${property._id}'
+                                propertyid:'${property._id}',
+                                saletype:'${property.plPropertySaleRent}'
                             }) -%>`
     }
     function slides(property){
 
       return ` <%- include('./components/featuredslide.ejs', {
-                                image: '${property.file[0]}',
+                               image: '${property.file[0]}',
                                 propertyname: '${property.plName}',
                                 propertydetails: '${property.plShort}',
                                 bedrooms: '${property.plBedrooms}',
                                 bathrooms: '${property.plBathrooms}',
                                 area: '${property.plTotalArea}',
                                 price: '${property.plExpeactedPrice}',
-                                propertyid:'${property._id}'
+                                propertyid:'${property._id}',
+                                saletype:'${property.plPropertySaleRent}',
+
                             }) -%>`
     }
        </script>

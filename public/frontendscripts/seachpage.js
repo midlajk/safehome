@@ -8,7 +8,7 @@ $(document).ready(function() {
     // Function to make an AJAX request to the backend with pagination
     function fetchProperties(page, sortproperty) {
 
-fetch('https://www.safehomes.ae/getsearcheddata', {
+fetch('http://localhost:3000/getsearcheddata', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ fetch('https://www.safehomes.ae/getsearcheddata', {
       console.error('Error fetching properties:', error);
     });
         // $.ajax({
-        //     url: `https://www.safehomes.ae/getfullgrid?page=${page}&sortproperty=${sortproperty}&type=${propertytype}&pagename=${pagename}`,
+        //     url: `http://localhost:3000/getfullgrid?page=${page}&sortproperty=${sortproperty}&type=${propertytype}&pagename=${pagename}`,
         //     type: 'GET',
         //     dataType: 'json',
         //     success: function(response) {

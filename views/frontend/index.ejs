@@ -445,7 +445,7 @@ data-settings='{"stretch_section":"section-stretched","background_background":"c
 
                             <% for(let cities of location){%>
                               <div class="rhea_property_city">
-                                <a class="rhea_property_city_inner" style="flex-direction: column" href="/location/<%=cities.name%>"><span class="rhea_pc_layer_still" style="background-image: url('https://www.safehomes.ae/<%= cities.imagePaths %>')"></span>
+                                <a class="rhea_property_city_inner" style="flex-direction: column" href="/location/<%=cities.name%>"><span class="rhea_pc_layer_still" style="background-image: url('http://localhost:3000/<%= cities.imagePaths %>')"></span>
                                     <span class="rhea_pc_layer"></span><h3 class="rhea_city_title"><%=cities.name%></h3><span class="rhea_pc_counter" style="align-self: flex-end"><span class="rhea_pc_count"></span></span></a></div>
                                     <%}%>
                                    
@@ -793,7 +793,7 @@ $(document).ready(function() {
     // Function to make an AJAX request to the backend with pagination
     function listfeatruredproperties(page) {
         $.ajax({
-            url: `https://www.safehomes.ae/listfeatruredproperties?page=${page}`,
+            url: `http://localhost:3000/listfeatruredproperties?page=${page}`,
             type: 'GET',
             dataType: 'json',
             success: function(response) {
@@ -821,16 +821,20 @@ $(document).ready(function() {
     }
     function listofforsale() {
         $.ajax({
-            url: `https://www.safehomes.ae/miniforsale`,
+            url: `http://localhost:3000/miniforsale`,
             type: 'GET',
             dataType: 'json',
             success: function(response) {
+              console.log(response)
                 // Handle the response from the backend here
                 // For example, update the HTML to display the property listings
                 if (response && response.properties) {
                   featuredslides.empty();
                     response.properties.forEach(property => {
+                      console.log(property)
+
                       featuredslides.append(slides(property));
+
                     });
                   }
                     // Create pagination links
@@ -838,13 +842,14 @@ $(document).ready(function() {
               
             },
             error: function(error) {
+              console.log(error)
                 console.error('Error fetching properties:', error);
             }
         });
     }
     function listallrandom() {
         $.ajax({
-            url: `https://www.safehomes.ae/listallrandom`,
+            url: `http://localhost:3000/listallrandom`,
             type: 'GET',
             dataType: 'json',
             success: function(response) {
@@ -892,7 +897,7 @@ function layout(property){
                             }) -%>`
     }
     function slides(property){
-
+console.log('appending slides : '+property)
       return ` <%- include('./components/featuredslide.ejs', {
                                image: '${property.file[0]}',
                                 propertyname: '${property.plName}',

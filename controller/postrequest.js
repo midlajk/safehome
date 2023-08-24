@@ -141,6 +141,7 @@ exports.addplace = async (req, res, next) => {
     await place.save();
     return res.json(place);
   } catch (error) {
+    console.log(error)
     console.error('Error adding place:', error);
     return res.status(500).json({error: 'Internal server error'});
   }

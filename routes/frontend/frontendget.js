@@ -136,7 +136,8 @@ router.get('/listfeatruredproperties', async (req, res) => {
 
   try {
      
-      const totalProperties = await Property.countDocuments();
+      const totalProperties = await Property.countDocuments({status:'featured'});
+      console.log('Total properties: ' + totalProperties)
       const totalPages = Math.ceil(totalProperties / pageSize);
 
       const propertiesForPage = await Property
@@ -144,7 +145,7 @@ router.get('/listfeatruredproperties', async (req, res) => {
           .skip(startIndex)
           .limit(pageSize)
           .exec(); // Use 'exec()' to execute the query
-
+console.log(propertiesForPage,page,totalPages,totalProperties)
       res.json({
           properties: propertiesForPage,
           currentPage: page,
@@ -161,6 +162,7 @@ module.exports = router;
 
 
 router.get('/miniforsale', async (req, res) => {
+  console.log('minifor sale')
 
 
   try {
@@ -174,6 +176,7 @@ router.get('/miniforsale', async (req, res) => {
           properties: propertiesForPage,
       });
   } catch (error) {
+    console.log(error)
       console.error('Error fetching properties:', error);
       res.status(500).json({ error: 'Internal server error' });
   }

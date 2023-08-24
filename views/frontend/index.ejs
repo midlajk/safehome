@@ -819,7 +819,7 @@ $(document).ready(function() {
             }
         });
     }
-    function listofforsale() {
+   async function listofforsale() {
         $.ajax({
             url: `https://www.safehomes.ae/miniforsale`,
             type: 'GET',
@@ -829,11 +829,10 @@ $(document).ready(function() {
                 // Handle the response from the backend here
                 // For example, update the HTML to display the property listings
                 if (response && response.properties) {
-                  featuredslides.empty();
-                    response.properties.forEach(property => {
+                    response.properties.forEach(async(property) => {
                       console.log(property)
 
-                      featuredslides.append(slides(property));
+                      await featuredslides.append(slides(property));
 
                     });
                   }
@@ -857,7 +856,7 @@ $(document).ready(function() {
                 // For example, update the HTML to display the property listings
                 if (response && response.properties) {
                   forsalediv.empty();
-                    response.properties.forEach(property => {
+                    response.properties.forEach((property) => {
                       forsalediv.append(layout(property));
                     });
                   }

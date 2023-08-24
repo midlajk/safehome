@@ -145,7 +145,6 @@ router.get('/listfeatruredproperties', async (req, res) => {
           .skip(startIndex)
           .limit(pageSize)
           .exec(); // Use 'exec()' to execute the query
-console.log(propertiesForPage,page,totalPages,totalProperties)
       res.json({
           properties: propertiesForPage,
           currentPage: page,

@@ -238,7 +238,7 @@
                   </script>    
     
                  
-    <section
+    <!-- <section
 class="elementor-section elementor-top-section elementor-element elementor-element-3461643 elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default"
 data-id="3461643"
 data-element_type="section"
@@ -367,7 +367,7 @@ data-settings='{"stretch_section":"section-stretched","background_background":"c
     </div>
   </div>
 </div>
-</section>
+</section> -->
                   <!--  Section  Name -->
     
                   <%- include('./components/sectionnames.ejs', { 
@@ -787,7 +787,7 @@ data-settings='{"stretch_section":"section-stretched","background_background":"c
 $(document).ready(function() {
     const propertiesListing = $('#featuredpropertiesdiv');
     const forsalediv = $('#forsalediv');
-    const featuredslides = $('#featuredslides');
+    // const featuredslides = $('#featuredslides');
 
     const paginationContainer = $('#pagination');
     // Function to make an AJAX request to the backend with pagination
@@ -819,34 +819,34 @@ $(document).ready(function() {
             }
         });
     }
-   async function listofforsale() {
-        $.ajax({
-            url: `https://www.safehomes.ae/miniforsale`,
-            type: 'GET',
-            dataType: 'json',
-            success: function(response) {
-              console.log(response)
-                // Handle the response from the backend here
-                // For example, update the HTML to display the property listings
-                if (response && response.properties) {
-                    response.properties.forEach(async(property) => {
-                      console.log(property)
+  //   function listofforsale() {
+  //       $.ajax({
+  //           url: `https://www.safehomes.ae/miniforsale`,
+  //           type: 'GET',
+  //           dataType: 'json',
+  //           success: function(response) {
+  //             console.log(response)
+  //               // Handle the response from the backend here
+  //               // For example, update the HTML to display the property listings
+  //               if (response && response.properties) {
+  //                   response.properties.forEach((property) => {
+  //                     console.log(property)
 
-                      await featuredslides.append(slides(property));
+  //                      featuredslides.append(slides(property));
 
-                    });
-                  }
-                    // Create pagination links
+  //                   });
+  //                 }
+  //                   // Create pagination links
                  
               
-            },
-            error: function(error) {
-              console.log(error)
-                console.error('Error fetching properties:', error);
-            }
-        });
-    }
-    function listallrandom() {
+  //           },
+  //           error: function(error) {
+  //             console.log(error)
+  //               console.error('Error fetching properties:', error);
+  //           }
+  //       });
+  //   }
+     function listallrandom() {
         $.ajax({
             url: `https://www.safehomes.ae/listallrandom`,
             type: 'GET',
@@ -871,7 +871,7 @@ $(document).ready(function() {
     }
 
     // Call the fetchProperties function with page 1 and the initial sortproperties value on page load
-    listofforsale()
+    // listofforsale()
     listallrandom()
     listfeatruredproperties(1);
         $('.inspiry_show_on_doc_ready').show();
@@ -893,21 +893,6 @@ function layout(property){
                                 price: '${property.plExpeactedPrice}',
                                 propertyid:'${property._id}',
                                 saletype:'${property.plPropertySaleRent}'
-                            }) -%>`
-    }
-    function slides(property){
-console.log('appending slides : '+property)
-      return ` <%- include('./components/featuredslide.ejs', {
-                               image: '${property.file[0]}',
-                                propertyname: '${property.plName}',
-                                propertydetails: '${property.plShort}',
-                                bedrooms: '${property.plBedrooms}',
-                                bathrooms: '${property.plBathrooms}',
-                                area: '${property.plTotalArea}',
-                                price: '${property.plExpeactedPrice}',
-                                propertyid:'${property._id}',
-                                saletype:'${property.plPropertySaleRent}',
-
                             }) -%>`
     }
        </script>

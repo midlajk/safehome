@@ -1,7 +1,7 @@
   
     document.addEventListener('DOMContentLoaded', function() {
         // Function to show the element with the given ID and hide other elements
-        fetch('http://localhost:3000/backend/categorylist')
+        fetch('https://www.safehomes.ae/backend/categorylist')
           .then(response => response.json())
           .then(data => {
     
@@ -24,7 +24,7 @@
 
     // Make an API request to add the new category
     // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint
-    fetch('http://localhost:3000/backend/addcategory', {
+    fetch('https://www.safehomes.ae/backend/addcategory', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ deleteIconLink.addEventListener('click', () => {
   // You can make another API request to delete the category here
   // and remove the card from the DOM after successful response
   // Replace 'YOUR_DELETE_ENDPOINT' with the actual delete API endpoint
-  fetch('http://localhost:3000/backend/deletecategory', {
+  fetch('https://www.safehomes.ae/backend/deletecategory', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ document.getElementById('categoryList').appendChild(categoryCard);
         // You can make another API request to delete the category here
         // and remove the card from the DOM after successful response
         // Replace 'YOUR_DELETE_ENDPOINT' with the actual delete API endpoint
-        fetch('http://localhost:3000/backend/deletefeature', {
+        fetch('https://www.safehomes.ae/backend/deletefeature', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -137,7 +137,7 @@ document.getElementById('categoryList').appendChild(categoryCard);
 
     // Make an API request to add the new category
     // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint
-    fetch('http://localhost:3000/backend/addfeatures', {
+    fetch('https://www.safehomes.ae/backend/addfeatures', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

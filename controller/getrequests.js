@@ -167,6 +167,7 @@ exports.categorylist  = ((req, res) => {
 //     });
 // });
 exports.placelist = async (req, res) => {
+  console.log('here places : ',req)
   try {
     // Use Mongoose's aggregate pipeline to retrieve places and count of matching properties
     const placesWithCount = await Places.aggregate([
@@ -195,7 +196,7 @@ exports.placelist = async (req, res) => {
     res.status(200).json(placesWithCount);
   } catch (err) {
     // Handle any errors that occurred during the fetch process
-    console.error('Error fetching places:', err);
+    console.log('Error fetching places:', err);
     res.status(500).json({ error: 'Unable to fetch places' });
   }
 };

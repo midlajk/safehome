@@ -5,12 +5,13 @@ document.addEventListener('DOMContentLoaded', function () {
     .then((response) => response.json())
     .then((data) => {
       data.forEach((element) => {
+        console.log('result : ',element);
         addPlaceToTable(element);
       });
     })
     .catch(function (error) {
+      console.log(error);
       // Handle error response
-      console.error(error);
     });
 });
 // Function to add a new place
@@ -90,6 +91,7 @@ function addPlaceToTable(place) {
            
         </td>
       `;
+      console.log(newRow)
   const deleteIconLink = newRow.querySelector('#deletePlace');
   deleteIconLink.addEventListener('click', () => {
     fetch('https://www.safehomes.ae/backend/deleteplace', {

@@ -65,9 +65,12 @@ const storage = multer.diskStorage({
 });
 app.use(multer({ storage: storage }).any());
 
-app.use('/backend/', indexRouter);
-app.use('/backend/', postrequest);
-app.use('/backend/', getrequest);
+// app.use('/backend/', indexRouter);
+// app.use('/backend/', postrequest);
+// app.use('/backend/', getrequest);
+app.use('/', indexRouter);
+app.use('/', postrequest);
+app.use('/', getrequest);
 app.use('/users', usersRouter);
 /////Front end routes ///
 app.use('/', frontendrequest);

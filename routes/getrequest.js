@@ -5,34 +5,34 @@ const isadmin = require('../middleware/isadmin');
 const isadminapi = require('../middleware/isadminapi');
 
 /* GET home page. */
-router.get('/editproperties', Getrequest.editproperty);
+router.get('/admincontrollereditproperties', Getrequest.editproperty);
 
-router.get('/enquiries',isadmin, Getrequest.getenquiries);
-router.get('/adminmanagement',Getrequest.adminmanagement);
-
-
-router.get('/addproperty',isadmin, Getrequest.getaddproperty);
-
-router.get('/properties',isadmin, Getrequest.getproperties);
-router.get('/category',isadmin, Getrequest.getcategory);
-router.get('/places',isadmin, Getrequest.getplaces);
+router.get('/admincontrollerenquiries',isadmin, Getrequest.getenquiries);
+router.get('/admincontrolleradminmanagement',Getrequest.adminmanagement);
 
 
+router.get('/admincontrolleraddproperty',isadmin, Getrequest.getaddproperty);
 
-router.get('/featured',isadmin, Getrequest.getfeatured);
+router.get('/admincontrollerproperties',isadmin, Getrequest.getproperties);
+router.get('/admincontrollercategory',isadmin, Getrequest.getcategory);
+router.get('/admincontrollerplaces',isadmin, Getrequest.getplaces);
+
+
+
+router.get('/admincontrollerfeatured',isadmin, Getrequest.getfeatured);
 
 
 //////
-router.get('/categorylist',isadminapi, Getrequest.categorylist);
-router.get('/placelist',isadminapi, Getrequest.placelist);
+router.get('/admincontrollercategorylist',isadminapi, Getrequest.categorylist);
+router.get('/admincontrollerplacelist',isadminapi, Getrequest.placelist);
 
 ////
-router.get('/enquirieslist',isadminapi, Getrequest.enquiries);
-router.delete('/deleteenquiries/:id',isadminapi, Getrequest.deleteenquiries);
+router.get('/admincontrollerenquirieslist',isadminapi, Getrequest.enquiries);
+router.delete('/admincontrollerdeleteenquiries/:id',isadminapi, Getrequest.deleteenquiries);
 //////////////
-router.get('/propertieslist',isadminapi, Getrequest.propertieslist);
-router.delete('/deleteproperty/:id',isadminapi, Getrequest.deleteproperty);
+router.get('/admincontrollerpropertieslist',isadminapi, Getrequest.propertieslist);
+router.delete('/admincontrollerdeleteproperty/:id',isadminapi, Getrequest.deleteproperty);
 
-router.get('/featuredpropertieslist',isadminapi, Getrequest.Featuredpropertieslist);
+router.get('/admincontrollerfeaturedpropertieslist',isadminapi, Getrequest.Featuredpropertieslist);
 
 module.exports = router;

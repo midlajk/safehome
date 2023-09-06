@@ -177,7 +177,6 @@ Lot Size            </span>
 </div>    <div id="property-content-section-additional-details" class="property-content-section ">
 <h4 class="rh_property__heading rh_property__additional_details">Additional Details</h4><div class="rh-property-additional-inner-wrap"><ul class="rh_property__additional clearfix"> 
     <% 
-    console.log(property.plFurnishingDetails)
     if(property.plFurnishingDetails.length > 0 && property.plFurnishingDetails[0] != '') {
     const parsed = JSON.parse(property.plFurnishingDetails)
     for (let doc of parsed) { 
@@ -212,7 +211,6 @@ Lot Size            </span>
         ];
         
         featuresToInclude.forEach(feature => {
-            console.log(feature)
             if (feature.condition) { 
               %>
                 <%- include('./components/smallfeatures.ejs', { name: feature.name });%>

@@ -598,7 +598,6 @@ function handleFiles(files) {
           fileurl.push('https://www.safehomes.ae/'+response.filePaths)
           createPreviewItem('https://www.safehomes.ae/'+response.filePaths);
 
-          console.log('Files uploaded successfully!', response.filePaths);
         } else {
           console.error('Error uploading files:', xhr.statusText);
         }

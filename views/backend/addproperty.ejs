@@ -676,12 +676,8 @@ function handleFiles(files) {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
           const response = JSON.parse(xhr.responseText);
-          console.log(response.filePaths)
           fileurl.push('https://www.safehomes.ae/'+response.filePaths.path)
-          console.log(fileurl)
           createPreviewItem(response.filePaths);
-
-          console.log('Files uploaded successfully!', response.filePaths);
         } else {
           console.error('Error uploading files:', xhr.statusText);
         }
@@ -722,7 +718,6 @@ function createPreviewItem(file) {
   const fileurl = fileUrl.split('https://www.safehomes.ae/')[1];
   return fileurl !== file.path;
 });
-    console.log(fileurl)
 
   });
   previewItem.appendChild(closeButton);

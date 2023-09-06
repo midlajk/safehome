@@ -16,7 +16,6 @@ $(document).ready(function() {
                 if (response && response.properties) {
                     propertiesListing.empty();
                     response.properties.forEach(property => {
-                        console.log(property.imagepath)
                         propertiesListing.append(layout(property));
                     });
 

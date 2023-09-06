@@ -74,7 +74,6 @@ exports.adminmanagement = async (req, res, next) => {
         res.redirect('/backend/adminmanagement');
       }
     } catch (err) {
-      console.log(err);
       next(err);
     }
   } else {

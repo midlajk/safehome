@@ -58,7 +58,6 @@ exports.getaddproperty  = (async(req, res, next)=> {
   
       // Extract the feature names from the aggregation result
       const allFeatureNames = aggregationResult.length > 0 ? aggregationResult[0].allFeatureNames : [];
-      console.log(allFeatureNames);
       return allFeatureNames;
     } catch (error) {
       console.error('Error getting feature names:', error);
@@ -124,7 +123,6 @@ exports.editproperty  = (async (req, res, next)=> {
   
       // Extract the feature names from the aggregation result
       const allFeatureNames = aggregationResult.length > 0 ? aggregationResult[0].allFeatureNames : [];
-      console.log(allFeatureNames);
       return allFeatureNames;
     } catch (error) {
       console.error('Error getting feature names:', error);
@@ -134,7 +132,6 @@ exports.editproperty  = (async (req, res, next)=> {
   
   
   const categories = await getAllFeatureNames();  Property.findById(req.query.id).then((property)=>{
-    console.log(property)
   
   res.render('backend/editproperty', { route: 'editproperty',property: property,places:place,category:categories });
   })
@@ -145,7 +142,6 @@ exports.categorylist  = ((req, res) => {
   // Use Mongoose's find method to retrieve all categories
   Category.find()
     .then(categories => {
-      console.log(categories)
       // Respond with the list of categories in JSON format
       res.status(200).json(categories);
     })
@@ -167,7 +163,6 @@ exports.categorylist  = ((req, res) => {
 //     });
 // });
 exports.placelist = async (req, res) => {
-  console.log('here places : ',req)
   try {
     // Use Mongoose's aggregate pipeline to retrieve places and count of matching properties
     const placesWithCount = await Places.aggregate([
@@ -190,13 +185,11 @@ exports.placelist = async (req, res) => {
         }
       }
     ]);
-    console.log(placesWithCount)
 
     // Respond with the list of places with count of properties in JSON format
     res.status(200).json(placesWithCount);
   } catch (err) {
     // Handle any errors that occurred during the fetch process
-    console.log('Error fetching places:', err);
     res.status(500).json({ error: 'Unable to fetch places' });
   }
 };

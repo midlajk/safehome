@@ -141,7 +141,6 @@ exports.addplace = async (req, res, next) => {
     await place.save();
     return res.json(place);
   } catch (error) {
-    console.log(error)
     console.error('Error adding place:', error);
     return res.status(500).json({error: 'Internal server error'});
   }
@@ -274,7 +273,6 @@ exports.deleteFile = ((req, res) => {
 
   try {
     const { filePath } = req.query;
-    console.log(filePath)
     if (!filePath) {
       return res.status(400).json({ error: 'Missing filePath parameter' });
     }
@@ -299,7 +297,6 @@ exports.addfeatured =  (async (req, res) => {
 
       return res.json({ message: 'User status updated successfully', user: updatedUser });
   } catch (error) {
-    console.log(error)
       console.error('Error updating user status:', error);
       return res.status(500).json({ message: 'An error occurred' });
   }
@@ -307,7 +304,6 @@ exports.addfeatured =  (async (req, res) => {
 /////
 exports.enquiries =  (async (req, res) => {
   try {
-    console.log(req.body)
     const { name, email, number, message } = req.body;
     
     // Save the form data to MongoDB

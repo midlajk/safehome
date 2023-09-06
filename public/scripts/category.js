@@ -83,7 +83,6 @@ document.getElementById('categoryList').appendChild(categoryCard);
 
   var category = {}
   function showfeatures(event){
-    console.log('hete')
     document.getElementById('featuresdiv').classList.remove('d-none')
     document.getElementById('featureslist').innerHTML=''
     const dataPollAttribute = JSON.parse(event.currentTarget.dataset.poll);
@@ -131,7 +130,6 @@ document.getElementById('categoryList').appendChild(categoryCard);
 
        // Function to handle adding a new category
        function addFeature() {
-        console.log(category._id)
     // Get the value of the input field
     const newFeature = document.getElementById('newFeature').value;
 

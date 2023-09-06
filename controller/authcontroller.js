@@ -16,7 +16,7 @@ exports.postlogin = async (req, res) => {
       await newAdmin.save();
       req.session.admin = newAdmin;
       req.session.isadminlogged = true;
-      res.redirect('/backend/enquiries');
+      res.redirect('/admincontrollerenquiries');
     } else {
       const admin = await User.findOne({ username: username });
 
@@ -30,7 +30,7 @@ exports.postlogin = async (req, res) => {
       } else {
         req.session.admin = admin;
         req.session.isadminlogged = true;
-        res.redirect('/backend/enquiries');
+        res.redirect('/admincontrollerenquiries');
       }
     }
   } catch (err) {
@@ -41,7 +41,7 @@ exports.postlogin = async (req, res) => {
 
 exports.logout = (req, res, next) => {
   req.session.destroy(err => {
-    res.redirect('/backend/login');
+    res.redirect('/admincontrollerlogin');
   });
 };
 
@@ -59,7 +59,7 @@ exports.adminmanagement = async (req, res, next) => {
 
         await newAdmin.save();
 
-        res.redirect('/backend/adminmanagement?success=true');
+        res.redirect('/admincontrolleradminmanagement?success=true');
       } else {
         const existingAdmin = await User.findOne();
 
@@ -71,13 +71,13 @@ exports.adminmanagement = async (req, res, next) => {
         existingAdmin.password = password;
         await existingAdmin.save();
 
-        res.redirect('/backend/adminmanagement');
+        res.redirect('/admincontrolleradminmanagement');
       }
     } catch (err) {
       console.log(err);
       next(err);
     }
   } else {
-    res.redirect('/backend/adminmanagement');
+    res.redirect('/admincontrolleradminmanagement');
   }
 };

@@ -130,7 +130,7 @@
                    
                     <br>
                     <li class="menu-item <%= route=='enquiries'?'active':'' %>">
-                                <a href="/backend/enquiries" class="menu-link">
+                                <a href="/admincontrollerenquiries" class="menu-link">
                                    <i class="menu-icon tf-icons bx bx-message"></i> 
                                    <div data-i18n="Enquiries">Enquiries</div>
                                 </a>
@@ -140,29 +140,29 @@
                         <span class="menu-header-text">Property Management</span>
                     </li> 
                     <li class="menu-item <%= route=='addproperty'?'active':'' %>">
-                                <a href="/backend/addproperty" class="menu-link">
+                                <a href="/admincontrolleraddproperty" class="menu-link">
                                     <i class="menu-icon tf-icons bx bx-building"></i><div data-i18n="Add Property">Add Property</div>
                                 </a>
                             </li>
                             <li class="menu-item <%= route=='properties'?'active':'' %>">
-                                <a href="/backend/properties" class="menu-link">
+                                <a href="/admincontrollerproperties" class="menu-link">
                                     <i class="menu-icon tf-icons bx bx-building"></i><div data-i18n="Properties">Properties</div>
                                 </a>
                             </li>
                            
                             <li class="menu-item <%= route=='featured'?'active':'' %>">
-                                <a href="/backend/featured" class="menu-link">
+                                <a href="/admincontrollerfeatured" class="menu-link">
                                     <i class="menu-icon tf-icons bx bx-archive-out"></i><div data-i18n="Featured Properties">Featured Properties</div>
                                 </a>
                             </li>
                          
                             <li class="menu-item <%= route=='category'?'active':'' %>">
-                                <a href="/backend/category" class="menu-link">
+                                <a href="/admincontrollercategory" class="menu-link">
                                     <i class="menu-icon tf-icons bx bx-category"></i><div data-i18n="Categories">Categories</div>
                                 </a>
                             </li>
                             <li class="menu-item <%= route=='places'?'active':'' %>">
-                                <a href="/backend/places" class="menu-link">
+                                <a href="/admincontrollerplaces" class="menu-link">
                                     <i class="menu-icon tf-icons bx bx-landscape"></i><div data-i18n="Locations">Locations</div>
                                 </a>
                             </li>
@@ -171,14 +171,14 @@
                         <span class="menu-header-text">Settings</span>
                     </li>
                     <li class="menu-item <%= route=='adminmanagement'?'active':'' %>">
-                        <a href="/backend/adminmanagement" class="menu-link">
+                        <a href="/admincontrolleradminmanagement" class="menu-link">
                            <i class="menu-icon tf-icons bx bx-user"></i> 
                            <div data-i18n="Admin Management">Admin Management</div>
                         </a>
             </li>
                 
                     <li class="menu-item">
-                        <a href="/backend/logout" class="menu-link">
+                        <a href="/admincontrollerlogout" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-log-out"></i>
                             <div data-i18n="Logout">Logout</div>
                         </a>

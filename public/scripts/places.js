@@ -1,7 +1,7 @@
 const closeModalButton = document.getElementById('closeModalBtn');
 document.addEventListener('DOMContentLoaded', function () {
   // Function to show the element with the given ID and hide other elements
-  fetch('https://www.safehomes.ae/admincontrollerplacelist')
+  fetch('https://www.safehomes.ae/backend/placelist')
     .then((response) => response.json())
     .then((data) => {
       data.forEach((element) => {
@@ -23,7 +23,7 @@ function addPlace() {
   formData.append('image', document.getElementById('image').files[0]);
 
   makeAPIRequest(
-    'https://www.safehomes.ae/admincontrolleraddplace',
+    'https://www.safehomes.ae/backend/addplace',
     formData,
     'POST',
     addPlaceToTable,
@@ -40,7 +40,7 @@ function editPlace(placeId) {
   formData.append('placeId', placeId);
 
   makeAPIRequest(
-    `https://www.safehomes.ae/admincontrollereditplace`,
+    `https://www.safehomes.ae/backend/editplace`,
     formData,
     'POST',
     updatePlaceInTable,
@@ -94,7 +94,7 @@ function addPlaceToTable(place) {
       console.log(newRow)
   const deleteIconLink = newRow.querySelector('#deletePlace');
   deleteIconLink.addEventListener('click', () => {
-    fetch('https://www.safehomes.ae/admincontrollerdeleteplace', {
+    fetch('https://www.safehomes.ae/backend/deleteplace', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -142,7 +142,7 @@ function updatePlaceInTable(place) {
 
       const deleteIconLink = rows[i].querySelector('#deletePlace');
       deleteIconLink.addEventListener('click', () => {
-        fetch('https://www.safehomes.ae/admincontrollerdeleteplace', {
+        fetch('https://www.safehomes.ae/backend/deleteplace', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -455,7 +455,7 @@
 
 
       // Make the API call
-      const apiEndpoint = "https://www.safehomes.ae/admincontrollerposteditproperty"; // Replace with your API endpoint
+      const apiEndpoint = "https://www.safehomes.ae/backend/posteditproperty"; // Replace with your API endpoint
       fetch(apiEndpoint, {
         method: "POST", // Replace with the appropriate HTTP method (e.g., POST, PUT, etc.)
         headers: {
@@ -581,7 +581,7 @@ function handleFiles(files) {
 
     const fileType = file.type.split('/')[0];
     if (fileType === 'image' || fileType === 'video') {
-      const apiEndpoint = 'https://www.safehomes.ae/admincontrolleruploadeditFiles'; // Replace with your backend API endpoint
+      const apiEndpoint = 'https://www.safehomes.ae/backend/uploadeditFiles'; // Replace with your backend API endpoint
     const xhr = new XMLHttpRequest();
 
     // Event listener to track upload progress
@@ -660,7 +660,7 @@ function getFileTypeFromPath(filePath) {
 async function deleteFile(filePath) {
   const fileurl = filePath.split('https://www.safehomes.ae/')[1];
 
-    const apiEndpoint = 'https://www.safehomes.ae/admincontrollerdeleteFile'; // Replace with your backend API endpoint
+    const apiEndpoint = 'https://www.safehomes.ae/backend/deleteFile'; // Replace with your backend API endpoint
     const xhr = new XMLHttpRequest();
     xhr.open('DELETE', `${apiEndpoint}?filePath=${encodeURIComponent(fileurl)}`);
     xhr.send();

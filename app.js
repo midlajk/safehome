@@ -65,9 +65,9 @@ const storage = multer.diskStorage({
 });
 app.use(multer({ storage: storage }).any());
 
-app.use('/admincontroller', indexRouter);
-app.use('/admincontroller', postrequest);
-app.use('/admincontroller', getrequest);
+app.use('/backend/', indexRouter);
+app.use('/backend/', postrequest);
+app.use('/backend/', getrequest);
 app.use('/users', usersRouter);
 /////Front end routes ///
 app.use('/', frontendrequest);

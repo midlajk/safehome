@@ -26,9 +26,7 @@ const corsOptions ={
 }
 
 var app = express();
-const password = 'dev$7e3';
-const encodedPassword = encodeURIComponent(password);
-const url = `mongodb://safehomes:${encodedPassword}@127.0.0.1:27017/safehome`;
+const url = 'mongodb://safehomes:dev$7e3@127.0.0.1:27017/admin';
 
 const store = new MongoDBStore({
   uri: url,

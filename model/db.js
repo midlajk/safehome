@@ -5,9 +5,8 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
 // Connect to the db
+const url = 'mongodb://safehomes:dev$7e3@127.0.0.1:27017/safehome';
 
-const url = 'mongodb://127.0.0.1:27017/safehome'
-// const url = "mongodb+srv://admin:admin123@cluster0.iqrdbul.mongodb.net/?retryWrites=true&w=majority";
 
 //Connect methode of mongoose
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 })

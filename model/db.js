@@ -5,7 +5,9 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
 // Connect to the db
-const url = 'mongodb://safehomes:dev\$7e3@127.0.0.1:27017/safehome';
+const password = 'dev$7e3';
+const encodedPassword = encodeURIComponent(password);
+const url = `mongodb://safehomes:${encodedPassword}@127.0.0.1:27017/safehome`;
 
 
 //Connect methode of mongoose

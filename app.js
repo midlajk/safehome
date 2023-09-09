@@ -26,7 +26,7 @@ const corsOptions ={
 }
 
 var app = express();
-const url = `mongodb://safehomes%40gmail.com:safehomes123%23@127.0.0.1:27017/safehome`;
+const url = `mongodb://safehomes%40gmail.com:safehomes123%23@127.0.0.1:27017/admin`;
 
 const store = new MongoDBStore({
   uri: url,

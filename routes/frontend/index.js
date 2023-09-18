@@ -9,9 +9,12 @@ const Places = mongoose.model('Places');
 /* GET home page. */
 
 router.get('/', function(req, res, next) {
-  Places.find().then(function(places) {
-
-  res.render('frontend/index', { route: 'Index',location:places });
+  Places.find().then(async function(places) {
+    const featured = await Property.aggregate([
+      { $match: { status:'featured' } }, // Match the desired condition
+      { $sample: { size: 3 } } // Retrieve 3 random documents
+    ]).exec()
+  res.render('frontend/index', { route: 'Index',location:places,featured:featured });
   })
 });
 

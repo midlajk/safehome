@@ -7,7 +7,28 @@
 
       <!-- End Slider -->
         <%- include('./components/searcher.ejs') -%>
-
+        <script>
+          // Function to animate the elements
+          function animateElements() {
+            const elements = document.querySelectorAll('.elementor-widget-container');
+            elements.forEach(element => {
+              const boundingBox = element.getBoundingClientRect();
+              const screenHeight = window.innerHeight;
+              
+              // Check if the element is in the viewport
+              if (boundingBox.top < screenHeight) {
+                element.style.opacity = 1;
+                element.style.transform = 'translateY(0)';
+              }
+            });
+          }
+        
+          // Add event listener to call the animation function on scroll
+          window.addEventListener('scroll', animateElements);
+        
+          // Call the animation function initially
+          animateElements();
+        </script> 
       <!-- /.rh_prop_search -->
       <div class="wrapper-home-sections diagonal-mod-wrapper">
         <section
@@ -1015,6 +1036,7 @@
           </article>
         </section>
       </div>
+   
       <%- include('./components/footerhome.ejs') -%>
 
     </div>

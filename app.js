@@ -63,7 +63,7 @@ const storage = multer.diskStorage({
     cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
   },
 });
-app.use(multer({ storage: storage }).any());
+app.use(multer({ storage: storage,limits: { fileSize: 30 * 1024 * 1024 }, }).any());
 
 app.use('/backend/', indexRouter);
 app.use('/backend/', postrequest);

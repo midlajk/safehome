@@ -47,7 +47,7 @@ app.use(
 // view engine setup
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-app.use(cors())
+app.use(cors({ origin: 'https://safehomes.ae' }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -74,9 +74,9 @@ app.use('/', frontendapi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'https://safehomes.ae');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  // res.setHeader('Access-Control-Allow-Origin', 'https://safehomes.ae');
+  // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next(createError(404));
 });
 

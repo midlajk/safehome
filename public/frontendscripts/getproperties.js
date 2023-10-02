@@ -9,7 +9,7 @@ $(document).ready(function() {
     // Function to make an AJAX request to the backend with pagination
     function fetchProperties(page, sortproperty,propertyType) {
         $.ajax({
-            url: `https://www.safehomes.ae/listproperties?page=${page}&sortproperty=${sortproperty}&type=${propertyType}&pagename=${pagename}`,
+            url: `http://localhost:3000/listproperties?page=${page}&sortproperty=${sortproperty}&type=${propertyType}&pagename=${pagename}`,
             type: 'GET',
             dataType: 'json',
             success: function(response) {

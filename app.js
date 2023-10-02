@@ -20,14 +20,13 @@ var frontendrequest = require('./routes/frontend/index');
 
 var cors = require('cors')
 const corsOptions ={
-  origin:'https://www.safehomes.ae', 
+  origin:'http://localhost:3000', 
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
 
 var app = express();
-const url = `mongodb://safehomes%40gmail.com:safehomes123%23@127.0.0.1:27017/safehome`;
-// const url = `mongodb://127.0.0.1:27017/safehome`;
+const url = `mongodb://127.0.0.1:27017/safehome`;
 
 const store = new MongoDBStore({
   uri: url,

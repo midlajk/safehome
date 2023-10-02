@@ -23,6 +23,8 @@ var cors = require('cors')
 
 var app = express();
 const url = `mongodb://safehomes%40gmail.com:safehomes123%23@127.0.0.1:27017/safehome`;
+// const url = `mongodb://127.0.0.1:27017/safehome`;
+
 const store = new MongoDBStore({
   uri: url,
   collection: 'sessions',
@@ -43,12 +45,12 @@ app.use(
 // view engine setup
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-// const corsOptions ={
-//   origin:'https://www.safehomes.ae', 
-//   credentials:true,            //access-control-allow-credentials:true
-//   optionSuccessStatus:200
-// }
-app.use(cors());
+const corsOptions ={
+  origin:'https://www.safehomes.ae', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

@@ -47,8 +47,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 const corsOptions = {
   origin: 'https://www.safehomes.ae', 
-  credentials: true, // Use camel-cased 'credentials'
-  optionSuccessStatus: 200,
+ 
 };
 
 app.use(cors(corsOptions));

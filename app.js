@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const multer = require('multer');
 const session = require('express-session');
+const bodyParser = require("body-parser");
+
 // view engine setu
 const MongoDBStore = require('connect-mongodb-session')(session);// Import connect-mongo to use it as a session store
 
@@ -48,10 +50,10 @@ app.set('views', 'views');
 
 
 app.use(cors());
-
-
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/content', express.static(path.join(__dirname, 'content')));
@@ -75,9 +77,9 @@ app.use('/', frontendapi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'https://safehomes.ae'); // Replace with your frontend's origin
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Origin','*');
+    res.setHeader('Access-Control-Allow-Methods','GET,POST,PUT,PATCH,DELETE');
+    res.setHeader('Access-Control-Allow-Methods','Content-Type','Authorization');
 
   next(createError(404));
 });

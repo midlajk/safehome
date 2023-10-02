@@ -19,11 +19,7 @@ var frontendapi = require('./routes/frontend/frontendget');
 var frontendrequest = require('./routes/frontend/index');
 
 var cors = require('cors')
-const corsOptions ={
-  origin:'https://www.safehomes.ae', 
-  credentials:true,            //access-control-allow-credentials:true
-  optionSuccessStatus:200
-}
+
 
 var app = express();
 const url = `mongodb://safehomes%40gmail.com:safehomes123%23@127.0.0.1:27017/safehome`;
@@ -47,7 +43,12 @@ app.use(
 // view engine setup
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-app.use(cors({ origin: 'https://safehomes.ae' }));
+const corsOptions ={
+  origin:'https://www.safehomes.ae', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -74,9 +75,9 @@ app.use('/', frontendapi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  // res.setHeader('Access-Control-Allow-Origin', 'https://safehomes.ae');
-  // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Origin', "*");
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next(createError(404));
 });
 

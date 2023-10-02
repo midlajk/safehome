@@ -45,7 +45,7 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 const corsOptions ={
   origin:'https://www.safehomes.ae', 
-  credentials:false,            //access-control-allow-credentials:true
+  credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
 app.use(cors(corsOptions));
@@ -75,18 +75,11 @@ app.use('/', frontendapi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'https://safehomes.ae'); // Replace with your frontend's origin
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next(createError(404));
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'https://safehomes.ae'); // Replace with your frontend's origin
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
   // set locals, only providing error in development  
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

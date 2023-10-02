@@ -575,6 +575,8 @@ fileInput.addEventListener('change', (e) => {
 });
 
 function handleFiles(files) {
+  console.log('editting ')
+
   for (const file of files) {
     const formData = new FormData();
     formData.append('files', file);
@@ -600,7 +602,8 @@ function handleFiles(files) {
 
           console.log('Files uploaded successfully!', response.filePaths);
         } else {
-          console.error('Error uploading files:', xhr.statusText);
+          console.log('editting ')
+          console.log('Error uploading files:', xhr.statusText);
         }
       }
     };

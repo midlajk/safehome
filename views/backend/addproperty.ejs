@@ -682,7 +682,7 @@ function handleFiles(files) {
           fileurl.push('https://www.safehomes.ae/'+response.filePaths.path)
           createPreviewItem(response.filePaths);
         } else {
-          console.error('Error uploading files:', xhr.statusText);
+          console.log('Error uploading files:', xhr.statusText);
         }
       }
     };

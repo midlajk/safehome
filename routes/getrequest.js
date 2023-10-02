@@ -5,10 +5,10 @@ const isadmin = require('../middleware/isadmin');
 const isadminapi = require('../middleware/isadminapi');
 
 /* GET home page. */
-router.get('/editproperties', Getrequest.editproperty);
+router.get('/editproperties',isadmin, Getrequest.editproperty);
 
 router.get('/enquiries',isadmin, Getrequest.getenquiries);
-router.get('/adminmanagement',Getrequest.adminmanagement);
+router.get('/adminmanagement',isadmin,Getrequest.adminmanagement);
 
 
 router.get('/addproperty',isadmin, Getrequest.getaddproperty);

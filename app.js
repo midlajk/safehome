@@ -45,12 +45,9 @@ app.use(
 // view engine setup
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-const corsOptions = {
-  origin: 'https://www.safehomes.ae', 
- 
-};
 
-app.use(cors(corsOptions));
+
+app.use(cors());
 
 
 app.use(express.json());

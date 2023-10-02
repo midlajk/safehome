@@ -540,7 +540,7 @@
       });
 
       // Make the API call
-      const apiEndpoint = "http://localhost:3000/backend/addproperty"; // Replace with your API endpoint
+      const apiEndpoint = "https://www.safehomes.ae/backend/addproperty"; // Replace with your API endpoint
       fetch(apiEndpoint, {
         method: "POST", // Replace with the appropriate HTTP method (e.g., POST, PUT, etc.)
         headers: {
@@ -665,7 +665,7 @@ function handleFiles(files) {
 
     const fileType = file.type.split('/')[0];
     if (fileType === 'image' || fileType === 'video') {
-      const apiEndpoint = 'http://localhost:3000/backend/uploadFiles'; // Replace with your backend API endpoint
+      const apiEndpoint = 'https://www.safehomes.ae/backend/uploadFiles'; // Replace with your backend API endpoint
     const xhr = new XMLHttpRequest();
 
     // Event listener to track upload progress
@@ -679,7 +679,7 @@ function handleFiles(files) {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
           const response = JSON.parse(xhr.responseText);
-          fileurl.push('http://localhost:3000/'+response.filePaths.path)
+          fileurl.push('https://www.safehomes.ae/'+response.filePaths.path)
           createPreviewItem(response.filePaths);
         } else {
           console.error('Error uploading files:', xhr.statusText);
@@ -701,11 +701,11 @@ function createPreviewItem(file) {
   if (fileType === 'image') 
    {
         const imagePreview = document.createElement('img');
-        imagePreview.src = 'http://localhost:3000/'+file.path;
+        imagePreview.src = 'https://www.safehomes.ae/'+file.path;
         previewItem.appendChild(imagePreview);
       } else if (fileType === 'video') {
         const videoPreview = document.createElement('video');
-        videoPreview.src = 'http://localhost:3000/'+file.path;
+        videoPreview.src = 'https://www.safehomes.ae/'+file.path;
         videoPreview.controls = true;
         previewItem.appendChild(videoPreview);
       }
@@ -718,7 +718,7 @@ function createPreviewItem(file) {
     await deleteFile(file.path);
     previewItem.remove();
     fileurl = fileurl.filter((fileUrl) => {
-  const fileurl = fileUrl.split('http://localhost:3000/')[1];
+  const fileurl = fileUrl.split('https://www.safehomes.ae/')[1];
   return fileurl !== file.path;
 });
 
@@ -728,7 +728,7 @@ function createPreviewItem(file) {
   previewContainer.appendChild(previewItem);
 }
 async function deleteFile(filePath) {
-    const apiEndpoint = 'http://localhost:3000/backend/deleteFile'; // Replace with your backend API endpoint
+    const apiEndpoint = 'https://www.safehomes.ae/backend/deleteFile'; // Replace with your backend API endpoint
     const xhr = new XMLHttpRequest();
     xhr.open('DELETE', `${apiEndpoint}?filePath=${encodeURIComponent(filePath)}`);
     xhr.send();

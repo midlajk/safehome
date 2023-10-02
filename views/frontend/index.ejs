@@ -847,7 +847,7 @@
               
                                           <% for(let cities of location){%>
                                             <div class="rhea_property_city">
-                                              <a class="rhea_property_city_inner" style="flex-direction: column" href="/location/<%=cities.name%>"><span class="rhea_pc_layer_still" style="background-image: url('http://localhost:3000/<%= cities.imagePaths %>')"></span>
+                                              <a class="rhea_property_city_inner" style="flex-direction: column" href="/location/<%=cities.name%>"><span class="rhea_pc_layer_still" style="background-image: url('https://www.safehomes.ae/<%= cities.imagePaths %>')"></span>
                                                   <span class="rhea_pc_layer"></span><h3 class="rhea_city_title"><%=cities.name%></h3><span class="rhea_pc_counter" style="align-self: flex-end"><span class="rhea_pc_count"></span></span></a></div>
                                                   <%}%>
                                                  
@@ -1084,7 +1084,7 @@
         // Function to make an AJAX request to the backend with pagination
         function listfeatruredproperties(page) {
             $.ajax({
-                url: `http://localhost:3000/listfeatruredproperties?page=${page}`,
+                url: `https://www.safehomes.ae/listfeatruredproperties?page=${page}`,
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
@@ -1112,7 +1112,7 @@
         }
        function listofforsale() {
             $.ajax({
-                url: `http://localhost:3000/miniforsale`,
+                url: `https://www.safehomes.ae/miniforsale`,
                type: 'GET',
                 dataType: 'json',
                 success: function(response) {
@@ -1140,7 +1140,7 @@
         }
          function listallrandom() {
             $.ajax({
-                url: `http://localhost:3000/listallrandom`,
+                url: `https://www.safehomes.ae/listallrandom`,
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {

@@ -20,7 +20,7 @@ var frontendrequest = require('./routes/frontend/index');
 
 var cors = require('cors')
 const corsOptions ={
-  origin:'http://localhost:3000', 
+  origin:'https://www.safehomes.ae', 
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
@@ -75,6 +75,9 @@ app.use('/', frontendapi);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'https://safehomes.ae');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   next(createError(404));
 });
 

@@ -455,7 +455,7 @@
 
 
       // Make the API call
-      const apiEndpoint = "http://localhost:3000/backend/posteditproperty"; // Replace with your API endpoint
+      const apiEndpoint = "https://www.safehomes.ae/backend/posteditproperty"; // Replace with your API endpoint
       fetch(apiEndpoint, {
         method: "POST", // Replace with the appropriate HTTP method (e.g., POST, PUT, etc.)
         headers: {
@@ -581,7 +581,7 @@ function handleFiles(files) {
 
     const fileType = file.type.split('/')[0];
     if (fileType === 'image' || fileType === 'video') {
-      const apiEndpoint = 'http://localhost:3000/backend/uploadeditFiles'; // Replace with your backend API endpoint
+      const apiEndpoint = 'https://www.safehomes.ae/backend/uploadeditFiles'; // Replace with your backend API endpoint
     const xhr = new XMLHttpRequest();
 
     // Event listener to track upload progress
@@ -595,8 +595,8 @@ function handleFiles(files) {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
           const response = JSON.parse(xhr.responseText);
-          fileurl.push('http://localhost:3000/'+response.filePaths)
-          createPreviewItem('http://localhost:3000/'+response.filePaths);
+          fileurl.push('https://www.safehomes.ae/'+response.filePaths)
+          createPreviewItem('https://www.safehomes.ae/'+response.filePaths);
 
           console.log('Files uploaded successfully!', response.filePaths);
         } else {
@@ -658,9 +658,9 @@ function getFileTypeFromPath(filePath) {
   return '';
 }
 async function deleteFile(filePath) {
-  const fileurl = filePath.split('http://localhost:3000/')[1];
+  const fileurl = filePath.split('https://www.safehomes.ae/')[1];
 
-    const apiEndpoint = 'http://localhost:3000/backend/deleteFile'; // Replace with your backend API endpoint
+    const apiEndpoint = 'https://www.safehomes.ae/backend/deleteFile'; // Replace with your backend API endpoint
     const xhr = new XMLHttpRequest();
     xhr.open('DELETE', `${apiEndpoint}?filePath=${encodeURIComponent(fileurl)}`);
     xhr.send();

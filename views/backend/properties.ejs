@@ -69,7 +69,7 @@
       processing: true,
       serverSide: true,
       ajax: {
-        url: 'http://safehomes.ae/backend/'+geturl, // Replace with your API endpoint
+        url: 'https://safehomes.ae/backend/'+geturl, // Replace with your API endpoint
         dataSrc: 'data', // Key that holds the array of data in the API response
         data: function (d) {
           // Add any additional parameters you want to send to the server here
@@ -103,7 +103,7 @@
     // Delete Button Click Event
     function deleteData(id) {
     $.ajax({
-      url: `http://safehomes.ae/backend/deleteproperty/${id}`,
+      url: `https://safehomes.ae/backend/deleteproperty/${id}`,
       type: 'DELETE',
       success: function (response) {
         dataTable.ajax.reload();
@@ -118,7 +118,7 @@
     var formDataObj = { id: id, status: isFeatured ? 'notfeatured' : 'featured' };
 
     $.ajax({
-      url: `http://safehomes.ae/backend/addfeatured`,
+      url: `https://safehomes.ae/backend/addfeatured`,
       type: 'POST',
       data: JSON.stringify(formDataObj),
       contentType: 'application/json',

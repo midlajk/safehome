@@ -9,7 +9,7 @@
 //     // Function to make an AJAX request to the backend with pagination
 //     function fetchcities() {
 //         $.ajax({
-//             url: `http://safehomes.ae/fetchcities`,
+//             url: `https://safehomes.ae/fetchcities`,
 //             type: 'GET',
 //             dataType: 'json',
 //             success: function(response) {

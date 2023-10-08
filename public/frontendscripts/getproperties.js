@@ -40,7 +40,7 @@ $(document).ready(function() {
                 }
             },
             error: function(error) {
-                console.error('Error fetching properties:', error);
+                console.log('Error fetching properties:', error);
             }
         });
     }

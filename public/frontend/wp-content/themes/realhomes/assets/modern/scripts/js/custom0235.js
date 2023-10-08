@@ -793,11 +793,7 @@
             document.location.search = kvp.join( '&' );
         }
 
-        $( '#sort-properties' ).on( 'change', function () {
-            var key   = 'sortby';
-            var value = $( this ).val();
-            insertParam( key, value );
-        } );
+      
 
         /*-----------------------------------------------------------------------------------*/
         /* Properties Listing Map Height Fix

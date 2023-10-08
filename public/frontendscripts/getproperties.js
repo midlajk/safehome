@@ -9,7 +9,7 @@ $(document).ready(function() {
     // Function to make an AJAX request to the backend with pagination
     function fetchProperties(page, sortproperty,propertyType) {
         $.ajax({
-            url: `https://www.safehomes.ae/listproperties?page=${page}&sortproperty=${sortproperty}&type=${propertyType}&pagename=${pagename}`,
+            url: `http://safehomes.ae/listproperties?page=${page}&sortproperty=${sortproperty}&type=${propertyType}&pagename=${pagename}`,
             type: 'GET',
             dataType: 'json',
             success: function(response) {
@@ -56,7 +56,8 @@ $(document).ready(function() {
     });
 
     // Handle sortproperties change event
-    sortproperties.on('change', function() {
+    sortproperties.on('change', function(e) {
+        e.preventDefault();
         fetchProperties(1, $(this).val(),selectedPropertyType);
     });
  // Default property type

@@ -11,7 +11,7 @@
         <div class="rh_page rh_page--fullWidth">
     <div class="rh_page__head rh_page__property">
 <div class="rh_page__property_title">
-<img class="only-for-print inspiry-qr-code" src="https://chart.googleapis.com/chart?cht=qr&amp;chs=90x90&amp;chl=https://modern.realhomes.io/property/home-in-merrick-way/&amp;choe=UTF-8" alt="Home in Merrick Way">		<div class="page-breadcrumbs  page-breadcrumbs-modern">
+		<div class="page-breadcrumbs  page-breadcrumbs-modern">
 <nav class="property-breadcrumbs">
 <ul>
 <li>							<a href="#"><%=property.plPropertyType%></a><i class="breadcrumbs-separator fas fa-angle-right"></i></li><li>							<a href="#"><%=property.plCountry%></a></li>				</ul>
@@ -99,7 +99,7 @@ Floors            </span>
 <!-- /.rh_property__meta -->
 <div class="rh_property__meta prop_year_built">
 <span class="rh_meta_titles">
-Year Built            </span>
+Available From            </span>
 <div>
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
@@ -116,7 +116,7 @@ c0-1.104,0.896-2,2-2h1v1c0,0.552,0.447,1,1,1s1-0.448,1-1V4h10v1c0,0.552,0.447,1,
 </g>
 </svg>
 <span class="figure">
-2014				</span>
+    <%=property.plAvailableFrom.toDateString()%>				</span>
 </div>
 </div>
 <!-- /.rh_property__meta -->
@@ -354,7 +354,7 @@ const imageUrlsArray = imageUrlsString.split(',');
 
 
 // Generate HTML code for each image and insert it into the parent div
-imageUrlsArray.forEach((imageUrl) => {
+imageUrlsArray.forEach((imageUrl,index) => {
     const trimmedImageUrl = imageUrl.trim();
     
     // Check if the URL ends with common image extensions
@@ -366,11 +366,12 @@ imageUrlsArray.forEach((imageUrl) => {
         imageDiv.setAttribute('data-fancybox', 'gallery');
         imageDiv.href = trimmedImageUrl;
         imageDiv.dataset.thumb = trimmedImageUrl;
-
+    
+        if(index == imageUrlsArray.length - 1) {
         const spanElement = document.createElement('span');
         spanElement.textContent = 'See All Photos';
         imageDiv.appendChild(spanElement);
-
+        }
         parentDiv.appendChild(imageDiv);
     }else if (trimmedImageUrl.match(/\.(mp4|mov|avi)$/i)){
         const videoElement = document.createElement('video');
